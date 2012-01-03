@@ -1,0 +1,83 @@
+body {
+	padding-top: 55px;
+}
+
+.create-section form .input{
+	margin-left:0px;
+}
+form input, textarea, select, .uneditable-input {
+	height:auto;
+}
+
+
+.span12 input,
+.span12 textarea,
+.span12 select{
+    width: 530px;
+}
+
+.span12 .multiple input {
+	width: 300px;
+}
+.span12 .multiple .input {
+	padding-top:6px;
+	clear:both;
+}
+.span12 .multiple .input label {
+	padding:0;
+}
+
+.span12 input.xlarge,
+.span12 textarea.xlarge,
+.span12 select.xlarge {
+	width:270px;
+}
+
+.span5 .input,
+.span5 input,
+.span5 textarea,
+.span5 select{
+	width:270px;
+}
+
+.span12 .btn {
+	width:auto;
+}
+
+.cms-section {
+    background-color: #DDF4FB;
+    border-color: #C6EDF9;
+    color: #404040;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-image: none;
+    box-shadow: none;
+    padding-top: 14px;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    margin-bottom: 10px;
+    position: relative;
+}
+.cms-section .close {
+	margin-right:14px;
+}
+
+#sections-sortable li{
+	padding:0;
+	margin:0;
+}
+#sections-sortable{
+	margin:0;
+	list-style:none;
+	padding:0;
+}
+
+.ui-datepicker-trigger {
+	margin: 0px 0 0 5px;
+}
+
+form .clearfix.error input,
+form .clearfix.error textarea {
+	color: #808080;
+}
