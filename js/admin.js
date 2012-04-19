@@ -101,12 +101,12 @@ $(function(){
 				var response = jqXHR.responseText;
 			}
 
-			if (response.fancybox == true) {
-				$.fancybox(response.html);
+			if (response.fancybox != undefined) {
+				$.fancybox(response.fancybox);
 			}
 
 			if (response.modal != undefined) {
-				makeModal(response.modal);
+				generateModal(response.modal);
 			}
 		}
 	});
