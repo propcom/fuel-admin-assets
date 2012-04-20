@@ -18,7 +18,7 @@ $(function(){
 	 * @param  object  content  data to be used to generate the Modal
 	 */
 	function generateModal(content) {
-		$('#ajax-modal').remove();
+		$('#ajax-modal, .modal-backdrop').remove();
 
 		var modal_html = '<aside class="modal';
 
@@ -34,10 +34,10 @@ $(function(){
 
 		modal_html += '">';
 
-		if (content.content != undefined) {
+		if (content.content != null) {
 			modal_html += content.content;
 		} else {
-			if (content.header != undefined) {
+			if (content.header != null) {
 				modal_html += '<div class="modal-header">';
 				modal_html += '<a class="close" data-dismiss="modal">&times;</a>';
 				modal_html += '<h1>' + content.header + '</h1>';
@@ -45,18 +45,36 @@ $(function(){
 			}
 
 
-			if (content.body != undefined) {
-				modal_html += '<div class="modal-body">';
+			modal_html += '<div class="modal-body">';
 
-				if (content.header == undefined) {
-					modal_html += '<a class="close" data-dismiss="modal">&times;</a>';
-				}
-
-				modal_html += content.body;
-				modal_html += '</div>';
+			if (content.header == null) {
+				modal_html += '<a class="close" data-dismiss="modal">&times;</a>';
 			}
 
-			if (content.footer != undefined) {
+			if (content.alerts != null) {
+				for (type in {'success':1,'error':1,'info':1,'debug':1}) {
+					if (content.alerts[type] != null) {
+						modal_html += '<div class="alert alert-' + type + '">';
+						modal_html += '<a class="close" href="#" data-dismiss="alert">&times;</a>';
+
+						if (typeof content.alerts[type] == 'string') {
+							modal_html += content.alerts[type];
+						} else {
+							modal_html += content.alerts[type].value;
+						}
+
+						modal_html += '</div>';
+					}
+				}
+			}
+
+			if (content.body != null) {
+				modal_html += content.body;
+			}
+
+			modal_html += '</div>';
+
+			if (content.footer != null) {
 				modal_html += '<div class="modal-footer">' + content.footer + '</div>';
 			}
 		}
