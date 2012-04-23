@@ -12,6 +12,7 @@ $(function(){
 	 * * footer - content for the footer of the modal
 	 * * id - id attribute to be added to the Modal's container (an id of 'ajax-modal' is always applied)
 	 * * class - class attribute to be added to the Modal's container (a class of 'modal' is always applied)
+	 * * alerts - array of alert (flash) messages to be displayed in the modal, indexed by type (one of: success, error or info)
 	 *
 	 * If `content` is supplied then header, body and footer will be ignored
 	 *
@@ -52,7 +53,7 @@ $(function(){
 			}
 
 			if (content.alerts != null) {
-				for (type in {'success':1,'error':1,'info':1,'debug':1}) {
+				for (type in {'success':1,'error':1,'info':1}) {
 					if (content.alerts[type] != null) {
 						modal_html += '<div class="alert alert-' + type + '">';
 						modal_html += '<a class="close" href="#" data-dismiss="alert">&times;</a>';
