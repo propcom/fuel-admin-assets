@@ -122,6 +122,10 @@ $(function(){
 				var response = jqXHR.responseText;
 			}
 
+			if (response.redirect != undefined) {
+				window.location = response.redirect;
+			}
+
 			if (response.fancybox != undefined) {
 				$.fancybox(response.fancybox);
 			}
