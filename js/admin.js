@@ -97,6 +97,8 @@ $(function(){
 			if (jqXHR.status == 401) {
 				if (response.redirect) {
 					window.location = response.redirect;
+				} else {
+					window.location = '/admin/home/login';
 				}
 			}
 		},
