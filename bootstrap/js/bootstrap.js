@@ -1533,7 +1533,15 @@
   $(function () {
     $('body').on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
       e.preventDefault()
-      $(this).tab('show')
+      // This isn't a tab... so find the right thing.
+      if(! $(this).parent().parent('ul').hasClass('nav')) {
+      	var selector = $(this).attr('href');
+      	$(selector).parents('.tabbable').find('[href="'+selector+'"]').tab('show');
+      }
+      else
+      {
+      	$(this).tab('show')
+      }
     })
   })
 
