@@ -27,13 +27,7 @@ $(function(){
 			modal_html += ' ' + content.class;
 		}
 
-		modal_html += '" id="ajax-modal';
-
-		if (content.id) {
-			modal_html += ' ' + content.id;
-		}
-
-		modal_html += '">';
+		modal_html += '" id="ajax-modal">';
 
 		if (content.content != null) {
 			modal_html += content.content;
