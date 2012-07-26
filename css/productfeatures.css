@@ -1,0 +1,11 @@
+.feature-marker {
+	background: url('/assets/admin/img/feature-marker.png');
+	width: 52px;
+	height: 52px;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.feature-invalid {
+	background-position: 0 52px;
+}
