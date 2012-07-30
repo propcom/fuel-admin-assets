@@ -25,10 +25,12 @@ $(function() {
 	function setup_productfeatures(img) {
 		var markers = [],
 			add_marker = function(marker) {
-				m = marker.data('feature-api').values();
-				m.xpos = marker.data('feature-api').feature_x;
-				m.ypos = marker.data('feature-api').feature_y;
-				m.id = marker.data('feature-api').feature_db_id;
+				var m = {};
+				m.title = marker.title;
+				m.content = marker.content;
+				m.xpos = marker.x;
+				m.ypos = marker.y;
+				m.id = marker.id;
 
 				markers.push(m);
 			};
@@ -36,7 +38,8 @@ $(function() {
 		img.productfeatures({
 			update_feature: add_marker,
 			insert_feature: add_marker,
-			remove_feature: add_marker
+			remove_feature: add_marker,
+			admin: true
 		});
 
 		img.bind('save.productfeatures', function() {

@@ -1,437 +1,318 @@
-$.fn.productfeatures = function(opts){
+// https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js#L58-L172
+if (!Function.prototype.bind) {
+    Function.prototype.bind = function bind(that) { // .length is 1
+        var target = this;
+        if (typeof target != "function") {
+            throw new TypeError("Function.prototype.bind called on incompatible " + target);
+        }
+        var args = slice.call(arguments, 1); // for normal call
+        var bound = function () {
 
-	var settings = $.extend({
-		'popup_width' : 220,
-		'popup_height' : 120,
-		'marker_width' : 50,
-		'marker_height' : 33,
-		'popup_fallback' : 'right',
-		'update_feature' : function(marker){
-			console.log('Update existing feature');
-		},
-		'insert_feature' : function(marker){
-			console.log('Insert new feature');
-		},
-		'remove_feature' : function(marker){
-			console.log('Remove feature');
-		}
-	},opts)
+            if (this instanceof bound) {
+                var F = function(){};
+                F.prototype = target.prototype;
+                var self = new F;
 
-	var image = $(this);
-	image.data('valid',true);
-	var position = image.position();
-	var image_id = image.data('p-image-id');
+                var result = target.apply(
+                    self,
+                    args.concat(slice.call(arguments))
+                );
+                if (Object(result) === result) {
+                    return result;
+                }
+                return self;
 
-	var offset_left = 0;
-	var offset_top = 0;
+            } else {
+                return target.apply(
+                    that,
+                    args.concat(slice.call(arguments))
+                );
+            }
+        };
+        return bound;
+    };
+}
 
-	var markers = [];
+(function() {
+	// I reckon this flag describes the page rather than the instance.
+	var admin = false,
+		oid = 0;
 
-	var marker = $('<div class="feature-marker"></div>');
+	// All the data can be public I guess
+	function Marker(data) {
+		var elem = $('<div class="feature-marker"></div>'),
+			self = this;
+		this.elem = elem;
 
-	var marker_drag = function(event, ui){
-		var api = $(ui.helper).data('feature-api');
-		api.feature_popup_close();
-		api.change_points(ui.position.left,ui.position.top);
-	};
+		$.extend(this, data);
+		this.oid = oid++;
 
-	var marker_drag_complete = function(event, ui){
-		var api = $(ui.helper).data('feature-api');
-
-		if(api.feature_x > image.width() || api.feature_y > image.height() || api.feature_x < 0 || api.feature_y < 0){
-			api.return_to(ui.originalPosition.left,ui.originalPosition.top);
-		} else {
-			api.check_placement();
-			api.reposition_popup();
-		}
-		check_validity();
-	};
-
-	marker.dblclick(function(){
-		var api = $(this).data('feature-api');
-		api.feature_popup_open();
-	});
-
-	var x = 0;
-	var y = 0;
-
-	init();
-
-	$(this).mouseenter(function(){
-
-		var position = image.parent().position();
-		offset_left = position.left;
-		offset_top = position.top;
-
-	});
-
-	$(this).mousemove(function(e){
-
-		x = parseInt(e.pageX - offset_left);
-		y = parseInt(e.pageY - offset_top);
-
-	});
-
-	$(this).click(function(e){
-		show_create_popup();
-	});
-
-	$('.feature-popup input, .feature-popup textarea').live('blur',function(){
-		check_validity();
-	});
-
-	function check_validity()
-	{
-
-		image.data('valid',true);
-
-		$.each(markers,function(index,obj){
-
-			var api = obj.data('feature-api');
-
-			var image_valid = true;
-
-			api.marker.removeClass('feature-invalid');
-
-			if(api.for_delete == false){
-				if(api.feature_popup.find('input').val() == ''){
-					api.valid = false;
-					image.data('valid',false);
-					api.marker.addClass('feature-invalid');
-				}
-				if(api.feature_popup.find('textarea').val() == ''){
-					api.valid = false;
-					image.data('valid',false);
-					api.marker.addClass('feature-invalid');
-				}
-			}
-			if(image.data('valid') == true){
-				image.siblings('.feature-save').children().removeClass('disabled');
-			} else {
-				image.siblings('.feature-save').children().addClass('disabled');
-			}
-
-			if(api.changed == true){
-				image.siblings('.feature-save').slideDown(200);
-			}
-
-
-		});
-	}
-
-	function choose_placement(x, y)
-	{
-		// Start off with right
-		if((parseInt(x) + settings.popup_width) < image.width()){
-			return 'right';
-		} else {
-			if((parseInt(y) + settings.popup_height) < image.height()){
-				return 'bottom';
-			} else {
-				if((parseInt(x) - settings.popup_width) > 0){
-					return 'left';
-				} else {
-					if((parseInt(y) - settings.popup_height) > 0){
-						return 'top';
-					} else {
-						return settings.popup_fallback;
-					}
-				}
-			}
-		}
-	}
-
-	function init()
-	{
-		var existing = image.data('features') || [];
-		image.wrap('<div style="position: relative;"></div>');
-		image.parent().width(image.width());
-		var save_area = $('<div class="feature-save"><a href="#" class="feature-save-btn btn btn-primary">Save Changes</a></div>');
-		image.parent().append(save_area);
-
-		save_area.find('a').click(function(e){
-			e.preventDefault();
-			save_changes();
-		});
-
-		$.each(existing,function(index,obj){
-
-			var new_marker = marker.clone(true);
-			var api = {};
-			api.feature_id = parseInt(markers.length + 1);
-
-			new_marker.css({
-				left : parseInt(obj.x),
-				top : parseInt(obj.y),
-				position: 'absolute'
-			});
-
-			image.parent().append(new_marker);
-
-			var popup = $('<div class="span3 feature-popup well"></div>');
-			var name = $('<input type="text" name="marker-name[' + api.feature_id + ']" placeholder="Feature Title" />');
-			name.val(obj.title);
-			var description = $('<textarea cols="30" rows="4" name="marker-desc[' + api.feature_id + ']" placeholder="Feature Description"></textarea>');
-			var close_button = $('<a href="#" class="close-feature-popup">&times;</a>');
-			var done_button = $('<a href="#" class="btn btn-primary feature-done">Done</a>');
-			var delete_button = $('<a href="#" class="btn btn-danger delete-feature">Delete Feature</a>');
-
-			description.val(obj.content);
-			popup.append(name);
-			popup.append(description);
-			popup.append(close_button);
-			popup.append(done_button);
-			popup.append(delete_button);
-
-			popup.css({
-				left : parseInt(obj.x) + settings.marker_width,
-				top : parseInt(obj.y),
-				position: 'absolute',
-				'z-index': 2000,
-				display: 'none'
-			});
-
-			image.parent().append(popup);
-			api.is_new = false;
-			api.for_delete = false;
-			api.feature_db_id = obj.id;
-			api.image_id = image.data('p-image-id');
-			api.marker = new_marker;
-			api.valid = true;
-			api.changed = false;
-			api.feature_popup = popup;
-			api.feature_x = obj.x;
-			api.feature_y = obj.y;
-			api.feature_popup_close = function(){
-				api.feature_popup.hide();
-			};
-			api.feature_popup_open = function(){
-				api.feature_popup.show();
-			};
-			api.reposition_popup = function(){
-				api.feature_popup.css({
-					left : parseInt(parseInt(api.feature_x) + settings.marker_width),
-					top : parseInt(api.feature_y)
-				});
-			};
-			api.check_placement = function(){
-				api.placement = choose_placement(api.feature_x, api.feature_y);
-			};
-			api.remove_marker = function(){
-				api.for_delete = true;
-				api.valid = true;
-				api.marker.hide();
-				api.feature_popup_close();
-			};
-			api.change_points = function(x,y){
-				api.feature_x = x;
-				api.feature_y = y;
-				api.changed = true;
-			};
-			api.return_to = function(x,y){
-				api.feature_x = x;
-				api.feature_y = y;
-				api.marker.css({
-					left : parseInt(x),
-					top : parseInt(y)
-				});
-			};
-			api.values = function() {
-				return $.extend({
-					'name' : name.val(),
-					'description' : description.val()
-				}, obj);
-			};
-
-			new_marker.data('feature-api',api);
-
-			markers.push(new_marker);
-
-			new_marker.draggable({
-				drag: function(event, ui) {
-					marker_drag(event,ui);
-				},
-				stop: function(event,ui) {
-					marker_drag_complete(event,ui)
-				}
-			});
-
-			close_button.click(function(e){
-				e.preventDefault();
-				api.feature_popup_close();
-			});
-
-			delete_button.click(function(e){
-				e.preventDefault();
-				api.remove_marker();
-				check_validity();
-			});
-
-			done_button.click(function(e){
-				e.preventDefault();
-				api.feature_popup_close();
-			});
-
-		});
-
-	}
-
-	function save_changes()
-	{
-		$.each(markers,function(index,obj){
-			var api = obj.data('feature-api');
-
-			if(api.for_delete){
-				settings.remove_feature(obj);
-			} else {
-				if(api.is_new){
-					settings.insert_feature(obj);
-				} else {
-					settings.update_feature(obj);
-				}
-			}
-		});
-
-		image.trigger('save.productfeatures');
-	}
-
-	function show_create_popup()
-	{
-
-		$.each(markers,function(index,obj){
-			var api = obj.data('feature-api');
-			api.feature_popup_close();
-		});
-
-		var new_marker = marker.clone(true);
-
-		var api = {};
-		api.feature_id = parseInt(markers.length + 1);
-
-		new_marker.feature_id = parseInt(markers.length + 1);
-
-		new_marker.css({
-			left : parseInt(x) - (parseInt(settings.marker_width) / 2),
-			top : parseInt(y) - (parseInt(settings.marker_height) / 2),
+		elem.css({
+			left : parseInt(this.x),
+			top : parseInt(this.y),
 			position: 'absolute'
 		});
 
-		image.parent().append(new_marker);
+		if (admin) {
+			elem.dblclick(function(){
+				self.edit();
+			});
 
-		var popup = $('<div class="span3 feature-popup well"></div>');
-		var name = $('<input type="text" name="marker-name[' + api.feature_id + ']" placeholder="Feature Title" />');
-		var description = $('<textarea cols="30" rows="4" name="marker-desc[' + api.feature_id + ']" placeholder="Feature Description"></textarea>');
-		var close_button = $('<a href="#" class="close-feature-popup">&times;</a>');
-		var done_button = $('<a href="#" class="btn btn-primary feature-done">Done</a>');
-		var delete_button = $('<a href="#" class="btn btn-danger delete-feature">Delete Feature</a>');
+			elem.draggable({
+				drag: function(event, ui){
+					if (self.editor) self.editor.hide();
+				},
+				stop: function(event, ui){
+					//this.check_placement();
+					self.validate();
+					data.image.data('feature-api').validate();
+				},
+				containment: data.image
+			});
+		}
+	}
 
-		popup.append(name);
-		popup.append(description);
+	Marker.prototype = {
+		constructor: Marker,
+		edit: function() {
+			this.editor = this.editor || new Editor(this);
+			this.editor.show();
+		},
+		display: function() {
+			this.popup = this.popup || new Popup(this);
+			this.popup.show();
+		},
+		validate: function() {
+			// mark as valid if we're going to delete it
+			if ((! $.trim(this.title) || ! $.trim(this.content))
+			&&   ! this.for_deletion) {
+				var i = this.image.data('invalid') || {};
+				i[this.oid] = 1;
+				this.image.data('invalid', i);
+
+				this.valid = false;
+				this.elem.addClass('feature-invalid');
+				this.image.data('feature-api').validate();
+			}
+			else {
+				var i = this.image.data('invalid') || {};
+				delete i[this.oid];
+				this.image.data('invalid', i);
+
+				this.valid = true;
+				this.elem.removeClass('feature-invalid');
+				this.image.data('feature-api').validate();
+			}
+		},
+		remove: function() {
+			this.elem.remove();
+			this.for_deletion = true;
+		}
+	};
+
+	function Editor(marker) {
+		this.marker = marker;
+		var self = this;
+
+		var popup = $('<div class="span3 feature-popup well"></div>'),
+			title = $('<input type="text" name="marker-title[' + marker.oid + ']" placeholder="Feature Title" />'),
+			content = $('<textarea cols="30" rows="4" name="marker-content[' + marker.oid + ']" placeholder="Feature Description"></textarea>'),
+			close_button = $('<a href="#" class="close-feature-popup">&times;</a>'),
+			done_button = $('<a href="#" class="btn btn-primary feature-done">Done</a>'),
+			delete_button = $('<a href="#" class="btn btn-danger delete-feature">Delete Feature</a>');
+
+		title.val(marker.title || '');
+		content.val(marker.content || '');
+
+		popup.append(title);
+		popup.append(content);
 		popup.append(close_button);
 		popup.append(done_button);
 		popup.append(delete_button);
 
-		var placement = choose_placement(new_marker.css('left'),new_marker.css('top'));
-
 		popup.css({
-			left : parseInt(new_marker.css('left')) + settings.marker_width,
-			top : parseInt(new_marker.css('top')),
 			position: 'absolute',
 			'z-index': 2000,
 			display: 'none'
 		});
 
-		image.parent().append(popup);
-		api.feature_popup = popup;
-		api.marker = new_marker;
-		api.image_id = image.data('p-image-id');
-		api.is_new = true;
-		api.for_delete = false;
-		api.valid = false;
-		api.placement = placement;
-		api.changed = true;
-		api.feature_db_id = false;
-		api.feature_x = new_marker.css('left');
-		api.feature_y = new_marker.css('top');
-		api.feature_popup_close = function(){
-			api.feature_popup.hide();
-		};
-		api.feature_popup_open = function(){
-			api.feature_popup.show();
-		};
-		api.reposition_popup = function(){
-			api.feature_popup.css({
-				left : parseInt(parseInt(api.feature_x) + settings.marker_width),
-				top : parseInt(api.feature_y)
-			});
-		};
-		api.check_placement = function(){
-			api.placement = choose_placement(api.feature_x, api.feature_y);
-		};
-		api.remove_marker = function(){
-			api.for_delete = true;
-			api.valid = true;
-			api.marker.hide();
-			api.feature_popup_close();
-		};
-		api.change_points = function(x,y){
-			api.feature_x = x;
-			api.feature_y = y;
-		};
-		api.return_to = function(x,y){
-			api.feature_x = x;
-			api.feature_y = y;
-			api.marker.css({
-				left : parseInt(x),
-				top : parseInt(y)
-			});
-		};
-		api.values = function() {
-			return {
-				'name' : name.val(),
-				'description' : description.val()
-			};
-		};
-
-		new_marker.data('feature-api',api);
-
-		markers.push(new_marker);
-
-		popup.show();
-
-		new_marker.draggable({
-			drag: function(event, ui) {
-				marker_drag(event,ui);
-			},
-			stop: function(event,ui) {
-				marker_drag_complete(event,ui)
-			}
-		});
-
 		close_button.click(function(e){
 			e.preventDefault();
-			api.feature_popup_close();
+			title.val(marker.title || '');
+			content.val(marker.content || '');
+
+			self.marker.validate();
+			self.hide();
 		});
 
 		delete_button.click(function(e){
 			e.preventDefault();
-			api.remove_marker();
-			check_validity();
+			self.marker.remove();
+			self.marker.validate();
+			self.hide();
 		});
 
 		done_button.click(function(e){
 			e.preventDefault();
-			api.feature_popup_close();
+			self.marker.title = title.val();
+			self.marker.content = content.val();
+			self.marker.validate();
+			self.hide();
 		});
 
-		check_validity();
-
+		popup.insertAfter(marker.elem);
+		this.elem = popup;
+		this.reposition();
 	}
 
-}
+	Editor.prototype = {
+		constructor: Editor,
+		reposition: function() {
+			this.elem.css({
+			});
+		},
+		show: function() {
+			this.elem.show();
+		},
+		hide: function() {
+			this.elem.hide();
+		}
+	};
 
-$(function(){
-	$('.add-features-enabled').each(function(index,obj){
-		$(obj).productfeatures();
-	});
-});
+	function Popup(marker) {
+		this.marker = marker;
+		var self = this;
+
+		var popup = $('<div class="feature-popup"></div>'),
+			title = $('<h1 />'),
+			content = $('<p />'),
+			close_button = $('<a href="#" class="close-feature-popup">&times;</a>');
+
+		popup.append(title);
+		popup.append(content);
+		popup.append(close_button);
+
+		popup.css({
+			position: 'absolute',
+			'z-index': 2000,
+			display: 'none',
+			left : parseInt(this.marker.x) + this.marker.elem.width(),
+			top : parseInt(this.marker.y)
+		});
+
+		popup.insertAfter(marker.elem);
+		this.elem = popup;
+	}
+
+	Popup.prototype = {
+		constructor: Editor,
+		show: function() {
+			this.elem.show();
+		},
+		hide: function() {
+			this.elem.hide();
+		}
+	};
+
+	$.fn.productfeatures = function(opts){
+		var settings;
+
+		settings = $.extend({
+			'popup_width' : 220,
+			'popup_height' : 120,
+			'marker_width' : 50,
+			'marker_height' : 33,
+			'popup_fallback' : 'right',
+			'update_feature' : function(marker){
+				console.log('Update existing feature');
+			},
+			'insert_feature' : function(marker){
+				console.log('Insert new feature');
+			},
+			'remove_feature' : function(marker){
+				console.log('Remove feature');
+			}
+		},opts);
+
+		admin = !!settings.admin;
+
+		var image = $(this),
+			save_button,
+			position = image.position(),
+			image_id = image.data('p-image-id');
+
+		var offset_left = 0,
+			offset_top = 0;
+
+		var markers = [];
+
+		var x = 0,
+			y = 0;
+
+		if (admin) {
+			image.click(function(e){
+				var data = {};
+				data.x = e.offsetX;
+				data.y = e.offsetY;
+				data.image = image;
+				data.is_new = true;
+
+				var m = new Marker(data);
+				markers.push(m);
+				image.after(m.elem);
+				m.edit();
+			});
+		}
+
+		var api = {
+			validate: function() {
+				if (image.data('invalid') && $.param(image.data('invalid'))) {
+					save_button.addClass('disabled');
+				}
+				else {
+					save_button.removeClass('disabled');
+				}
+			},
+			save: function() {
+				$.each(markers,function(index,obj){
+					if (obj.for_deletion && obj.is_new)
+						return;
+
+					if (obj.for_deletion){
+						settings.remove_feature(obj);
+					} else if(obj.is_new){
+							settings.insert_feature(obj);
+					} else {
+							settings.update_feature(obj);
+					}
+				});
+
+				image.trigger('save.productfeatures');
+			}
+		};
+
+		image.data('feature-api', api);
+
+		image.wrap('<div style="position: relative;"></div>');
+		image.parent().width(image.width());
+
+		var save_area = $('<div class="feature-save"><a href="#" class="feature-save-btn btn btn-primary">Save Changes</a></div>');
+		save_button = save_area.find('a');
+		image.parent().append(save_area);
+
+		save_button.click(function(e){
+			e.preventDefault();
+			api.save();
+		});
+
+		var existing = image.data('features') || [];
+
+		$.each(existing, function(i, data) {
+			data.image = image;
+
+			var m = new Marker(data);
+			markers.push(m);
+			image.after(m.elem);
+		});
+	};
+})();
