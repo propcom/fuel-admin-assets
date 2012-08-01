@@ -70,6 +70,11 @@ if (!Function.prototype.bind) {
 				containment: data.image
 			});
 		}
+		else {
+			elem.click(function() {
+				self.toggle();
+			});
+		}
 	}
 
 	Marker.prototype = {
@@ -81,6 +86,19 @@ if (!Function.prototype.bind) {
 		display: function() {
 			this.popup = this.popup || new Popup(this);
 			this.popup.show();
+			this.visible = true;
+		},
+		toggle: function() {
+			if (this.visible) {
+				this.hide();
+			}
+			else {
+				this.display();
+			}
+		},
+		hide: function() {
+			if (this.popup) this.popup.hide();
+			this.visible = false;
 		},
 		validate: function() {
 			// mark as valid if we're going to delete it
@@ -192,6 +210,9 @@ if (!Function.prototype.bind) {
 		popup.append(content);
 		popup.append(close_button);
 
+		title.html(marker.title);
+		content.html(marker.content);
+
 		popup.css({
 			position: 'absolute',
 			'z-index': 2000,
@@ -241,28 +262,7 @@ if (!Function.prototype.bind) {
 			position = image.position(),
 			image_id = image.data('p-image-id');
 
-		var offset_left = 0,
-			offset_top = 0;
-
 		var markers = [];
-
-		var x = 0,
-			y = 0;
-
-		if (admin) {
-			image.click(function(e){
-				var data = {};
-				data.x = e.offsetX;
-				data.y = e.offsetY;
-				data.image = image;
-				data.is_new = true;
-
-				var m = new Marker(data);
-				markers.push(m);
-				image.after(m.elem);
-				m.edit();
-			});
-		}
 
 		var api = {
 			validate: function() {
@@ -296,14 +296,29 @@ if (!Function.prototype.bind) {
 		image.wrap('<div style="position: relative;"></div>');
 		image.parent().width(image.width());
 
-		var save_area = $('<div class="feature-save"><a href="#" class="feature-save-btn btn btn-primary">Save Changes</a></div>');
-		save_button = save_area.find('a');
-		image.parent().append(save_area);
+		if (admin) {
+			image.click(function(e){
+				var data = {};
+				data.x = e.offsetX;
+				data.y = e.offsetY;
+				data.image = image;
+				data.is_new = true;
 
-		save_button.click(function(e){
-			e.preventDefault();
-			api.save();
-		});
+				var m = new Marker(data);
+				markers.push(m);
+				image.after(m.elem);
+				m.edit();
+			});
+
+			var save_area = $('<div class="feature-save"><a href="#" class="feature-save-btn btn btn-primary">Save Changes</a></div>');
+			save_button = save_area.find('a');
+			image.parent().append(save_area);
+
+			save_button.click(function(e){
+				e.preventDefault();
+				api.save();
+			});
+		}
 
 		var existing = image.data('features') || [];
 
@@ -313,6 +328,15 @@ if (!Function.prototype.bind) {
 			var m = new Marker(data);
 			markers.push(m);
 			image.after(m.elem);
+		});
+
+		$.each(markers, function(i, marker) {
+			marker.elem.click(function() {
+				$.each(markers, function(i, m) {
+					if (m == marker) return;
+					m.hide();
+				});
+			});
 		});
 	};
 })();
