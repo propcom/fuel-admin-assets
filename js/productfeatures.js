@@ -16,14 +16,16 @@ $(function() {
 		}
 		else {
 			var img = $('<img src="' + src + '">');
-			setup_productfeatures(img);
 			features.append(img);
+			setup_productfeatures(img);
 		}
 
 		img_input.val(data.img[0].id);
 	}
 
 	function setup_productfeatures(img) {
+		if (img.length == 0) return;
+
 		var markers = [],
 			add_marker = function(marker) {
 				var m = {};
