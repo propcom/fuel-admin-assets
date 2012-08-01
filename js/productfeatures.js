@@ -3,7 +3,8 @@ $(function() {
 		img_input = $('input[name=image_id]');
 
 	$('#select-image').mediamanager({
-		onUseImage: use_image
+		onUseImage: use_image,
+		restrictType: ['products']
 	});
 
 	function use_image(event, data) {
