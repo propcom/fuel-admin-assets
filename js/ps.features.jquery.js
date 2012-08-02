@@ -151,7 +151,9 @@ if (!Function.prototype.bind) {
 		popup.css({
 			position: 'absolute',
 			'z-index': 2000,
-			display: 'none'
+			display: 'none',
+			left : parseInt(this.marker.x) + this.marker.elem.width(),
+			top : parseInt(this.marker.y)
 		});
 
 		close_button.click(function(e){
