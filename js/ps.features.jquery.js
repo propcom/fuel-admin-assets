@@ -226,7 +226,7 @@ if (!Function.prototype.bind) {
 	}
 
 	Popup.prototype = {
-		constructor: Editor,
+		constructor: Popup,
 		show: function() {
 			this.elem.show();
 		},
