@@ -31,8 +31,8 @@ $(function() {
 				var m = {};
 				m.title = marker.title;
 				m.content = marker.content;
-				m.xpos = marker.x;
-				m.ypos = marker.y;
+				m.xpos = marker.elem.position().left;
+				m.ypos = marker.elem.position().top;
 				m.id = marker.id;
 
 				markers.push(m);
