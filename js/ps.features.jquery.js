@@ -43,6 +43,10 @@ if (!Function.prototype.bind) {
 		var elem = $('<div class="feature-marker"></div>'),
 			self = this;
 		this.elem = elem;
+		// TODO: don't call this img
+		this.img = data.img;
+		this.image = data.image;
+		this.image_src = data.image_src;
 
 		$.extend(this, data);
 		this.oid = oid++;
@@ -65,9 +69,9 @@ if (!Function.prototype.bind) {
 				stop: function(event, ui){
 					//this.check_placement();
 					self.validate();
-					data.image.data('feature-api').validate();
+					data.img.data('feature-api').validate();
 				},
-				containment: data.image
+				containment: data.img
 			});
 		}
 		else {
@@ -104,22 +108,22 @@ if (!Function.prototype.bind) {
 			// mark as valid if we're going to delete it
 			if ((! $.trim(this.title) || ! $.trim(this.content))
 			&&   ! this.for_deletion) {
-				var i = this.image.data('invalid') || {};
+				var i = this.img.data('invalid') || {};
 				i[this.oid] = 1;
-				this.image.data('invalid', i);
+				this.img.data('invalid', i);
 
 				this.valid = false;
 				this.elem.addClass('feature-invalid');
-				this.image.data('feature-api').validate();
+				this.img.data('feature-api').validate();
 			}
 			else {
-				var i = this.image.data('invalid') || {};
+				var i = this.img.data('invalid') || {};
 				delete i[this.oid];
-				this.image.data('invalid', i);
+				this.img.data('invalid', i);
 
 				this.valid = true;
 				this.elem.removeClass('feature-invalid');
-				this.image.data('feature-api').validate();
+				this.img.data('feature-api').validate();
 			}
 		},
 		remove: function() {
@@ -135,22 +139,28 @@ if (!Function.prototype.bind) {
 		var popup = $('<div class="span3 feature-popup well"></div>'),
 			title = $('<input type="text" name="marker-title[' + marker.oid + ']" placeholder="Feature Title" />'),
 			content = $('<textarea cols="30" rows="4" name="marker-content[' + marker.oid + ']" placeholder="Feature Description"></textarea>'),
-			close_button = $('<a href="#" class="close-feature-popup">&times;</a>'),
+			image = $('<img src="' + marker.image_src + '" />'),
+			img_button = $('<a href="#" class="btn btn-secondary select-image">Select Image</a>'),
+			close_button = $('<a href="#" class="close-feature-popup">&times;</a>').css('clear', 'both'),
 			done_button = $('<a href="#" class="btn btn-primary feature-done">Done</a>'),
 			delete_button = $('<a href="#" class="btn btn-danger delete-feature">Delete Feature</a>');
 
 		title.val(marker.title || '');
 		content.val(marker.content || '');
 
-		popup.append(title);
-		popup.append(content);
-		popup.append(close_button);
-		popup.append(done_button);
-		popup.append(delete_button);
+		popup.append(title)
+			.append(content)
+			.append(image)
+			.append(img_button)
+			.append(
+				$('<div/>')
+					.append(close_button)
+					.append(done_button)
+					.append(delete_button));
 
 		popup.css({
 			position: 'absolute',
-			'z-index': 2000,
+			'z-index': 2,
 			display: 'none',
 			left : parseInt(this.marker.x) + this.marker.elem.width(),
 			top : parseInt(this.marker.y)
@@ -176,8 +186,18 @@ if (!Function.prototype.bind) {
 			e.preventDefault();
 			self.marker.title = title.val();
 			self.marker.content = content.val();
+			self.marker.image = image.data('id');
+			self.marker.image_src = image.attr('src');
 			self.marker.validate();
 			self.hide();
+		});
+
+		img_button.mediamanager({
+			onUseImage: function(e, data) {
+				image.attr('src', data.img[0].type.sizes.product_thumb.src);
+				image.data('id', data.img[0].id);
+			},
+			restrictType: ['products']
 		});
 
 		popup.insertAfter(marker.elem);
@@ -204,7 +224,7 @@ if (!Function.prototype.bind) {
 		var self = this;
 
 		var popup = $('<div class="feature-popup"></div>'),
-			title = $('<h1 />'),
+			title = $('<h4 />'),
 			content = $('<p />'),
 			close_button = $('<a href="#" class="close-feature-popup">&times;</a>');
 
@@ -214,6 +234,10 @@ if (!Function.prototype.bind) {
 
 		title.html(marker.title);
 		content.html(marker.content);
+
+		close_button.click(function() {
+			self.hide();
+		});
 
 		popup.css({
 			position: 'absolute',
@@ -230,7 +254,15 @@ if (!Function.prototype.bind) {
 	Popup.prototype = {
 		constructor: Popup,
 		show: function() {
+			var img = this.marker.img,
+				pos = this.marker.elem.position();
 			this.elem.show();
+
+			if (pos.left > img.width() / 2) {
+				this.elem.css({
+					left: parseInt(this.marker.x) - this.marker.elem.width() - this.elem.width(),
+				});
+			}
 		},
 		hide: function() {
 			this.elem.hide();
@@ -268,6 +300,7 @@ if (!Function.prototype.bind) {
 
 		var api = {
 			validate: function() {
+				// invalid features get put in an object; empty objects are empty strings from $.param
 				if (image.data('invalid') && $.param(image.data('invalid'))) {
 					save_button.addClass('disabled');
 				}
@@ -303,7 +336,7 @@ if (!Function.prototype.bind) {
 				var data = {};
 				data.x = e.offsetX;
 				data.y = e.offsetY;
-				data.image = image;
+				data.img = image;
 				data.is_new = true;
 
 				var m = new Marker(data);
@@ -325,7 +358,7 @@ if (!Function.prototype.bind) {
 		var existing = image.data('features') || [];
 
 		$.each(existing, function(i, data) {
-			data.image = image;
+			data.img = image;
 
 			var m = new Marker(data);
 			markers.push(m);

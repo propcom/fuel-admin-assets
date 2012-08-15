@@ -34,6 +34,7 @@ $(function() {
 				m.xpos = marker.elem.position().left;
 				m.ypos = marker.elem.position().top;
 				m.id = marker.id;
+				m.image = marker.image;
 
 				markers.push(m);
 			};

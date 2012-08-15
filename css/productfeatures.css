@@ -2,7 +2,7 @@
 	background: url('/assets/admin/img/feature-marker.png');
 	width: 52px;
 	height: 52px;
-	z-index: 1000;
+	z-index: 1;
 	cursor: pointer;
 }
 
