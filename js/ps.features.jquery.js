@@ -226,6 +226,7 @@ if (!Function.prototype.bind) {
 		var popup = $('<div class="feature-popup"></div>'),
 			title = $('<h4 />'),
 			content = $('<p />'),
+			image = $('<img />'),
 			close_button = $('<a href="#" class="close-feature-popup">&times;</a>');
 
 		popup.append(title);
@@ -234,6 +235,7 @@ if (!Function.prototype.bind) {
 
 		title.html(marker.title);
 		content.html(marker.content);
+		image.attr('src', marker.image_src);
 
 		close_button.click(function() {
 			self.hide();
