@@ -47,7 +47,7 @@ $(function() {
 		});
 
 		img.bind('save.productfeatures', function() {
-			var button = $(this).next().find('a');
+			var button = $('a.feature-save-btn');
 			$.post('/admin/productfeatures/rest/save.json', {
 				image: img_input.val(),
 				product_id: $('input[name=product_id]').val(),
