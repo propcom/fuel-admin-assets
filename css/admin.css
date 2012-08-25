@@ -55,3 +55,8 @@ form input[type=submit] {
 	top: 10px;
 	left: -12px;
 }
+
+body.admin-groups-roles h2 {
+	overflow: hidden;
+	cursor: default;
+}
