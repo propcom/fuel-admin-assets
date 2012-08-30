@@ -1,6 +1,14 @@
 $(function(){
 
 	/**
+	 * Link to a specific Twitter Bootstrap Tab
+	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184
+	 */
+	var activeTab = $('[href=' + location.hash + ']');
+	activeTab && activeTab.tab('show');
+
+
+	/**
 	 * Generates a Twitter Bootstrap Modal
 	 *
 	 * The content for the Modal is passed to the function as an object
