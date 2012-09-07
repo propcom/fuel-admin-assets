@@ -79,7 +79,7 @@
 					new_rows[new_rows.length - 1].after(new_row);
 				}
 				else if (important_elements.antecedent.length) {
-					important_elements.antecedent.after(new_row);
+					important_elements.antecedent.last().after(new_row);
 				}
 				else {
 					self.prepend(new_row);
