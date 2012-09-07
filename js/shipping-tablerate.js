@@ -1,5 +1,5 @@
 $(function() {
-	$('table[data-belongs-to]').belongsTo({
+	$('table[data-has-many]').hasMany({
 		owner_field_name: 'rates'
 	});
 });

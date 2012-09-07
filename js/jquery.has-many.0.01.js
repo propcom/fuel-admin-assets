@@ -1,13 +1,13 @@
 (function($) {
 
-	$.fn.belongsTo = function(opts) {
+	$.fn.hasMany = function(opts) {
 		var self = this,
 			field_names,
 			important_elements = {},
 			api;
 
 		opts = $.extend({
-			owner_id: this.data('belongs-to'),
+			owner_id: this.data('has-many'),
 			owner_field_name: this.data('field-name'),
 			ajax: false,
 		}, opts);
@@ -22,7 +22,7 @@
 		important_elements.new_rows = [];
 
 		// So we can recognise it when we clone it, regardless of how we found it
-		important_elements.add_button.addClass('belongsto-addbutton');
+		important_elements.add_button.addClass('hasmany-addbutton');
 		
 		field_names = opts.field_names 
 			|| important_elements.new_row.find(':input').map(function() {
@@ -55,7 +55,7 @@
 
 				if (opts.validation && typeof opts.validation == 'function'
 				&& !opts.validation(new_row)) {
-					$.event.trigger('validation-failed.belongs-to', { row: new_row });
+					$.event.trigger('validation-failed.has-many', { row: new_row });
 					return;
 				}
 
@@ -66,7 +66,7 @@
 						.val(important_elements.new_row.find(':input[name*="[' + n + ']"]').val());
 				});
 
-				new_row.data('belongsTo.new', true);
+				new_row.data('hasMany.new', true);
 				new_row
 					.find('.buttons')
 					.find('.existing-row')
@@ -88,11 +88,11 @@
 				new_rows.push(new_row);
 				important_elements.new_row.find(':input').val('');
 
-				$.event.trigger('new-row.belongs-to', { row: new_row });
+				$.event.trigger('new-row.has-many', { row: new_row });
 			},
 
 			delete_row: function(row) {
-				if (row.data('belongsTo.new')) {
+				if (row.data('hasMany.new')) {
 					// Find it in new_rows and exorcise it
 					$.each(important_elements.new_rows, function(i) {
 						if ($(this).is(row)) {
@@ -104,9 +104,9 @@
 				// TODO: ajax if owner ID
 				row.remove();
 
-				$.event.trigger('remove-row.belongs-to', { row: $(this) });
+				$.event.trigger('remove-row.has-many', { row: $(this) });
 			}
 		};
-		self.data('belongsTo', api);
+		self.data('hasMany', api);
 	};
 })(jQuery);
