@@ -12,6 +12,10 @@ form input[type=submit] {
 	margin: 0;
 }
 
+.hidden {
+	display: none;
+}
+
 .dropdown {
 	cursor: pointer;
 }
