@@ -33,7 +33,7 @@ $(function() {
         matcher: function(item) {
             // The item matches the query, or the description of the item matches the query.
             return item.toLowerCase().indexOf(this.query.toLowerCase()) >= 0
-                || window.state_options[this.country][item].indexOf(this.query.toLowerCase()) >= 0; 
+                || window.state_options[this.country][item].toLowerCase().indexOf(this.query.toLowerCase()) >= 0; 
         },
         highlighter: function(item) {
             var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
