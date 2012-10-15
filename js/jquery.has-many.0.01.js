@@ -15,15 +15,22 @@
 		important_elements.new_row = opts.new_row 
 			|| this.find('tr').last();
 		important_elements.add_button = opts.add_button 
-			|| important_elements.new_row.find('.new-row .btn.add');
+			|| important_elements.new_row.find('.btn.add');
 		important_elements.remove_button = opts.remove_button 
-			|| important_elements.new_row.find('.existing-row .btn.remove');
-		important_elements.antecedent = this.find('tr').not(important_elements.new_row);
+			|| important_elements.new_row.find('.btn.remove');
+		important_elements.antecedent = this.find('tr')
+            .not(important_elements.new_row)
+            .not('tr:has(th)');
 		important_elements.new_rows = [];
 
 		// So we can recognise it when we clone it, regardless of how we found it
 		important_elements.add_button.addClass('hasmany-addbutton');
-		
+
+        important_elements.antecedent.each(function(i,tr){
+            $(this).find('.btn.remove').click(function() {
+                api.delete_row($(this).closest('tr'));
+            })
+        });
 		field_names = opts.field_names 
 			|| important_elements.new_row.find(':input').map(function() {
 				// owner_field_name[(id)?][field_name]
@@ -36,7 +43,8 @@
 		important_elements.add_button.click(function() {
 			api.add_new_row();
 		});
-		important_elements.remove_button.click(function() {
+		important_elements.remove_button.click(function(e) {
+            e.preventDefault();
 			api.delete_row($(this).closest('tr'));
 		});
 
@@ -50,7 +58,7 @@
 		api = {
 			add_new_row : function() {
 				// TODO: ajax if owner ID
-				var new_row = important_elements.new_row.clone(true),
+				var new_row = important_elements.new_row.clone(true, true),
 					new_rows = important_elements.new_rows;
 
 				if (opts.validation && typeof opts.validation == 'function'
@@ -89,6 +97,8 @@
 				important_elements.new_row.find(':input').val('');
 
 				$.event.trigger('new-row.has-many', { row: new_row });
+
+                return new_row;
 			},
 
 			delete_row: function(row) {
@@ -101,12 +111,23 @@
 						}
 					});
 				}
+                else {
+                    // It was loaded with the page - remove it from that set
+                    important_elements.antecedent = important_elements.antecedent.not(row);
+                }
 				// TODO: ajax if owner ID
 				row.remove();
 
-				$.event.trigger('remove-row.has-many', { row: $(this) });
-			}
+				$.event.trigger('remove-row.has-many', { row: row });
+
+                return row;
+			},
+
+            get_new_row: function() {
+                return important_elements.new_row;
+            }
 		};
 		self.data('hasMany', api);
+        return this;
 	};
 })(jQuery);
