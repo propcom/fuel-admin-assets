@@ -1,5 +1,7 @@
 $(function(){
 
+	$('.btn[title], i[title]').tooltip();
+
 	/**
 	 * Link to a specific Twitter Bootstrap Tab
 	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184
