@@ -9,7 +9,7 @@ html, body {
 	margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
 }
 
-.taright, .datatable th:last-child, .datatable td:last-child {
+.taright {
 	text-align: right !important;
 }
 
