@@ -1,0 +1,70 @@
+.label-prop, .badge-prop {
+	background: #EA4824;
+}
+.textile {
+	max-width: 100%;
+}
+.markItUp {
+	width: auto !important;
+}
+.markItUp textarea.markItUpEditor {
+	width: 100% !important;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.tab-content fieldset {
+	max-width: 100%;
+}
+legend {
+	overflow:hidden;
+}
+.product-manage-edit .textile {
+	display:block;
+}
+@media (max-width: 649px) {
+	.dropdown-menu .dropdown-menu {
+		display: block !important;
+		position: static !important;
+		float: none !important;
+		margin-top: 0 !important;
+	}
+	.dropdown-menu .dropdown-menu:before, .dropdown-menu .dropdown-menu:after {
+		display: none !important;
+	}
+}
+@media (max-width: 550px) {
+	.datatable th, .datatable td {
+		display: block;
+	}
+	.datatable thead {
+		display:none;
+	}
+	.datatable td:before {
+		content:attr(data-field-header);
+		overflow: hidden;
+		display:inline-block;
+		color:#EA4824;
+		border-right:1px solid #ddd;
+		width:25%;
+		font-weight:bold;
+		margin-right: 10px;
+	}
+	.datatable .empty-table td:before {
+		display:none;
+	}
+	.taright, .datatable.table th:last-child, .datatable td:last-child {
+		text-align: left !important;
+	}
+}
+@media (max-width: 979px) {
+	.navbar .container {
+		width: auto;
+		padding: 0;
+	}
+}
+@media (max-width: 767px) {
+	.has-multi-field .single-field {
+		margin-top: 0;
+	}
+}

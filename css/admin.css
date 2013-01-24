@@ -14,7 +14,7 @@ html, body {
 }
 
 #page-container {
-	padding-top: 55px;
+	padding-top: 20px;
 }
 
 #sticky-footer-push {
@@ -91,4 +91,12 @@ form input[type=submit] {
 body.admin-groups-roles h2 {
 	overflow: hidden;
 	cursor: default;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+.has-multi-field .single-field {
+	margin-top: 25px;
 }
