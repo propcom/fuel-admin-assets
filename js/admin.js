@@ -2,6 +2,8 @@ $(function(){
 
 	$('.btn[title], i[title]').tooltip();
 
+	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
+
 	/**
 	 * Link to a specific Twitter Bootstrap Tab
 	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184
