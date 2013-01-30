@@ -22,6 +22,9 @@ legend {
 .product-manage-edit .textile {
 	display:block;
 }
+.taright, .datatable.table th:last-child, .datatable td:last-child {
+	text-align: right !important;
+}
 @media (max-width: 649px) {
 	.dropdown-menu .dropdown-menu {
 		display: block !important;
@@ -33,9 +36,17 @@ legend {
 		display: none !important;
 	}
 }
+.large-table-wrap {
+	width:100%;
+	overflow-x:auto;
+}
+.large-table-wrap table {
+	max-width:none;
+}
 @media (max-width: 550px) {
 	.datatable th, .datatable td {
 		display: block;
+		word-break: break-word;
 	}
 	.datatable thead {
 		display:none;
@@ -49,6 +60,7 @@ legend {
 		width:25%;
 		font-weight:bold;
 		margin-right: 10px;
+		word-break: normal;
 	}
 	.datatable .empty-table td:before {
 		display:none;
