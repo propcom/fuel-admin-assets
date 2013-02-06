@@ -1,5 +1,29 @@
 $(function(){
 
+	Modernizr.addTest('ipad', function () {
+		return !!navigator.userAgent.match(/iPad/i);
+	});
+	Modernizr.addTest('iphone', function () {
+		return !!navigator.userAgent.match(/iPhone/i);
+	});
+	Modernizr.addTest('ipod', function () {
+		return !!navigator.userAgent.match(/iPod/i);
+	});
+	Modernizr.addTest('appleios', function () {
+		return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
+	});
+
+	// iPhone Web App Links
+	if ($('html').hasClass('appleios')) {
+		$("a").click(function(e) {
+			console.log('apple links');
+			if (this.href != '') {
+				e.preventDefault();
+				window.location = this.href;
+			};
+		});
+	};
+
 	$('.btn[title], i[title]').tooltip();
 
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
