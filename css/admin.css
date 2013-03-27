@@ -13,6 +13,10 @@ html, body {
 	text-align: right !important;
 }
 
+.modal-body {
+    overflow: visible;
+}
+
 #page-container {
 	padding-top: 20px;
 }
