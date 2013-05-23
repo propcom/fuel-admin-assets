@@ -168,4 +168,9 @@ $(function(){
 		}
 	});
 
+	// Apply chosen to .chzn-select elements if chosen is loaded
+	if ($.fn.chosen) {
+		$(".chzn-select").chosen();
+	}
+
 });
