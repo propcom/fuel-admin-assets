@@ -169,7 +169,7 @@ $(function(){
 	});
 
 	// Apply chosen to .chzn-select elements if chosen is loaded
-	if (typeof($(".chzn-select").chosen) == "function") {
+	if ($.fn.chosen) {
 		$(".chzn-select").chosen();
 	}
 
