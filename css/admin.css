@@ -13,8 +13,13 @@ html, body {
 	text-align: right !important;
 }
 
+.modal {
+	max-height: 80%;
+	overflow-y: auto;
+}
+
 .modal-body {
-    overflow: visible;
+	max-height: 100%;
 }
 
 #page-container {
