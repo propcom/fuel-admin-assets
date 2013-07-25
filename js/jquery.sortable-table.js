@@ -48,7 +48,7 @@
         };
 
         var defaults = {
-            'hasMany': {},
+            'hasMany': false,
             'sortupdate' : function(){},
             'newrow': function(){}
         };
@@ -56,9 +56,11 @@
         var opts = $.extend(true, defaults, options);
 
         // Intentionally use the table here, not any computed tbody
-        this.hasMany(opts.hasMany);
-        delete opts['hasMany'];
-        has_many = this.data('hasMany');
+        if (opts.hasMany) {
+            this.hasMany(opts.hasMany);
+            delete opts['hasMany'];
+            has_many = this.data('hasMany');
+        }
 
         // Fix the width of the row.
         var widthHelper = function(e, ui) {
