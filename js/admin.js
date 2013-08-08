@@ -173,4 +173,23 @@ $(function(){
 		$(".chzn-select").chosen();
 	}
 
+	(function() {
+		var $clicked;
+
+		$('.js-bulk-check').on('click', function(e) {
+			// Select all things since the last-clicked item when we hold shift
+			// Set the last-clicked item if we don't hold shift.
+			if (! $clicked || ! e.shiftKey) {
+				$clicked = $(this);
+			}
+			else {
+				$firstrow = $clicked.closest('tr');
+				$thisrow = $(this).closest('tr');
+				$allrows = $firstrow[ $firstrow.index() > $thisrow.index() ? 'prevUntil' : 'nextUntil' ]($thisrow);
+
+				$allrows.find('.js-bulk-check').prop('checked', $(this).prop('checked'));
+			}
+			e.stopPropagation();
+		});
+	})();
 });
