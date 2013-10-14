@@ -19,18 +19,18 @@
 	float: right;
 	line-height: (37/15);
 	margin-right: 20px;
-	> li {
+	ul {
+		display: none;
+	}
+	li {
 		float: left;
-		ul {
-			display: none;
-		}
 	}
 	a {
 		text-transform: uppercase;
 		@include font-size(15px);
 		margin: 0 10px;
 	}
-	.active {
+	> .active {
 		color: $shop;
 		ul {
 			display: block;
@@ -38,21 +38,35 @@
 			top: 100%;
 			left: 0;
 			right: 0;
+		}
+		> ul {
 			background: $dark;
 			color: $white;
-			li {
-				float: left;
-				border-right: 1px solid $black;
-			}
+			border-bottom: 3px solid $shop;
 			a {
 				@include font-size(12px);
 				display: block;
-				padding: 15px 20px;
 				margin: 0;
+				padding: 0px 20px;
 			}
-			.active a {
+			> li {
+				border-right: 1px solid $black;
+				> a {
+					padding: 15px 20px;
+				}
+			}
+			.active {
 				color: $dark;
-				background: $shop;
+				a {
+					background: $shop;
+				}
+				ul {
+					background: $shop;
+					li a {
+						margin: 0 20px;
+						padding: 0;
+					}
+				}
 			}
 		}
 	}
@@ -77,12 +91,15 @@
 			left: auto;
 			width: 180px;
 			text-align: right;
+			border: none;
+			margin-top: -1px;
 			li {
 				float: none;
 				border: none;
-			}
-			a {
-				padding: 0 20px;
+				border-bottom: 1px solid $dark;
+				a {
+					padding: 0 20px;
+				}
 			}
 		}
 	}
