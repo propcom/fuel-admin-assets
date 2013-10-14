@@ -16,7 +16,7 @@ $(function(){
 	// iPhone Web App Links
 	if ($('html').hasClass('appleios')) {
 		$("a").click(function(e) {
-			console.log('apple links');
+			//console.log('apple links');
 			if (this.href != '') {
 				e.preventDefault();
 				window.location = this.href;
@@ -32,8 +32,8 @@ $(function(){
 	 * Link to a specific Twitter Bootstrap Tab
 	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184
 	 */
-	var activeTab = $('[href=' + location.hash + ']');
-	activeTab && activeTab.tab('show');
+	// var activeTab = $('[href=' + location.hash + ']');
+	// activeTab && activeTab.tab('show');
 
 
 	/**
