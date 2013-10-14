@@ -1,0 +1,72 @@
+.container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+.column, .columns                           { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+.row                                        { margin-bottom: 20px; }
+
+/* Nested Column Classes */
+.column.alpha, .columns.alpha               { margin-left: 0; }
+.column.omega, .columns.omega               { margin-right: 0; }
+
+/* Base Grid */
+.container .one.column                      { width: 60px; }
+.container .two.columns                     { width: 140px; }
+.container .three.columns                   { width: 220px; }
+.container .four.columns                    { width: 300px; }
+.container .five.columns                    { width: 380px; }
+.container .six.columns                     { width: 460px; }
+.container .seven.columns                   { width: 540px; }
+.container .eight.columns                   { width: 620px; }
+.container .nine.columns                    { width: 700px; }
+.container .ten.columns                     { width: 780px; }
+.container .eleven.columns                  { width: 860px; }
+.container .twelve.columns                  { width: 940px; }
+
+/* Offsets */
+.container .offset-by-one                   { padding-left: 80px;  }
+.container .offset-by-two                   { padding-left: 160px; }
+.container .offset-by-three                 { padding-left: 240px; }
+.container .offset-by-four                  { padding-left: 320px; }
+.container .offset-by-five                  { padding-left: 400px; }
+.container .offset-by-six                   { padding-left: 480px; }
+.container .offset-by-seven                 { padding-left: 560px; }
+.container .offset-by-eight                 { padding-left: 640px; }
+.container .offset-by-nine                  { padding-left: 720px; }
+.container .offset-by-ten                   { padding-left: 800px; }
+.container .offset-by-eleven                { padding-left: 860px; }
+
+/* #Clearing
+================================================== */
+
+/* Self Clearing Goodness */
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+/* Use clearfix class on parent to clear nested columns,
+or wrap each row of columns in a <div class="row"> */
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+	content: '\0020';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+.row:after,
+.clearfix:after {
+	clear: both;
+}
+.row,
+.clearfix {
+	zoom: 1;
+}
+
+/* You can also use a <br class="clear" /> to clear columns */
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
