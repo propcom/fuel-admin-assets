@@ -1,0 +1,61 @@
+// Typography
+	@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+	// Rem Mixin
+	$basefs: 11px;
+	@mixin font-size($px) {
+		font-size: $px;
+		font-size: ($px/$basefs) + rem;
+	}
+	html {
+		font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: $basefs;
+		letter-spacing: (40/1000) + em;
+		-webkit-font-smoothing: antialiased;
+	}
+	h1, h2, h3, h4, h5 {
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	h1 {
+		@include font-size(15px);
+	}
+	h2 {
+		@include font-size(25px);
+	}
+	h3 {
+		@include font-size(12px);
+	}
+	h4 {
+		@include font-size(11px);
+	}
+	h5 {
+		@include font-size(10px);
+	}
+
+// Colors
+	// Sections
+	$shop: #4CC0BF;
+	$cms: #E2BE50;
+	$media: #E97947;
+	$management: #725D9E;
+	// Status
+	$live: #7AECB1;
+	$notlive: #F36C72;
+	// BG & Copy
+	$black: #000;
+	$dark: #272727;
+	$mid: #4D4F4E;
+	$light: #F4F4F4;
+	$white: #FFF;
+
+// Base Element Styles
+a {
+	color: inherit;
+	text-decoration: none;
+	@include transition(color 0.1s);
+	&:hover {
+		text-decoration: none;
+		color: $shop;
+	}
+}
