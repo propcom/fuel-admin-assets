@@ -1,0 +1,89 @@
+.top {
+	background: $black;
+	color: $white;
+	position: relative;
+	z-index: 10;
+	.container {
+		padding: 20px 0;
+	}
+	h2 {
+		a {
+			@include font-size(16px);
+		}
+	}
+	h3 {
+		color: $shop;
+	}
+}
+.top__nav {
+	float: right;
+	line-height: (37/15);
+	margin-right: 20px;
+	> li {
+		float: left;
+		ul {
+			display: none;
+		}
+	}
+	a {
+		text-transform: uppercase;
+		@include font-size(15px);
+		margin: 0 10px;
+	}
+	.active {
+		color: $shop;
+		ul {
+			display: block;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: $dark;
+			color: $white;
+			li {
+				float: left;
+				border-right: 1px solid $black;
+			}
+			a {
+				@include font-size(12px);
+				display: block;
+				padding: 15px 20px;
+				margin: 0;
+			}
+			.active a {
+				color: $dark;
+				background: $shop;
+			}
+		}
+	}
+}
+.top__admin {
+	color: $mid;
+	border: solid $dark;
+	border-width: 0 1px;
+	margin-right: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 20px 0;
+	a {
+		margin: 0 7px;
+	}
+	.active {
+		ul {
+			background: $black;
+			z-index: 10;
+			left: auto;
+			width: 180px;
+			text-align: right;
+			li {
+				float: none;
+				border: none;
+			}
+			a {
+				padding: 0 20px;
+			}
+		}
+	}
+}
