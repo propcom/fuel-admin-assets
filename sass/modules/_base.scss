@@ -59,3 +59,11 @@ a {
 		color: $shop;
 	}
 }
+
+input {
+	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	letter-spacing: (40/1000) + em;
+	font-size: $basefs;
+	-webkit-font-smoothing: antialiased;
+}
