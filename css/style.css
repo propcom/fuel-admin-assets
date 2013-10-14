@@ -1695,6 +1695,13 @@ a {
     text-decoration: none;
     color: #4cc0bf; }
 
+input {
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased; }
+
 .top {
   background: black;
   color: white;
@@ -1712,37 +1719,46 @@ a {
   float: right;
   line-height: 2.46667;
   margin-right: 20px; }
-  .top__nav > li {
+  .top__nav ul {
+    display: none; }
+  .top__nav li {
     float: left; }
-    .top__nav > li ul {
-      display: none; }
   .top__nav a {
     text-transform: uppercase;
     font-size: 15px;
     font-size: 1.36364rem;
     margin: 0 10px; }
-  .top__nav .active {
+  .top__nav > .active {
     color: #4cc0bf; }
-    .top__nav .active ul {
+    .top__nav > .active ul {
       display: block;
       position: absolute;
       top: 100%;
       left: 0;
-      right: 0;
+      right: 0; }
+    .top__nav > .active > ul {
       background: #272727;
-      color: white; }
-      .top__nav .active ul li {
-        float: left;
-        border-right: 1px solid black; }
-      .top__nav .active ul a {
+      color: white;
+      border-bottom: 3px solid #4cc0bf; }
+      .top__nav > .active > ul a {
         font-size: 12px;
         font-size: 1.09091rem;
         display: block;
-        padding: 15px 20px;
-        margin: 0; }
-      .top__nav .active ul .active a {
-        color: #272727;
-        background: #4cc0bf; }
+        margin: 0;
+        padding: 0px 20px; }
+      .top__nav > .active > ul > li {
+        border-right: 1px solid black; }
+        .top__nav > .active > ul > li > a {
+          padding: 15px 20px; }
+      .top__nav > .active > ul .active {
+        color: #272727; }
+        .top__nav > .active > ul .active a {
+          background: #4cc0bf; }
+        .top__nav > .active > ul .active ul {
+          background: #4cc0bf; }
+          .top__nav > .active > ul .active ul li a {
+            margin: 0 20px;
+            padding: 0; }
 
 .top__admin {
   color: #4d4f4e;
@@ -1761,9 +1777,12 @@ a {
     z-index: 10;
     left: auto;
     width: 180px;
-    text-align: right; }
+    text-align: right;
+    border: none;
+    margin-top: -1px; }
     .top__admin .active ul li {
       float: none;
-      border: none; }
-    .top__admin .active ul a {
-      padding: 0 20px; }
+      border: none;
+      border-bottom: 1px solid #272727; }
+      .top__admin .active ul li a {
+        padding: 0 20px; }
