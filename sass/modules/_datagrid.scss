@@ -1,0 +1,137 @@
+.datagrid-filter {
+	> ul {
+		margin: 10px 0;
+		> li {
+			margin-bottom: 10px;
+			> .datagrid-category {
+				@include font-size(12px);
+			}
+			&.active > .datagrid-category {
+				width: 206px;
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					left: 100%;
+					top: 0;
+					height: 0;
+					width: 0;
+					border-style: solid;
+					border-width: 16px 10px;
+					border-color: transparent transparent transparent $shop;
+				}
+			}
+		}
+	}
+	li {
+		clear: both;
+	}
+}
+.datagrid-category {
+	background: $dark;
+	margin-bottom: 1px;
+	position: relative;
+	padding-left: 4px;
+	> a {
+		display: inline-block;
+		padding: 10px;
+		&:hover {
+			color: $white;
+		}
+	}
+	.panel {
+		float: right;
+		display: none;
+	}
+	.active > & {
+		background: $shop;
+	}
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 3px;
+		border-right: 1px solid $black;
+		background: $notlive;
+		.is-live & {
+			background: $live;
+		}
+	}
+	&:hover {
+		.panel {
+			display: block;
+		}
+	}
+}
+.datagrid-items {
+	border-bottom: 1px solid $black;
+}
+
+.datagrid-item {
+	background: $white;
+	margin-bottom: 20px;
+	&:nth-child(3n+1) {
+		clear: left;
+	}
+	img {
+		width: 100%;
+	}
+}
+.datagrid-item__info {
+	border-top: 1px solid $light;
+	overflow: hidden;
+	height: 42px;
+	width: 100%;
+	display: table;
+	p {
+		width: 100%;
+		padding-right: 10px;
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+.datagrid-item__checkbox {
+	float: left;
+	padding: 15px 5px;
+	margin-right: 5px;
+	border-right: 1px solid $light;
+	input {
+		margin: 0;
+	}
+}
+.datagrid-pagination {
+	a {
+		display: block;
+		float: left;
+		border: 1px solid darken($light, 10%);
+		border-top: none;
+		background: $white;
+		padding: 9px 0;
+		width: 28px;
+		text-align: center;
+		margin: 0 -1px 0 0;
+	}
+	.datagrid__view {
+		i {
+			display: block;
+			margin: -1px 0 -2px;
+		}
+		@include font-size(14px);
+	}
+	.is-active {
+		position: relative;
+		top: -1px;
+		padding-top: 10px;
+		z-index: 2;
+		background: $light;
+		border-color: $black;
+		color: $shop;
+	}
+}
+.datagrid-pagination--right {
+	float: right;
+	width: 322px;
+}
