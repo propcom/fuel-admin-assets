@@ -1,0 +1,104 @@
+.panel {
+	position: relative;
+	float: left;
+	z-index: 10;
+	color: $white;
+	&.is-open {
+		.panel__trigger {
+			background: $black;
+			&:before {
+				display: block;
+			}
+		}
+		.panel__options {
+			display: block;
+		}
+	}
+}
+.panel__trigger {
+	display: block;
+	padding: 6px 7px;
+	width: 16px;
+	i {
+		@include font-size(19px);
+	}
+	&:hover {
+		color: $white;
+	}
+	&:before {
+		content: attr(data-label);
+		display: none;
+		position: absolute;
+		top: 0;
+		background: $black;
+		text-transform: uppercase;
+		@include font-size(12px);
+		width: 99px;
+		padding: 10px 10px 9px;
+
+		.panel--left & {
+			border-right: 1px solid $dark;
+			right: 100%;
+		}
+		.panel--right & {
+			border-left: 1px solid $dark;
+			left: 100%;
+		}
+
+	}
+}
+.panel__options {
+	position: absolute;
+	display: none;
+	background: $black;
+	border-top: 1px solid $dark;
+	width: 130px;
+	padding: 5px 10px;
+	@include font-size(12px);
+	text-transform: uppercase;
+	.panel--right & {
+		left: 0;
+		top: 100%;
+	}
+	.panel--left & {
+		right: 0;
+		top: 100%;
+	}
+	a {
+		margin: 5px 0;
+		display: block;
+	}
+}
+.panel--label {
+	.panel__trigger {
+		background: $black;
+		&:before {
+			display: block;
+		}
+	}
+}
+
+.search {
+	overflow: hidden;
+	margin-bottom: 15px;
+	input, button {
+		display: block;
+		float: left;
+		background: $white;
+		border: none;
+		padding: 6px;
+		line-height: 18px;
+		margin: 0;
+		@include box-sizing(border-box);
+	}
+	input {
+		width: 169px;
+		margin-right: 1px;
+	}
+	button {
+		width: 30px;
+		background: $white;
+		border: none;
+		font-size: 16px;
+	}
+}
