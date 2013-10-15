@@ -1,7 +1,10 @@
 .top {
 	background: $black;
 	color: $white;
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 	z-index: 10;
 	.container {
 		padding: 20px 0;
@@ -59,6 +62,9 @@
 				color: $dark;
 				a {
 					background: $shop;
+					&:hover {
+						color: $white;
+					}
 				}
 				ul {
 					background: $shop;
@@ -103,4 +109,19 @@
 			}
 		}
 	}
+}
+#page-container {
+	padding: 170px 0 0 240px;
+}
+
+.sidebar {
+	@include box-sizing(border-box);
+	position: fixed;
+	left: 0;
+	top: 139px;
+	background: $black;
+	color: $white;
+	margin-left: 0;
+	padding: 40px 10px;
+	text-transform: uppercase;
 }
