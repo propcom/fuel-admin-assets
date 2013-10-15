@@ -26,6 +26,14 @@ $(function(){
 
 	$('.btn[title], i[title]').tooltip();
 
+	$('.js-panel-trigger').click(function(e){
+		e.preventDefault();
+		$(this).parent('.js-panel').toggleClass('is-open');
+	});
+	$('.js-panel').mouseleave(function(e){
+		$(this).removeClass('is-open');
+	});
+
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
 	/**
