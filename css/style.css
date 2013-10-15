@@ -50,7 +50,10 @@ table {
   position: relative;
   width: 960px;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 .column, .columns {
   float: left;
@@ -1659,6 +1662,9 @@ html {
   letter-spacing: 0.04em;
   -webkit-font-smoothing: antialiased; }
 
+body {
+  background: #f4f4f4; }
+
 h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   font-weight: bold; }
@@ -1700,12 +1706,19 @@ input {
   font-weight: normal;
   letter-spacing: 0.04em;
   font-size: 11px;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  -webkit-border-radius: 0;
+  border-radius: 0; }
+  input:focus {
+    outline: none; }
 
 .top {
   background: black;
   color: white;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10; }
   .top .container {
     padding: 20px 0; }
@@ -1754,6 +1767,8 @@ input {
         color: #272727; }
         .top__nav > .active > ul .active a {
           background: #4cc0bf; }
+          .top__nav > .active > ul .active a:hover {
+            color: white; }
         .top__nav > .active > ul .active ul {
           background: #4cc0bf; }
           .top__nav > .active > ul .active ul li a {
@@ -1786,3 +1801,219 @@ input {
       border-bottom: 1px solid #272727; }
       .top__admin .active ul li a {
         padding: 0 20px; }
+
+#page-container {
+  padding: 170px 0 0 240px; }
+
+.sidebar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 139px;
+  background: black;
+  color: white;
+  margin-left: 0;
+  padding: 40px 10px;
+  text-transform: uppercase; }
+
+.panel {
+  position: relative;
+  float: left;
+  z-index: 10;
+  color: white; }
+  .panel.is-open .panel__trigger {
+    background: black; }
+    .panel.is-open .panel__trigger:before {
+      display: block; }
+  .panel.is-open .panel__options {
+    display: block; }
+
+.panel__trigger {
+  display: block;
+  padding: 6px 7px;
+  width: 16px; }
+  .panel__trigger i {
+    font-size: 19px;
+    font-size: 1.72727rem; }
+  .panel__trigger:hover {
+    color: white; }
+  .panel__trigger:before {
+    content: attr(data-label);
+    display: none;
+    position: absolute;
+    top: 0;
+    background: black;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-size: 1.09091rem;
+    width: 99px;
+    padding: 10px 10px 9px; }
+    .panel--left .panel__trigger:before {
+      border-right: 1px solid #272727;
+      right: 100%; }
+    .panel--right .panel__trigger:before {
+      border-left: 1px solid #272727;
+      left: 100%; }
+
+.panel__options {
+  position: absolute;
+  display: none;
+  background: black;
+  border-top: 1px solid #272727;
+  width: 130px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-size: 1.09091rem;
+  text-transform: uppercase; }
+  .panel--right .panel__options {
+    left: 0;
+    top: 100%; }
+  .panel--left .panel__options {
+    right: 0;
+    top: 100%; }
+  .panel__options a {
+    margin: 5px 0;
+    display: block; }
+
+.panel--label .panel__trigger {
+  background: black; }
+  .panel--label .panel__trigger:before {
+    display: block; }
+
+.search {
+  overflow: hidden;
+  margin-bottom: 15px; }
+  .search input, .search button {
+    display: block;
+    float: left;
+    background: white;
+    border: none;
+    padding: 6px;
+    line-height: 18px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .search input {
+    width: 169px;
+    margin-right: 1px; }
+  .search button {
+    width: 30px;
+    background: white;
+    border: none;
+    font-size: 16px; }
+
+.datagrid-filter > ul {
+  margin: 10px 0; }
+  .datagrid-filter > ul > li {
+    margin-bottom: 10px; }
+    .datagrid-filter > ul > li > .datagrid-category {
+      font-size: 12px;
+      font-size: 1.09091rem; }
+    .datagrid-filter > ul > li.active > .datagrid-category {
+      width: 206px; }
+      .datagrid-filter > ul > li.active > .datagrid-category:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        height: 0;
+        width: 0;
+        border-style: solid;
+        border-width: 16px 10px;
+        border-color: transparent transparent transparent #4cc0bf; }
+.datagrid-filter li {
+  clear: both; }
+
+.datagrid-category {
+  background: #272727;
+  margin-bottom: 1px;
+  position: relative;
+  padding-left: 4px; }
+  .datagrid-category > a {
+    display: inline-block;
+    padding: 10px; }
+    .datagrid-category > a:hover {
+      color: white; }
+  .datagrid-category .panel {
+    float: right;
+    display: none; }
+  .active > .datagrid-category {
+    background: #4cc0bf; }
+  .datagrid-category:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-right: 1px solid black;
+    background: #f36c72; }
+    .is-live .datagrid-category:before {
+      background: #7aecb1; }
+  .datagrid-category:hover .panel {
+    display: block; }
+
+.datagrid-items {
+  border-bottom: 1px solid black; }
+
+.datagrid-item {
+  background: white;
+  margin-bottom: 20px; }
+  .datagrid-item:nth-child(3n+1) {
+    clear: left; }
+  .datagrid-item img {
+    width: 100%; }
+
+.datagrid-item__info {
+  border-top: 1px solid #f4f4f4;
+  overflow: hidden;
+  height: 42px;
+  width: 100%;
+  display: table; }
+  .datagrid-item__info p {
+    width: 100%;
+    padding-right: 10px;
+    display: table-cell;
+    vertical-align: middle; }
+
+.datagrid-item__checkbox {
+  float: left;
+  padding: 15px 5px;
+  margin-right: 5px;
+  border-right: 1px solid #f4f4f4; }
+  .datagrid-item__checkbox input {
+    margin: 0; }
+
+.datagrid-pagination a {
+  display: block;
+  float: left;
+  border: 1px solid #dbdbdb;
+  border-top: none;
+  background: white;
+  padding: 9px 0;
+  width: 28px;
+  text-align: center;
+  margin: 0 -1px 0 0; }
+.datagrid-pagination .datagrid__view {
+  font-size: 14px;
+  font-size: 1.27273rem; }
+  .datagrid-pagination .datagrid__view i {
+    display: block;
+    margin: -1px 0 -2px; }
+.datagrid-pagination .is-active {
+  position: relative;
+  top: -1px;
+  padding-top: 10px;
+  z-index: 2;
+  background: #f4f4f4;
+  border-color: black;
+  color: #4cc0bf; }
+
+.datagrid-pagination--right {
+  float: right;
+  width: 322px; }
