@@ -1,3 +1,19 @@
+// Colors
+	// Sections
+	$shop: #4CC0BF;
+	$cms: #E2BE50;
+	$media: #E97947;
+	$management: #725D9E;
+	// Status
+	$live: #7AECB1;
+	$notlive: #F36C72;
+	// BG & Copy
+	$black: #000;
+	$dark: #272727;
+	$mid: #4D4F4E;
+	$light: #F4F4F4;
+	$white: #FFF;
+
 // Typography
 	@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
@@ -12,6 +28,9 @@
 		font-size: $basefs;
 		letter-spacing: (40/1000) + em;
 		-webkit-font-smoothing: antialiased;
+	}
+	body {
+		background: $light;
 	}
 	h1, h2, h3, h4, h5 {
 		text-transform: uppercase;
@@ -33,22 +52,6 @@
 		@include font-size(10px);
 	}
 
-// Colors
-	// Sections
-	$shop: #4CC0BF;
-	$cms: #E2BE50;
-	$media: #E97947;
-	$management: #725D9E;
-	// Status
-	$live: #7AECB1;
-	$notlive: #F36C72;
-	// BG & Copy
-	$black: #000;
-	$dark: #272727;
-	$mid: #4D4F4E;
-	$light: #F4F4F4;
-	$white: #FFF;
-
 // Base Element Styles
 a {
 	color: inherit;
@@ -66,4 +69,9 @@ input {
 	letter-spacing: (40/1000) + em;
 	font-size: $basefs;
 	-webkit-font-smoothing: antialiased;
+	-webkit-border-radius: 0;
+	        border-radius: 0;
+	&:focus {
+		outline: none;
+	}
 }
