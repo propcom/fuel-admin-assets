@@ -17,10 +17,11 @@
 }
 .panel__trigger {
 	display: block;
-	padding: 6px 7px;
+	padding: 7px;
 	width: 16px;
 	i {
-		@include font-size(18px);
+		display: block;
+		@include font-size(19px);
 	}
 	&:hover {
 		color: $white;
@@ -34,7 +35,7 @@
 		text-transform: uppercase;
 		@include font-size(12px);
 		width: 99px;
-		padding: 10px 10px 9px;
+		padding: 8px 10px;
 
 		.panel--left & {
 			border-right: 1px solid $dark;

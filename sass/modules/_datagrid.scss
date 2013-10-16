@@ -5,6 +5,9 @@
 			margin-bottom: 10px;
 			> .datagrid-category {
 				@include font-size(12px);
+				> a {
+					padding: 8px 10px;
+				}
 			}
 			&.active > .datagrid-category {
 				width: 206px;
@@ -34,6 +37,9 @@
 	background: $shop;
 	@include font-size(28px);
 	padding: 2px 5px;
+	i {
+		display: block;
+	}
 }
 .datagrid-category {
 	background: $dark;
@@ -42,7 +48,7 @@
 	padding-left: 4px;
 	> a {
 		display: inline-block;
-		padding: 10px;
+		padding: 9px 10px;
 		&:hover {
 			color: $white;
 		}

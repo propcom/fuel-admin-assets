@@ -31,6 +31,7 @@
 	}
 	body {
 		background: $light;
+		line-height: (26/18);
 	}
 	h1, h2, h3, h4, h5 {
 		text-transform: uppercase;
@@ -50,6 +51,9 @@
 	}
 	h5 {
 		@include font-size(10px);
+	}
+	p {
+		margin-bottom: 20px;
 	}
 
 // Base Element Styles

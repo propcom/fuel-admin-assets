@@ -6,6 +6,7 @@
 	left: 0;
 	right: 0;
 	z-index: 20;
+	line-height: 1;
 	.container {
 		padding: 20px 0;
 	}
@@ -56,6 +57,9 @@
 				border-right: 1px solid $black;
 				> a {
 					padding: 15px 20px;
+				}
+				ul {
+					background: $shop;
 				}
 			}
 			.active {
@@ -125,4 +129,9 @@
 	padding: 40px 10px;
 	text-transform: uppercase;
 	border-bottom: 3px solid $shop;
+}
+.siteby {
+	clear: both;
+	float: right;
+	margin-top: 50px;
 }
