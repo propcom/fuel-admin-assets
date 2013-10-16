@@ -103,3 +103,81 @@
 		font-size: 16px;
 	}
 }
+
+.btn {
+	display: inline-block;
+	background: $black;
+	color: $white;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 6px 0;
+	text-align: center;
+	margin: 0;
+	line-height: 18px;
+	border: none;
+	width: 220px;
+	@include font-size(12px);
+}
+.btn-primary {
+	background: $shop;
+}
+
+.form-horizontal {
+	.control-group {
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+	.control-label, .controls {
+		float: left;
+	}
+	.control-label, .controls input {
+		display: block;
+		margin: 0;
+		border: none;
+		line-height: 18px;
+		@include box-sizing(border-box);
+		padding: 6px;
+	}
+	.control-label {
+		width: 30.5%;
+		background: $dark;
+		color: $white;
+		font-weight: bold;
+		@include font-size(12px);
+		text-transform: uppercase;
+	}
+	.controls {
+		background: $white;
+		width: 69.5%;
+		input {
+			width: 100%;
+		}
+		select {
+			margin: 6px;
+		}
+	}
+}
+
+.alert {
+	padding: 10px;
+	text-transform: uppercase;
+	margin: 10px 0;
+	i {
+		float: left;
+		padding: 8px;
+		margin: -10px 10px 0 -10px;
+		@include font-size(19px);
+		border-right: 1px solid $dark;
+
+	}
+}
+.alert-success {
+	background: $live;
+}
+.alert-error {
+	background: $notlive;
+}
+.alert-info {
+	background: $black;
+	color: $white;
+}
