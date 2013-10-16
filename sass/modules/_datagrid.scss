@@ -27,6 +27,14 @@
 		clear: both;
 	}
 }
+.datagrid-clear {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background: $shop;
+	@include font-size(28px);
+	padding: 2px 5px;
+}
 .datagrid-category {
 	background: $dark;
 	margin-bottom: 1px;
