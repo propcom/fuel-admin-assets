@@ -5,6 +5,7 @@
 	color: $white;
 	&.is-open {
 		.panel__trigger {
+			color: $shop;
 			background: $black;
 			&:before {
 				display: block;
@@ -17,11 +18,11 @@
 }
 .panel__trigger {
 	display: block;
-	padding: 7px;
+	padding: 6px;
 	width: 16px;
 	i {
 		display: block;
-		@include font-size(19px);
+		@include font-size(17px);
 	}
 	&:hover {
 		color: $white;
@@ -31,19 +32,22 @@
 		display: none;
 		position: absolute;
 		top: 0;
+		color: $white;
 		background: $black;
 		text-transform: uppercase;
 		@include font-size(12px);
 		font-weight: bold;
-		width: 99px;
-		padding: 8px 10px;
+		text-align: center;
+		width: 90px;
+		@include box-sizing(border-box);
+		padding: 6px 10px;
 
 		.panel--left & {
-			border-right: 1px solid $dark;
+			border-right: 1px solid $white;
 			right: 100%;
 		}
 		.panel--right & {
-			border-left: 1px solid $dark;
+			border-left: 1px solid $white;
 			left: 100%;
 		}
 
@@ -53,10 +57,11 @@
 	position: absolute;
 	display: none;
 	background: $black;
-	border-top: 1px solid $dark;
-	width: 130px;
+	border-top: 1px solid $white;
+	width: 120px;
 	padding: 5px 10px;
 	@include font-size(12px);
+	@include box-sizing(border-box);
 	text-transform: uppercase;
 	.panel--right & {
 		left: 0;
@@ -77,6 +82,14 @@
 		&:before {
 			display: block;
 		}
+	}
+}
+.panel--btn {
+	.panel__trigger:before {
+		width: 190px;
+	}
+	.panel__options {
+		width: 220px;
 	}
 }
 
