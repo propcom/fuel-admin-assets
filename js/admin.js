@@ -24,7 +24,7 @@ $(function(){
 		});
 	};
 
-	$('.btn[title], i[title]').tooltip();
+	//$('.btn[title], i[title]').tooltip();
 
 	$('.js-panel-trigger').click(function(e){
 		e.preventDefault();
