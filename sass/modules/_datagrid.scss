@@ -45,7 +45,6 @@
 	background: $dark;
 	margin-bottom: 1px;
 	position: relative;
-	padding-left: 4px;
 	> a {
 		display: inline-block;
 		padding: 7px 10px;
@@ -60,19 +59,24 @@
 	.active > & {
 		background: $shop;
 	}
-	&:before {
-		content: "";
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		width: 3px;
-		border-right: 1px solid $black;
-		background: $notlive;
-		.is-live & {
-			background: $live;
+	.is-live, .is-notlive {
+		padding-left: 14px !important;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 3px;
+			border-right: 1px solid $black;
 		}
+	}
+	.is-live:before {
+		background: $live;
+	}
+	.is-notlive:before {
+		background: $notlive;
 	}
 	&:hover {
 		.panel {
