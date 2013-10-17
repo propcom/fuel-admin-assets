@@ -34,6 +34,21 @@ $(function(){
 
 	//$('.btn[title], i[title]').tooltip();
 
+	$('input', '.datagrid-item').change(function(){
+		var checkcount = 0;
+		$('.datagrid-item').each(function(){
+			if ($('input', this).is(':checked')) {
+				checkcount ++;
+			}
+		});
+
+		if (checkcount > 0) {
+			$('.js-bulk-actions').attr('data-label', 'Bulk Actions ('+checkcount+')');
+		} else {
+			$('.js-bulk-actions').attr('data-label', 'Bulk Actions');
+		}
+	});
+
 	$('.js-panel-trigger').click(function(e){
 		e.preventDefault();
 		$(this).parent('.js-panel').toggleClass('is-open');
