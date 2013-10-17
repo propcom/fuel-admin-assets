@@ -6,7 +6,7 @@
 			> .datagrid-category {
 				@include font-size(12px);
 				> a {
-					padding: 8px 10px;
+					padding: 6px 10px;
 				}
 			}
 			&.active > .datagrid-category {
@@ -48,7 +48,7 @@
 	padding-left: 4px;
 	> a {
 		display: inline-block;
-		padding: 9px 10px;
+		padding: 7px 10px;
 		&:hover {
 			color: $white;
 		}
