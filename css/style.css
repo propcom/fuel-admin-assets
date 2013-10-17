@@ -1139,15 +1139,16 @@ a {
     text-decoration: none;
     color: #4cc0bf; }
 
-input {
+input, select {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: 0.04em;
   font-size: 11px;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -webkit-border-radius: 0;
   border-radius: 0; }
-  input:focus {
+  input:focus, select:focus {
     outline: none; }
 
 .top {
@@ -1261,10 +1262,6 @@ input {
   border-bottom: 3px solid #4cc0bf; }
 
 .siteby {
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 10px;
-  font-size: 0.90909rem;
   clear: both;
   float: right;
   margin-top: 50px; }
@@ -1275,6 +1272,7 @@ input {
   z-index: 10;
   color: white; }
   .panel.is-open .panel__trigger {
+    color: #4cc0bf;
     background: black; }
     .panel.is-open .panel__trigger:before {
       display: block; }
@@ -1283,12 +1281,12 @@ input {
 
 .panel__trigger {
   display: block;
-  padding: 7px;
+  padding: 6px;
   width: 16px; }
   .panel__trigger i {
     display: block;
-    font-size: 19px;
-    font-size: 1.72727rem; }
+    font-size: 17px;
+    font-size: 1.54545rem; }
   .panel__trigger:hover {
     color: white; }
   .panel__trigger:before {
@@ -1296,29 +1294,37 @@ input {
     display: none;
     position: absolute;
     top: 0;
+    color: white;
     background: black;
     text-transform: uppercase;
     font-size: 12px;
     font-size: 1.09091rem;
     font-weight: bold;
-    width: 99px;
-    padding: 8px 10px; }
+    text-align: center;
+    width: 90px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 6px 10px; }
     .panel--left .panel__trigger:before {
-      border-right: 1px solid #272727;
+      border-right: 1px solid white;
       right: 100%; }
     .panel--right .panel__trigger:before {
-      border-left: 1px solid #272727;
+      border-left: 1px solid white;
       left: 100%; }
 
 .panel__options {
   position: absolute;
   display: none;
   background: black;
-  border-top: 1px solid #272727;
-  width: 130px;
+  border-top: 1px solid white;
+  width: 120px;
   padding: 5px 10px;
   font-size: 12px;
   font-size: 1.09091rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   text-transform: uppercase; }
   .panel--right .panel__options {
     left: 0;
@@ -1334,6 +1340,11 @@ input {
   background: black; }
   .panel--label .panel__trigger:before {
     display: block; }
+
+.panel--btn .panel__trigger:before {
+  width: 190px; }
+.panel--btn .panel__options {
+  width: 220px; }
 
 .search {
   overflow: hidden;
@@ -1436,7 +1447,7 @@ input {
       font-size: 12px;
       font-size: 1.09091rem; }
       .datagrid-filter > ul > li > .datagrid-category > a {
-        padding: 8px 10px; }
+        padding: 6px 10px; }
     .datagrid-filter > ul > li.active > .datagrid-category {
       width: 206px; }
       .datagrid-filter > ul > li.active > .datagrid-category:after {
@@ -1471,7 +1482,7 @@ input {
   padding-left: 4px; }
   .datagrid-category > a {
     display: inline-block;
-    padding: 9px 10px; }
+    padding: 7px 10px; }
     .datagrid-category > a:hover {
       color: white; }
   .datagrid-category .panel {
@@ -1530,11 +1541,26 @@ input {
   background: white;
   border: 1px solid #dbdbdb;
   border-top: none;
-  padding: 0 5px; }
-  .datagrid-perpage label {
-    text-transform: uppercase; }
+  position: relative; }
   .datagrid-perpage select {
-    margin: 5px 0 6px; }
+    background: none;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    -moz-appearance: window;
+    border: none;
+    padding: 7px 10px 8px 10px;
+    display: block;
+    position: relative;
+    z-index: 2; }
+    .webkit .datagrid-perpage select, .firefox .datagrid-perpage select {
+      padding-right: 22px; }
+  .datagrid-perpage i {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    display: none; }
+    .webkit .datagrid-perpage i, .firefox .datagrid-perpage i {
+      display: block; }
 
 .datagrid-pagination a {
   display: block;
