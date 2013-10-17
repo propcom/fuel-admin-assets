@@ -12,6 +12,14 @@ $(function(){
 	Modernizr.addTest('appleios', function () {
 		return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 	});
+	Modernizr.addTest('firefox', function () {
+		return !!navigator.userAgent.match(/Firefox/i);
+	});
+	Modernizr.addTest('webkit', function () {
+		return !!navigator.userAgent.match(/AppleWebKit/i);
+	});
+
+	//alert(navigator.userAgent);
 
 	// iPhone Web App Links
 	if ($('html').hasClass('appleios')) {
