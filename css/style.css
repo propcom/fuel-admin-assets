@@ -1097,7 +1097,8 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  background: #f4f4f4; }
+  background: #f4f4f4;
+  line-height: 1.44444; }
 
 h1, h2, h3, h4, h5 {
   text-transform: uppercase;
@@ -1122,6 +1123,9 @@ h4 {
 h5 {
   font-size: 10px;
   font-size: 0.90909rem; }
+
+p {
+  margin-bottom: 20px; }
 
 a {
   color: inherit;
@@ -1153,7 +1157,8 @@ input {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20; }
+  z-index: 20;
+  line-height: 1; }
   .top .container {
     padding: 20px 0; }
   .top h2 a {
@@ -1197,6 +1202,8 @@ input {
         border-right: 1px solid black; }
         .top__nav > .active > ul > li > a {
           padding: 15px 20px; }
+        .top__nav > .active > ul > li ul {
+          background: #4cc0bf; }
       .top__nav > .active > ul .active {
         color: #272727; }
         .top__nav > .active > ul .active a {
@@ -1253,6 +1260,15 @@ input {
   text-transform: uppercase;
   border-bottom: 3px solid #4cc0bf; }
 
+.siteby {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-size: 0.90909rem;
+  clear: both;
+  float: right;
+  margin-top: 50px; }
+
 .panel {
   position: relative;
   float: left;
@@ -1267,11 +1283,12 @@ input {
 
 .panel__trigger {
   display: block;
-  padding: 6px 7px;
+  padding: 7px;
   width: 16px; }
   .panel__trigger i {
-    font-size: 18px;
-    font-size: 1.63636rem; }
+    display: block;
+    font-size: 19px;
+    font-size: 1.72727rem; }
   .panel__trigger:hover {
     color: white; }
   .panel__trigger:before {
@@ -1283,8 +1300,9 @@ input {
     text-transform: uppercase;
     font-size: 12px;
     font-size: 1.09091rem;
+    font-weight: bold;
     width: 99px;
-    padding: 10px 10px 9px; }
+    padding: 8px 10px; }
     .panel--left .panel__trigger:before {
       border-right: 1px solid #272727;
       right: 100%; }
@@ -1309,7 +1327,7 @@ input {
     right: 0;
     top: 100%; }
   .panel__options a {
-    margin: 5px 0;
+    margin: 3px 0;
     display: block; }
 
 .panel--label .panel__trigger {
@@ -1340,6 +1358,76 @@ input {
     border: none;
     font-size: 16px; }
 
+.btn {
+  display: inline-block;
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 6px 0;
+  text-align: center;
+  margin: 0;
+  line-height: 18px;
+  border: none;
+  width: 220px;
+  font-size: 12px;
+  font-size: 1.09091rem; }
+
+.btn-primary {
+  background: #4cc0bf; }
+
+.form-horizontal .control-group {
+  overflow: hidden;
+  margin-bottom: 10px; }
+.form-horizontal .control-label, .form-horizontal .controls {
+  float: left; }
+.form-horizontal .control-label, .form-horizontal .controls input {
+  display: block;
+  margin: 0;
+  border: none;
+  line-height: 18px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 6px; }
+.form-horizontal .control-label {
+  width: 31.4%;
+  background: #272727;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  font-size: 1.09091rem;
+  text-transform: uppercase; }
+.form-horizontal .controls {
+  background: white;
+  width: 68.4%; }
+  .form-horizontal .controls input {
+    width: 100%; }
+  .form-horizontal .controls select {
+    margin: 6px; }
+
+.alert {
+  padding: 10px;
+  text-transform: uppercase;
+  margin: 10px 0; }
+  .alert i {
+    float: left;
+    padding: 8px;
+    margin: -10px 10px 0 -10px;
+    font-size: 19px;
+    font-size: 1.72727rem;
+    border-right: 1px solid #272727; }
+
+.alert-success {
+  background: #7aecb1; }
+
+.alert-error {
+  background: #f36c72; }
+
+.alert-info {
+  background: black;
+  color: white; }
+
 .datagrid-filter > ul {
   margin: 10px 0; }
   .datagrid-filter > ul > li {
@@ -1347,6 +1435,8 @@ input {
     .datagrid-filter > ul > li > .datagrid-category {
       font-size: 12px;
       font-size: 1.09091rem; }
+      .datagrid-filter > ul > li > .datagrid-category > a {
+        padding: 8px 10px; }
     .datagrid-filter > ul > li.active > .datagrid-category {
       width: 206px; }
       .datagrid-filter > ul > li.active > .datagrid-category:after {
@@ -1371,6 +1461,8 @@ input {
   font-size: 28px;
   font-size: 2.54545rem;
   padding: 2px 5px; }
+  .datagrid-clear i {
+    display: block; }
 
 .datagrid-category {
   background: #272727;
@@ -1379,7 +1471,7 @@ input {
   padding-left: 4px; }
   .datagrid-category > a {
     display: inline-block;
-    padding: 10px; }
+    padding: 9px 10px; }
     .datagrid-category > a:hover {
       color: white; }
   .datagrid-category .panel {
@@ -1433,13 +1525,24 @@ input {
   .datagrid-item__checkbox input {
     margin: 0; }
 
+.datagrid-perpage {
+  float: right;
+  background: white;
+  border: 1px solid #dbdbdb;
+  border-top: none;
+  padding: 0 5px; }
+  .datagrid-perpage label {
+    text-transform: uppercase; }
+  .datagrid-perpage select {
+    margin: 5px 0 6px; }
+
 .datagrid-pagination a {
   display: block;
   float: left;
   border: 1px solid #dbdbdb;
   border-top: none;
   background: white;
-  padding: 9px 0;
+  padding: 7px 0;
   width: 28px;
   text-align: center;
   margin: 0 -1px 0 0; }
@@ -1447,17 +1550,16 @@ input {
   font-size: 14px;
   font-size: 1.27273rem; }
   .datagrid-pagination .datagrid__view i {
-    display: block;
-    margin: -1px 0 -2px; }
+    display: block; }
 .datagrid-pagination .is-active {
   position: relative;
   top: -1px;
-  padding-top: 10px;
+  padding-top: 8px;
   z-index: 2;
   background: #f4f4f4;
   border-color: black;
-  color: #4cc0bf; }
+  color: #4cc0bf;
+  font-weight: bold; }
 
 .datagrid-pagination--right {
-  float: right;
-  width: 322px; }
+  float: right; }
