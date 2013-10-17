@@ -121,12 +121,29 @@
 	background: $white;
 	border: 1px solid darken($light, 10%);
 	border-top: none;
-	padding: 0 5px;
-	label {
-		text-transform: uppercase;
-	}
+	position: relative;
 	select {
-		margin: 5px 0 6px;
+		background: none;
+		text-transform: uppercase;
+		-webkit-appearance: none;
+		-moz-appearance: window;
+		border: none;
+		padding: 7px 10px 8px 10px;
+		display: block;
+		position: relative;
+		z-index: 2;
+		.webkit &, .firefox & {
+			padding-right: 22px;
+		}
+	}
+	i {
+		position: absolute;
+		right: 10px;
+		top: 9px;
+		display: none;
+		.webkit &, .firefox & {
+			display: block;
+		}
 	}
 }
 .datagrid-pagination {
