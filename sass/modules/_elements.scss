@@ -34,6 +34,7 @@
 		background: $black;
 		text-transform: uppercase;
 		@include font-size(12px);
+		font-weight: bold;
 		width: 99px;
 		padding: 8px 10px;
 
@@ -66,7 +67,7 @@
 		top: 100%;
 	}
 	a {
-		margin: 5px 0;
+		margin: 3px 0;
 		display: block;
 	}
 }
@@ -139,7 +140,7 @@
 		padding: 6px;
 	}
 	.control-label {
-		width: 30.5%;
+		width: 31.4%;
 		background: $dark;
 		color: $white;
 		font-weight: bold;
@@ -148,7 +149,7 @@
 	}
 	.controls {
 		background: $white;
-		width: 69.5%;
+		width: 68.4%;
 		input {
 			width: 100%;
 		}
