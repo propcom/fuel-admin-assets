@@ -22,7 +22,7 @@
 	width: 16px;
 	i {
 		display: block;
-		@include font-size(17px);
+		@include font-size(18px);
 	}
 	&:hover {
 		color: $white;
@@ -32,13 +32,14 @@
 		display: none;
 		position: absolute;
 		top: 0;
+		bottom: 0;
 		color: $white;
 		background: $black;
 		text-transform: uppercase;
 		@include font-size(12px);
 		font-weight: bold;
 		text-align: center;
-		width: 90px;
+		width: 92px;
 		@include box-sizing(border-box);
 		padding: 6px 10px;
 
@@ -77,6 +78,7 @@
 	}
 }
 .panel--label {
+	margin-right: 212px;
 	.panel__trigger {
 		background: $black;
 		&:before {
@@ -86,7 +88,7 @@
 }
 .panel--btn {
 	.panel__trigger:before {
-		width: 190px;
+		width: 192px;
 	}
 	.panel__options {
 		width: 220px;
@@ -95,7 +97,7 @@
 
 .search {
 	overflow: hidden;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	input, button {
 		display: block;
 		float: left;
@@ -127,13 +129,23 @@
 	padding: 6px 0;
 	text-align: center;
 	margin: 0;
-	line-height: 18px;
 	border: none;
 	width: 220px;
 	@include font-size(12px);
+	position: relative;
+	i {
+		float: left;
+		margin: -6px 0;
+		padding: 6px 7px;
+		@include font-size(18px);
+		border-right: 1px solid $white;
+	}
 }
 .btn-primary {
 	background: $shop;
+	&:hover {
+		color: $dark;
+	}
 }
 
 .form-horizontal {
