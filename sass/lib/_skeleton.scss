@@ -1,4 +1,5 @@
 .container                                  { position: relative; width: 960px; margin: 0; padding: 0; @include box-sizing(border-box); }
+.container-full 							{ width: 100%; min-width: 960px; }
 .column, .columns                           { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
 .row                                        { margin-bottom: 20px; }
 
