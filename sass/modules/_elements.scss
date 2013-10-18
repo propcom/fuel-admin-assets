@@ -143,6 +143,7 @@
 	}
 	.control-label, .controls {
 		float: left;
+		@include box-sizing(border-box);
 	}
 	.control-label, .controls input {
 		display: block;
@@ -162,12 +163,14 @@
 	}
 	.controls {
 		background: $white;
-		width: 68.4%;
+		width: 67.4%;
+		padding-right: 10px;
 		input {
 			width: 100%;
 		}
 		select {
-			margin: 6px;
+			display: block;
+			width: 100%;
 		}
 	}
 }

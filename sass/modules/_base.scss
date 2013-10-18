@@ -80,3 +80,13 @@ input, select {
 		outline: none;
 	}
 }
+
+select {
+	background: url(../img/chevron-down.svg) right center no-repeat $white;
+	@include background-size(10px);
+	border: none;
+	text-transform: uppercase;
+	-webkit-appearance: none;
+	-moz-appearance: window;
+	padding: 8px 15px 8px 6px;
+}
