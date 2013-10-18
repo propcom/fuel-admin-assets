@@ -39,6 +39,7 @@
 	}
 	h1 {
 		@include font-size(15px);
+		margin-bottom: 14px;
 	}
 	h2 {
 		@include font-size(25px);
