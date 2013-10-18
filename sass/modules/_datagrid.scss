@@ -1,9 +1,18 @@
 .datagrid-filter {
+	h3 {
+		float: left;
+		line-height: 29px;
+	}
+	.panel {
+		float: right;
+	}
 	> ul {
+		clear: both;
 		margin: 10px 0;
 		> li {
 			margin-bottom: 10px;
 			> .datagrid-category {
+				font-weight: bold;
 				@include font-size(12px);
 				> a {
 					padding: 6px 10px;
@@ -53,7 +62,6 @@
 		}
 	}
 	.panel {
-		float: right;
 		display: none;
 	}
 	.active > & {
@@ -84,16 +92,9 @@
 		}
 	}
 }
-.datagrid-items {
-	border-bottom: 1px solid $black;
-}
-
 .datagrid-item {
 	background: $white;
 	margin-bottom: 20px;
-	&:nth-child(3n+1) {
-		clear: left;
-	}
 	img {
 		width: 100%;
 	}
@@ -119,6 +120,10 @@
 	input {
 		margin: 0;
 	}
+}
+.datagrid-bottom {
+	border-top: 1px solid $black;
+	padding: 0 10px;
 }
 .datagrid-perpage {
 	float: right;
