@@ -2,9 +2,9 @@
 	font-family: 'PropShop';
 	src:url('../font/PropShop.eot');
 	src:url('../font/PropShop.eot?#iefix') format('embedded-opentype'),
-		url('../font/PropShop.ttf') format('truetype'),
+		url('../font/PropShop.svg#PropShop') format('svg'),
 		url('../font/PropShop.woff') format('woff'),
-		url('../font/PropShop.svg#PropShop') format('svg');
+		url('../font/PropShop.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -65,6 +65,9 @@
 .icon-check-empty:before {
 	content: "\e0f6";
 }
-.icon-check:before {
+.icon-sort-by:before {
 	content: "\e606";
+}
+.icon-check:before {
+	content: "\e607";
 }
