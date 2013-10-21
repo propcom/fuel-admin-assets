@@ -662,6 +662,8 @@ select {
         border-color: transparent transparent transparent #4cc0bf; }
 .datagrid-filter li {
   clear: both; }
+.datagrid-filter ul ul ul {
+  padding-left: 10px; }
 
 .datagrid-clear {
   position: absolute;
