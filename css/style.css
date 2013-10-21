@@ -305,17 +305,31 @@ input, select {
     outline: none; }
 
 select {
-  background: url(../img/chevron-down.svg) right center no-repeat white;
-  -webkit-background-size: 10px;
-  -moz-background-size: 10px;
-  -ms-background-size: 10px;
-  -o-background-size: 10px;
-  background-size: 10px;
   border: none;
   text-transform: uppercase;
   -webkit-appearance: none;
-  -moz-appearance: window;
-  padding: 8px 15px 8px 6px; }
+  padding: 8px 0 8px 6px; }
+  .no-ie.no-firefox select {
+    background: url(../img/chevron-down.svg) right center no-repeat white;
+    -webkit-background-size: 10px;
+    -moz-background-size: 10px;
+    -ms-background-size: 10px;
+    -o-background-size: 10px;
+    background-size: 10px;
+    padding-right: 15px; }
+
+.no-ie input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 12px;
+  height: 12px;
+  outline: 2px solid black;
+  outline-offset: -2px;
+  background: white; }
+  .no-ie input[type=checkbox]:checked {
+    background: #4cc0bf;
+    outline: 6px solid #4cc0bf;
+    outline-offset: -6px; }
 
 .top {
   background: black;
@@ -407,7 +421,7 @@ select {
     background: black;
     z-index: 10;
     right: 28px;
-    top: 0;
+    top: 1px;
     text-align: right;
     border-left: 1px solid #272727;
     color: white; }
