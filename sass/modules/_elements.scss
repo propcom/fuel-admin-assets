@@ -37,7 +37,7 @@
 		background: $black;
 		text-transform: uppercase;
 		@include font-size(12px);
-		font-weight: bold;
+		font-weight: $boldweight;
 		text-align: center;
 		width: 92px;
 		@include box-sizing(border-box);
@@ -125,7 +125,7 @@
 	background: $black;
 	color: $white;
 	text-transform: uppercase;
-	font-weight: bold;
+	font-weight: $boldweight;
 	padding: 6px 0;
 	text-align: center;
 	margin: 0;
@@ -169,7 +169,7 @@
 		width: 31.4%;
 		background: $dark;
 		color: $white;
-		font-weight: bold;
+		font-weight: $boldweight;
 		@include font-size(12px);
 		text-transform: uppercase;
 	}
