@@ -59,6 +59,12 @@ $(function(){
 		$(this).removeClass('is-open');
 	});
 
+	// Admin Menu
+	$('.js-admin-menu a').first().click(function(e){
+		e.preventDefault();
+		$('.js-admin-menu').toggleClass('is-open');
+	});
+
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
 	/**
