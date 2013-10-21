@@ -670,9 +670,9 @@ select {
   top: 100%;
   right: 0;
   background: #4cc0bf;
-  font-size: 28px;
-  font-size: 2.54545rem;
-  padding: 5px 5px 2px; }
+  font-size: 21px;
+  font-size: 1.90909rem;
+  padding: 7px 7px 4px; }
   .datagrid-clear:hover {
     color: #272727; }
   .datagrid-clear i {
