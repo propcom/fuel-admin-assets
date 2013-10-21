@@ -19,7 +19,7 @@
 				}
 			}
 			&.active > .datagrid-category {
-				width: 206px;
+				width: 210px;
 				&:after {
 					content: "";
 					display: block;
@@ -29,7 +29,7 @@
 					height: 0;
 					width: 0;
 					border-style: solid;
-					border-width: 16px 10px;
+					border-width: 15px 10px 14px;
 					border-color: transparent transparent transparent $shop;
 				}
 			}
@@ -45,7 +45,10 @@
 	right: 0;
 	background: $shop;
 	@include font-size(28px);
-	padding: 2px 5px;
+	padding: 5px 5px 2px;
+	&:hover {
+		color: $dark;
+	}
 	i {
 		display: block;
 	}
