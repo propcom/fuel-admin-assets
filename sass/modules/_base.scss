@@ -80,11 +80,29 @@ input, select {
 }
 
 select {
-	background: url(../img/chevron-down.svg) right center no-repeat $white;
-	@include background-size(10px);
+	.no-ie.no-firefox & {
+		background: url(../img/chevron-down.svg) right center no-repeat $white;
+		@include background-size(10px);
+		padding-right: 15px;
+	}
 	border: none;
 	text-transform: uppercase;
 	-webkit-appearance: none;
-	-moz-appearance: window;
-	padding: 8px 15px 8px 6px;
+	padding: 8px 0 8px 6px;
+}
+.no-ie {
+	input[type=checkbox] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		width: 12px;
+		height: 12px;
+		outline: 2px solid  $black;
+		outline-offset: -2px;
+		background: $white;
+		&:checked {
+			background: $shop;
+			outline: 6px solid $shop;
+			outline-offset: -6px;
+		}
+	}
 }
