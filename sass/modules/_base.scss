@@ -16,6 +16,26 @@
 
 // Typography
 	//@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+	@font-face {
+		font-family: 'Montserrat-Web';
+		src: url('../font/Montserrat-Regular.eot');
+		src: url('../font/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+			 url('../font/Montserrat-Regular.svg#Montserrat-Regular') format('svg'),
+			 url('../font/Montserrat-Regular.woff') format('woff'),
+			 url('../font/Montserrat-Regular.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Montserrat-Web';
+		src: url('../font/Montserrat-Bold.eot');
+		src: url('../font/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+			 url('../font/Montserrat-Bold.svg#Montserrat-Bold') format('svg'),
+			 url('../font/Montserrat-Bold.woff') format('woff'),
+			 url('../font/Montserrat-Bold.ttf') format('truetype');
+		font-weight: bold;
+		font-style: normal;
+	}
 
 	// Rem Mixin
 	$basefs: 11px;
@@ -24,17 +44,18 @@
 		font-size: ($px/$basefs) + rem;
 	}
 	html {
-		font-family: "proxima-nova", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-family: 'Montserrat-Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		font-size: $basefs;
-		letter-spacing: (40/1000) + em;
+		//letter-spacing: (40/1000) + em;
 	}
+	$boldweight: bold;
 	body {
 		background: $light;
 		line-height: (26/18);
 	}
 	h1, h2, h3, h4, h5 {
 		text-transform: uppercase;
-		font-weight: bold;
+		font-weight: $boldweight;
 	}
 	h1 {
 		@include font-size(15px);
@@ -67,7 +88,7 @@ a {
 }
 
 input, select {
-	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Montserrat-Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	letter-spacing: (40/1000) + em;
 	font-size: $basefs;

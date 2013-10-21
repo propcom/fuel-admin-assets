@@ -12,7 +12,7 @@
 		> li {
 			margin-bottom: 10px;
 			> .datagrid-category {
-				font-weight: bold;
+				font-weight: $boldweight;
 				@include font-size(12px);
 				> a {
 					padding: 6px 10px;
@@ -173,7 +173,7 @@
 		background: $light;
 		border-color: $black;
 		color: $shop;
-		font-weight: bold;
+		font-weight: $boldweight;
 	}
 }
 .datagrid-pagination--right {
