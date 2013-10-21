@@ -188,7 +188,7 @@ or wrap each row of columns in a <div class="row"> */
 @font-face {
   font-family: 'PropShop';
   src: url("../font/PropShop.eot");
-  src: url("../font/PropShop.eot?#iefix") format("embedded-opentype"), url("../font/PropShop.ttf") format("truetype"), url("../font/PropShop.woff") format("woff"), url("../font/PropShop.svg#PropShop") format("svg");
+  src: url("../font/PropShop.eot?#iefix") format("embedded-opentype"), url("../font/PropShop.svg#PropShop") format("svg"), url("../font/PropShop.woff") format("woff"), url("../font/PropShop.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -246,13 +246,29 @@ or wrap each row of columns in a <div class="row"> */
 .icon-check-empty:before {
   content: "\e0f6"; }
 
-.icon-check:before {
+.icon-sort-by:before {
   content: "\e606"; }
 
+.icon-check:before {
+  content: "\e607"; }
+
+@font-face {
+  font-family: 'Montserrat-Web';
+  src: url("../font/Montserrat-Regular.eot");
+  src: url("../font/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../font/Montserrat-Regular.svg#Montserrat-Regular") format("svg"), url("../font/Montserrat-Regular.woff") format("woff"), url("../font/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Montserrat-Web';
+  src: url("../font/Montserrat-Bold.eot");
+  src: url("../font/Montserrat-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Montserrat-Bold.svg#Montserrat-Bold") format("svg"), url("../font/Montserrat-Bold.woff") format("woff"), url("../font/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
 html {
-  font-family: "proxima-nova", 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.04em; }
+  font-family: 'Montserrat-Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 11px; }
 
 body {
   background: #f4f4f4;
@@ -294,7 +310,7 @@ a {
     color: #4cc0bf; }
 
 input, select {
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat-Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: 0.04em;
   font-size: 11px;
