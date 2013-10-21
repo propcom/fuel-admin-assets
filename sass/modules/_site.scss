@@ -91,28 +91,31 @@
 .top__admin {
 	color: $mid;
 	border: solid $dark;
-	border-width: 0 1px;
+	border-width: 0 0 0 1px;
 	margin: -20px 0;
 	padding: 20px 0;
 	a {
 		margin: 0 7px;
 	}
-	.active {
+	&.is-open {
+		> li > a {
+			color: $shop;
+		}
 		ul {
+			position: absolute;
+			display: block;
 			background: $black;
 			z-index: 10;
-			left: auto;
-			width: 180px;
+			right: 28px;
+			top: 0;
 			text-align: right;
-			border: none;
-			margin-top: -1px;
+			border-left: 1px solid $dark;
+			color: $white;
 			li {
 				float: none;
-				border: none;
+			}
+			li:first-child {
 				border-bottom: 1px solid $dark;
-				a {
-					padding: 0 20px;
-				}
 			}
 		}
 	}
