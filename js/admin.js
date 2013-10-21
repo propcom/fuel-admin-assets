@@ -18,6 +18,9 @@ $(function(){
 	Modernizr.addTest('webkit', function () {
 		return !!navigator.userAgent.match(/AppleWebKit/i);
 	});
+	Modernizr.addTest('ie', function () {
+		return !!navigator.userAgent.match(/MSIE/i);
+	});
 
 	//alert(navigator.userAgent);
 
