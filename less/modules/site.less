@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'PropShop';
+  src: url("../font/PropShop.eot");
+  src: url("../font/PropShop.eot?#iefix") format("embedded-opentype"), url("../font/PropShop.svg#PropShop") format("svg"), url("../font/PropShop.woff") format("woff"), url("../font/PropShop.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+[class*="icon-"] {
+  font-family: 'PropShop';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-chevron-down:before {
+  content: "\e600"; }
+
+.icon-cog:before {
+  content: "\e601"; }
+
+.icon-undo:before {
+  content: "\e602"; }
+
+.icon-home:before {
+  content: "\e603"; }
+
+.icon-search:before {
+  content: "\e604"; }
+
+.icon-remove:before {
+  content: "\e605"; }
+
+.icon-chevron-left:before {
+  content: "\e609"; }
+
+.icon-chevron-right:before {
+  content: "\e60a"; }
+
+.icon-th:before {
+  content: "\e60b"; }
+
+.icon-th-list:before {
+  content: "\e60c"; }
+
+.icon-user:before {
+  content: "\e014"; }
+
+.icon-star:before {
+  content: "\e032"; }
+
+.icon-add-product:before {
+  content: "\e608"; }
+
+.icon-check-empty:before {
+  content: "\e0f6"; }
+
+.icon-sort-by:before {
+  content: "\e606"; }
+
+.icon-check:before {
+  content: "\e607"; }
+
+#page-container {
+	padding-top: 155px;
+}
+
+.container-full {
+    min-width: 960px;
+    width: 100%;
+}
+
+.top {
+	background: @black;
+	color: @white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+	line-height: 1;
+	min-width: 960px;
+
+	h2 {
+		a {
+			i {
+				font-size: 17px;
+				line-height: 30px;
+			}
+		}
+	}
+	h4 {
+		color: @shop;
+		line-height: 16px;
+	}
+	.top__left, .top__right {
+		padding: 20px 0;
+	}
+
+	.top__left, .top__right {
+		padding: 20px 0;
+	}
+	.top__left {
+		padding-left: 10px;
+		float: left;
+		h2, h4 {
+			padding: 0;
+			margin: 0;
+		}
+		h2 {
+			line-height: 24px;
+		}
+	}
+	.top__right {
+		float: right;
+	}
+	.top__nav {
+		float: right;
+		line-height: (37/15);
+		ul {
+			display: none;
+		}
+		li {
+			float: left;
+		}
+		a {
+			text-transform: uppercase;
+			@include font-size(15px);
+			margin: 0 10px;
+		}
+	}
+}
