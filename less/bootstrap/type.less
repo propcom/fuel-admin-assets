@@ -2,6 +2,21 @@
 // Typography
 // --------------------------------------------------
 
+@font-face {
+  font-family: 'Montserrat-Web';
+  src: url("../font/Montserrat-Regular.eot");
+  src: url("../font/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../font/Montserrat-Regular.svg#Montserrat-Regular") format("svg"), url("../font/Montserrat-Regular.woff") format("woff"), url("../font/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Web';
+  src: url("../font/Montserrat-Bold.eot");
+  src: url("../font/Montserrat-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Montserrat-Bold.svg#Montserrat-Bold") format("svg"), url("../font/Montserrat-Bold.woff") format("woff"), url("../font/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
 // Body text
 // -------------------------
@@ -28,9 +43,9 @@ em      { font-style: italic; }
 cite    { font-style: normal; }
 
 // Utility classes
-.muted               { color: @grayLight; }
+.muted               { color: @gray; }
 a.muted:hover,
-a.muted:focus        { color: darken(@grayLight, 10%); }
+a.muted:focus        { color: darken(@gray, 10%); }
 
 .text-warning        { color: @warningText; }
 a.text-warning:hover,
@@ -62,30 +77,32 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: @headingsFontWeight;
   line-height: @baseLineHeight;
   color: @headingsColor;
+  font-weight: normal;
   text-transform: uppercase;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
     line-height: 1;
-    color: @grayLight;
+    color: @gray;
   }
 }
 
 h1,
 h2,
-h3 { line-height: @baseLineHeight * 2; }
+h3 {  }
 
-h1 { font-size: @baseFontSize * 2.75; } // ~38px
-h2 { font-size: @baseFontSize * 1.75; } // ~24px
-h3 { font-size: @baseFontSize * 1.25; } // ~18px
-h4 { font-size: @baseFontSize * 0.85; } // ~12px
-h5 { font-size: @baseFontSize; }
-h6 { font-size: @baseFontSize * 0.85; } // ~12px
+h1 { font-size: @baseFontSize * 2.20; } // ~26px
+h2 { font-size: @baseFontSize * 1.85; } // ~22px
+h3 { font-size: @baseFontSize * 1.55; } // ~18px
+h4 { font-size: @baseFontSize * 1.25; } // ~15px
+h5 { font-size: @baseFontSize; }        // ~12px
+h6 { font-size: @baseFontSize * 0.85; } // ~10px
 
-h1 small { font-size: @baseFontSize * 1.75; } // ~24px
-h2 small { font-size: @baseFontSize * 1.25; } // ~18px
+h1 small { font-size: @baseFontSize * 1.55; } // ~18px
+h2 small { font-size: @baseFontSize * 1.25; } // ~15px
 h3 small { font-size: @baseFontSize; }
 h4 small { font-size: @baseFontSize; }
+
 
 // Page header
 // -------------------------
@@ -93,7 +110,6 @@ h4 small { font-size: @baseFontSize; }
 .page-header {
   padding-bottom: (@baseLineHeight / 2) - 1;
   margin: @baseLineHeight 0 (@baseLineHeight * 1.5);
-  border-bottom: 1px solid @grayLighter;
 }
 
 
@@ -181,7 +197,7 @@ abbr[title],
 // Added data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted @grayLight;
+  border-bottom: 1px dotted @gray;
 }
 abbr.initialism {
   font-size: 90%;
@@ -192,7 +208,7 @@ abbr.initialism {
 blockquote {
   padding: 0 0 0 15px;
   margin: 0 0 @baseLineHeight;
-  border-left: 5px solid @grayLighter;
+  border-left: 5px solid @gray;
   p {
     margin-bottom: 0;
     font-size: @baseFontSize * 1.25;
@@ -202,7 +218,7 @@ blockquote {
   small {
     display: block;
     line-height: @baseLineHeight;
-    color: @grayLight;
+    color: @gray;
     &:before {
       content: '\2014 \00A0';
     }
@@ -213,7 +229,7 @@ blockquote {
     float: right;
     padding-right: 15px;
     padding-left: 0;
-    border-right: 5px solid @grayLighter;
+    border-right: 5px solid @gray;
     border-left: 0;
     p,
     small {

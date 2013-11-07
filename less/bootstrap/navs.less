@@ -19,7 +19,8 @@
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: @grayLighter;
+  background-color: @gray;
+  color: @white;
 }
 
 // Prevent IE8 from misplacing imgs
@@ -40,8 +41,7 @@
   font-size: 11px;
   font-weight: bold;
   line-height: @baseLineHeight;
-  color: @grayLight;
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  color: @gray;
   text-transform: uppercase;
 }
 // Space them out when they follow another list item (link)
@@ -58,12 +58,12 @@
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 0;
+  text-transform: uppercase;
 }
 .nav-list > li > a,
 .nav-list .nav-header {
   margin-left:  -15px;
   margin-right: -15px;
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
 .nav-list > li > a {
   padding: 3px 15px;
@@ -72,8 +72,7 @@
 .nav-list > .active > a:hover,
 .nav-list > .active > a:focus {
   color: @white;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-  background-color: @linkColor;
+  background-color: @blue;
 }
 .nav-list [class^="icon-"],
 .nav-list [class*=" icon-"] {
@@ -122,20 +121,17 @@
   padding-top: 8px;
   padding-bottom: 8px;
   line-height: @baseLineHeight;
-  border: 1px solid transparent;
-  .border-radius(4px 4px 0 0);
   &:hover,
   &:focus {
-    border-color: @grayLighter @grayLighter #ddd;
+    border-color: @gray @gray #ddd;
   }
 }
 // Active state, and it's :hover/:focus to override normal :hover/:focus
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
-  color: @gray;
-  background-color: @bodyBackground;
-  border: 1px solid #ddd;
+  color: @white;
+  background-color: @blue;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -150,7 +146,6 @@
   padding-bottom: 8px;
   margin-top: 2px;
   margin-bottom: 2px;
-  .border-radius(5px);
 }
 
 // Active state
@@ -158,7 +153,7 @@
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: @white;
-  background-color: @linkColor;
+  background-color: @blue;
 }
 
 
@@ -183,10 +178,8 @@
   .border-radius(0);
 }
 .nav-tabs.nav-stacked > li:first-child > a {
-  .border-top-radius(4px);
 }
 .nav-tabs.nav-stacked > li:last-child > a {
-  .border-bottom-radius(4px);
 }
 .nav-tabs.nav-stacked > li > a:hover,
 .nav-tabs.nav-stacked > li > a:focus {
@@ -208,10 +201,10 @@
 // ---------
 
 .nav-tabs .dropdown-menu {
-  .border-radius(0 0 6px 6px); // remove the top rounded corners here since there is a hard edge above the menu
+  
 }
 .nav-pills .dropdown-menu {
-  .border-radius(6px); // make rounded corners match the pills
+  
 }
 
 // Default dropdown links
@@ -224,8 +217,8 @@
 }
 .nav .dropdown-toggle:hover .caret,
 .nav .dropdown-toggle:focus .caret {
-  border-top-color: @linkColorHover;
-  border-bottom-color: @linkColorHover;
+  border-top-color: @white;
+  border-bottom-color: @white;
 }
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
@@ -257,8 +250,8 @@
 .nav > li.dropdown.open.active > a:hover,
 .nav > li.dropdown.open.active > a:focus {
   color: @white;
-  background-color: @grayLight;
-  border-color: @grayLight;
+  background-color: @gray;
+  border-color: @gray;
 }
 .nav li.dropdown.open .caret,
 .nav li.dropdown.open.active .caret,
@@ -272,7 +265,7 @@
 // Dropdowns in stacked tabs
 .tabs-stacked .open > a:hover,
 .tabs-stacked .open > a:focus {
-  border-color: @grayLight;
+  border-color: @gray;
 }
 
 
@@ -321,7 +314,6 @@
   margin-bottom: 0;
 }
 .tabs-below > .nav-tabs > li > a {
-  .border-radius(0 0 4px 4px);
   &:hover,
   &:focus {
     border-bottom-color: transparent;
@@ -357,11 +349,10 @@
 }
 .tabs-left > .nav-tabs > li > a {
   margin-right: -1px;
-  .border-radius(4px 0 0 4px);
 }
 .tabs-left > .nav-tabs > li > a:hover,
 .tabs-left > .nav-tabs > li > a:focus {
-  border-color: @grayLighter #ddd @grayLighter @grayLighter;
+  border-color: @gray #ddd @gray @gray;
 }
 .tabs-left > .nav-tabs .active > a,
 .tabs-left > .nav-tabs .active > a:hover,
@@ -378,11 +369,10 @@
 }
 .tabs-right > .nav-tabs > li > a {
   margin-left: -1px;
-  .border-radius(0 4px 4px 0);
 }
 .tabs-right > .nav-tabs > li > a:hover,
 .tabs-right > .nav-tabs > li > a:focus {
-  border-color: @grayLighter @grayLighter @grayLighter #ddd;
+  border-color: @gray @gray @gray #ddd;
 }
 .tabs-right > .nav-tabs .active > a,
 .tabs-right > .nav-tabs .active > a:hover,
@@ -398,7 +388,7 @@
 
 // Gray out text
 .nav > .disabled > a {
-  color: @grayLight;
+  color: @midGray;
 }
 // Nuke hover/focus effects
 .nav > .disabled > a:hover,
@@ -406,4 +396,5 @@
   text-decoration: none;
   background-color: transparent;
   cursor: default;
+  color: @midGray;
 }
