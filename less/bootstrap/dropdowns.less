@@ -24,7 +24,7 @@
   width: 0;
   height: 0;
   vertical-align: top;
-  border-top:   4px solid @black;
+  border-top:   4px solid @white;
   border-right: 4px solid transparent;
   border-left:  4px solid transparent;
   content: "";
@@ -49,16 +49,12 @@
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
   list-style: none;
+  text-transform: uppercase;
   background-color: @dropdownBackground;
   border: 1px solid #ccc; // Fallback for IE7-8
   border: 1px solid @dropdownBorder;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  .border-radius(6px);
-  .box-shadow(0 5px 10px rgba(0,0,0,.2));
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
 
   // Aligns the dropdown menu to right
   &.pull-right {
@@ -91,7 +87,7 @@
 .dropdown-submenu:focus > a {
   text-decoration: none;
   color: @dropdownLinkColorHover;
-  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  background-color: @blue;
 }
 
 // Active state
@@ -111,7 +107,7 @@
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  color: @grayLight;
+  color: @midGray;
 }
 // Nuke hover/focus effects
 .dropdown-menu > .disabled > a:hover,
@@ -162,7 +158,7 @@
   // Reverse the caret
   .caret {
     border-top: 0;
-    border-bottom: 4px solid @black;
+    border-bottom: 4px solid @white;
     content: "";
   }
   // Different positioning for bottom up menu
@@ -184,7 +180,6 @@
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-  .border-radius(0 6px 6px 6px);
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -196,7 +191,6 @@
   bottom: 0;
   margin-top: 0;
   margin-bottom: -2px;
-  .border-radius(5px 5px 5px 0);
 }
 
 // Caret to indicate there is a submenu
@@ -209,7 +203,7 @@
   border-color: transparent;
   border-style: solid;
   border-width: 5px 0 5px 5px;
-  border-left-color: darken(@dropdownBackground, 20%);
+  border-left-color: inherit;
   margin-top: 5px;
   margin-right: -10px;
 }
@@ -227,7 +221,6 @@
   > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
-    .border-radius(6px 0 6px 6px);
   }
 }
 
@@ -244,5 +237,4 @@
 .typeahead {
   z-index: 1051;
   margin-top: 2px; // give it some space to breathe
-  .border-radius(@baseBorderRadius);
 }

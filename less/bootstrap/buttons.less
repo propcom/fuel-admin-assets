@@ -13,26 +13,23 @@
   padding: 4px 12px;
   margin-bottom: 0; // For input.btn
   font-size: @baseFontSize;
-  font-weight: bold;
-  line-height: 20px;
+  line-height: @baseLineHeight;
   text-align: center;
+  text-transform: uppercase;
   vertical-align: middle;
   cursor: pointer;
-  width: 220px;
-  border: none;
-  text-transform: uppercase;
-  
+  color: @white;
+  background-color: @blue;
+  border: 0px solid @btnBorder;
   *border: 0; // Remove the border to prevent IE7's black border on input:focus
   border-bottom-color: darken(@btnBorder, 10%);
   .ie7-restore-left-whitespace(); // Give IE7 some love
-  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
 
   // Hover/focus state
   &:hover,
   &:focus {
-    color: @grayDark;
+    color: @darkGray;
     text-decoration: none;
-    background-position: 0 -15px;
 
     // transition is only when going to hover/focus, otherwise the background
     // behind the gradient (there for IE<=9 fallback) gets mismatched
@@ -49,7 +46,6 @@
   &:active {
     background-image: none;
     outline: 0;
-    .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
   }
 
   // Disabled state
@@ -59,6 +55,12 @@
     background-image: none;
     .opacity(65);
     .box-shadow(none);
+
+    &:hover,
+    &:focus {
+      color: @white;
+      text-decoration: none;
+    }
   }
 
 }
@@ -72,7 +74,6 @@
 .btn-large {
   padding: @paddingLarge;
   font-size: @fontSizeLarge;
-  .border-radius(@borderRadiusLarge);
 }
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
@@ -83,7 +84,6 @@
 .btn-small {
   padding: @paddingSmall;
   font-size: @fontSizeSmall;
-  .border-radius(@borderRadiusSmall);
 }
 .btn-small [class^="icon-"],
 .btn-small [class*=" icon-"] {
@@ -98,7 +98,6 @@
 .btn-mini {
   padding: @paddingMini;
   font-size: @fontSizeMini;
-  .border-radius(@borderRadiusSmall);
 }
 
 
@@ -145,28 +144,36 @@ input[type="button"] {
 // Set the backgrounds
 // -------------------------
 .btn-primary {
-  background-color: @shop;
   color: @white;
+  background-color: @blue;
 }
 // Warning appears are orange
 .btn-warning {
-  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+  color: @white;
+  background-color: @orange;
 }
 // Danger and error appear as red
 .btn-danger {
-  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+  color: @white;
+  background-color: #BD362F;
 }
 // Success appears as green
 .btn-success {
-  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+  color: @white;
+  background-color: #5bc0de;
 }
 // Info appears as a neutral blue
 .btn-info {
-  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+  color: @white;
+  background-color: #62c462;
 }
 // Inverse appears as dark gray
 .btn-inverse {
-  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+  color: @white;
+  background-color: @darkGray;
+  &:hover {
+    color: @gray;
+  }
 }
 
 
@@ -215,17 +222,17 @@ input[type="submit"].btn {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: @linkColor;
+  color: @darkGray;
   .border-radius(0);
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: @linkColorHover;
-  text-decoration: underline;
+  color: @blue;
+  text-decoration: none;
   background-color: transparent;
 }
 .btn-link[disabled]:hover,
 .btn-link[disabled]:focus {
-  color: @grayDark;
+  color: @darkGray;
   text-decoration: none;
 }

@@ -25,14 +25,14 @@ legend {
   margin-bottom: @baseLineHeight;
   font-size: @baseFontSize * 1.5;
   line-height: @baseLineHeight * 2;
-  color: @grayDark;
+  color: @darkGray;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 
   // Small
   small {
     font-size: @baseLineHeight * .75;
-    color: @grayLight;
+    color: @gray;
   }
 }
 
@@ -55,10 +55,10 @@ textarea {
 label {
   display: block;
   margin-bottom: 5px;
-  background-color: @dark;
-  text-align: left;
   color: @white;
-  font-weight: bold;
+  background-color: @darkGray;
+  text-align: center;
+  padding: 5px;
   text-transform: uppercase;
 }
 
@@ -85,13 +85,13 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: @baseLineHeight;
-  padding: 4px 6px;
+  padding: 5px 6px;
   margin-bottom: @baseLineHeight / 2;
   font-size: @baseFontSize;
-  line-height: @baseLineHeight;
+  // line-height: @baseLineHeight;
   color: @gray;
-  .border-radius(@inputBorderRadius);
   vertical-align: middle;
+  background-color: @white;
 }
 
 // Reset appearance properties for textual inputs and textarea
@@ -123,16 +123,11 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   background-color: @inputBackground;
-  border: 1px solid @inputBorder;
-  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-  .transition(~"border linear .2s, box-shadow linear .2s");
+  border: 0px solid @inputBorder;
 
   // Focus state
   &:focus {
-    border-color: rgba(82,168,236,.8);
-    outline: 0;
-    outline: thin dotted \9; /* IE6-9 */
-    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
+    
   }
 }
 
@@ -153,7 +148,7 @@ input[type="reset"],
 input[type="button"],
 input[type="radio"],
 input[type="checkbox"] {
-  
+  width: auto; // Override of generic input selector
 }
 
 // Set the height of select and file controls to match text inputs
@@ -192,10 +187,9 @@ input[type="checkbox"]:focus {
 // Make uneditable inputs look inactive
 .uneditable-input,
 .uneditable-textarea {
-  color: @grayLight;
+  color: @gray;
   background-color: darken(@inputBackground, 1%);
   border-color: @inputBorder;
-  .box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
   cursor: not-allowed;
 }
 
@@ -229,12 +223,14 @@ textarea {
 .radio,
 .checkbox {
   min-height: @baseLineHeight; // clear the floating input if there is no label text
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
   float: left;
-  margin-left: -20px;
+  margin-left: 0px;
+  margin-right: 10px;
 }
 
 // Move the options list down to align with labels
@@ -376,11 +372,6 @@ textarea:focus:invalid,
 select:focus:invalid {
   color: #b94a48;
   border-color: #ee5f5b;
-  &:focus {
-    border-color: darken(#ee5f5b, 10%);
-    @shadow: 0 0 6px lighten(#ee5f5b, 20%);
-    .box-shadow(@shadow);
-  }
 }
 
 
@@ -448,7 +439,6 @@ select:focus:invalid {
     margin-bottom: 0; // prevent bottom margin from screwing up alignment in stacked forms
     *margin-left: 0;
     vertical-align: top;
-    .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
     // Make input on top when focused so blue border and shadow always show
     &:focus {
       z-index: 2;
@@ -464,9 +454,8 @@ select:focus:invalid {
     font-weight: normal;
     line-height: @baseLineHeight;
     text-align: center;
-    text-shadow: 0 1px 0 @white;
-    background-color: @grayLighter;
-    border: 1px solid #ccc;
+    background-color: @blue;
+    color: @white;
   }
   .add-on,
   .btn,
@@ -475,8 +464,8 @@ select:focus:invalid {
     .border-radius(0);
   }
   .active {
-    background-color: lighten(@green, 30);
-    border-color: @green;
+    background-color: lighten(@orange, 30);
+    border-color: @orange;
   }
 }
 
@@ -488,7 +477,7 @@ select:focus:invalid {
   .add-on:first-child,
   .btn:first-child {
     // FYI, `.btn:first-child` accounts for a button group that's prepended
-    .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
+    
   }
 }
 
@@ -496,9 +485,9 @@ select:focus:invalid {
   input,
   select,
   .uneditable-input {
-    .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
+    
     + .btn-group .btn:last-child {
-      .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
+      
     }
   }
   .add-on,
@@ -509,7 +498,7 @@ select:focus:invalid {
   .add-on:last-child,
   .btn:last-child,
   .btn-group:last-child > .dropdown-toggle {
-    .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
+    
   }
 }
 
@@ -520,18 +509,18 @@ select:focus:invalid {
   .uneditable-input {
     .border-radius(0);
     + .btn-group .btn {
-      .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
+      
     }
   }
   .add-on:first-child,
   .btn:first-child {
     margin-right: -1px;
-    .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
+    
   }
   .add-on:last-child,
   .btn:last-child {
     margin-left: -1px;
-    .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
+    
   }
   .btn-group:first-child {
     margin-left: 0;
@@ -550,7 +539,6 @@ input.search-query {
   padding-left: 14px;
   padding-left: 4px \9; /* IE7-8 doesn't have border-radius, so don't indent the padding */
   margin-bottom: 0; // Remove the default margin on all inputs
-  .border-radius(15px);
 }
 
 /* Allow for input prepend/append in search forms */
@@ -559,16 +547,12 @@ input.search-query {
   .border-radius(0); // Override due to specificity
 }
 .form-search .input-append .search-query {
-  .border-radius(14px 0 0 14px);
 }
 .form-search .input-append .btn {
-  .border-radius(0 14px 14px 0);
 }
 .form-search .input-prepend .search-query {
-  .border-radius(0 14px 14px 0);
 }
 .form-search .input-prepend .btn {
-  .border-radius(14px 0 0 14px);
 }
 
 
@@ -628,8 +612,8 @@ input.search-query {
 .form-inline .radio input[type="radio"],
 .form-inline .checkbox input[type="checkbox"] {
   float: left;
-  margin-right: 3px;
-  margin-left: 0;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 
@@ -656,8 +640,7 @@ legend + .control-group {
   // Float the labels left
   .control-label {
     float: left;
-    width: @horizontalComponentOffset - 20;
-    padding-top: 5px;
+    width: @horizontalComponentOffset;
     text-align: left;
   }
   // Move over all input controls and content
@@ -689,6 +672,6 @@ legend + .control-group {
   }
   // Move over buttons in .form-actions to align with .controls
   .form-actions {
-    padding-left: @horizontalComponentOffset;
+    padding-left: @horizontalComponentOffset + 10px;
   }
 }
