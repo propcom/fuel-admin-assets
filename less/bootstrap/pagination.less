@@ -5,6 +5,7 @@
 // Space out pagination from surrounding content
 .pagination {
   margin: @baseLineHeight 0;
+  border-top: 1px solid #161616;
 }
 
 .pagination ul {
@@ -25,19 +26,25 @@
   padding: 4px 12px;
   line-height: @baseLineHeight;
   text-decoration: none;
-  background-color: @paginationBackground;
-  border: 1px solid @paginationBorder;
-  border-left-width: 0;
+  border: 1px solid #e4e2e3;
+  border-top: none;
+  position: relative;
 }
 .pagination ul > li > a:hover,
 .pagination ul > li > a:focus,
 .pagination ul > .active > a,
 .pagination ul > .active > span {
   background-color: @paginationActiveBackground;
+  border-top: 1px solid @offWhite;
+  border-left: 1px solid @black;
+  border-right: 1px solid @black;
+  border-bottom: 1px solid @black;
+  top: -1px;
+  color: @blue;
 }
 .pagination ul > .active > a,
 .pagination ul > .active > span {
-  color: @gray;
+  color: @blue;
   cursor: default;
 }
 .pagination ul > .disabled > span,
