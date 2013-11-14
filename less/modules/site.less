@@ -10,6 +10,10 @@ html {
 	font-size: ~"@{remValue}rem";
 }
 
+#page-container {
+	margin-top: 155px;
+}
+
 .container-full {
     min-width: 960px;
     width: 100%;
@@ -92,6 +96,7 @@ html {
 				margin: 0;
 				a {
 					.font-size(1.2);
+					font-weight: bold;
 					display: block;
 					margin: 0;
 					padding: 0px 20px;
@@ -103,6 +108,15 @@ html {
 					}
 					ul {
 						background: @blue;
+						margin: 0;
+						li {
+							font-weight: normal;
+							a {
+								&:hover {
+									color: @white;
+								}
+							}
+						}
 					}
 				}
 				.active {
@@ -120,6 +134,9 @@ html {
 							a {
 								margin: 0 20px;
 								padding: 0;
+								&:hover {
+									color: @white;
+								}
 							}
 						}
 					}
