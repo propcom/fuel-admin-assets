@@ -47,14 +47,10 @@
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0; // override default ul
+  margin: 0; // override default ul
   list-style: none;
   text-transform: uppercase;
   background-color: @dropdownBackground;
-  border: 1px solid #ccc; // Fallback for IE7-8
-  border: 1px solid @dropdownBorder;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
 
   // Aligns the dropdown menu to right
   &.pull-right {
@@ -125,6 +121,11 @@
   // IE7's z-index only goes to the nearest positioned ancestor, which would
   // make the menu appear below buttons that appeared later on the page
   *z-index: @zindexDropdown;
+
+  & > .dropdown-toggle {
+    background: @dropdownBackground;
+    color: @dropdownLinkColor !important;
+  }
 
   & > .dropdown-menu {
     display: block;
