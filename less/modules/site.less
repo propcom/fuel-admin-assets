@@ -66,9 +66,15 @@ html {
 			list-style: none outside none;
 			.font-size(1.5);
 		}
+		.pull-right {
+			float: right;
+			border-left: 1px solid @black;
+			border-right: none;
+		}
 		a {
 			text-transform: uppercase;
 			margin: 0 10px;
+			font-weight: bold;
 		}
 		> .active {
 			color: $shop;
@@ -123,8 +129,8 @@ html {
 	}
 }
 .top__admin {
-	color: @white;
-	border: solid @gray;
+	color: @gray;
+	border: solid @darkGray;
 	border-width: 0 0 0 1px;
 	margin: -20px 0!important;
 	padding: 27px 0;
