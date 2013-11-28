@@ -8,10 +8,12 @@
 	h3 {
 		.font-size(1.3);
 		font-weight: bold;
+		margin-bottom: 0;
+		line-height: 30px;
 	}
-	.btn-group a {
+	.dropdown-toggle {
 		background-color: transparent !important;
-		&:hover {
+		&:hover, &:focus {
 			color: @blue;
 		}
 	}
@@ -22,8 +24,14 @@
 	}
 	.btn {
 		padding: 3px 7px;
-		.font-size(1.8);
 		border-right: 1px solid @black;
+		margin-bottom: 0;
+		i {
+			display: block;
+			.font-size(1.8);
+			line-height: 24px;
+			vertical-align: middle;
+		}
 	}
 	.open .btn {
 		background: @black !important;
@@ -43,20 +51,31 @@
 	}
 	.nav-list {
 		padding: 0;
-		a {
-			background: @darkGray;
-			color: @white;
-			margin: 0 0 1px 0;
-		}
-		.btn {
-			margin-bottom: 0;
+		clear: both;
+		> li {
+
+			> a {
+				background: @darkGray;
+				color: @white;
+				margin: 0 0 1px 0;
+				font-weight: bold;
+				&:hover, &:focus {
+					background: @gray;
+				}
+			}
 		}
 		.nav-list {
-			.font-size(1.1);
+			.font-size(1);
+			.nav-list {
+				margin-left: 10px;
+			}
 		}
 	}
+	.datagrid-filter > .nav-list > li {
+		margin-bottom: 10px;
+	}
 	.search-query {
-		width: 138px;
+		width: 139px;
 	}
 	.active a {
 		background: @blue;
@@ -77,6 +96,19 @@
 	}
 }
 
+.datagrid-search {
+	.btn {
+		background: @white;
+		border-left: 1px solid @black;
+		margin-left: 0;
+		color: @black;
+	}
+}
+
+.datagrid-apply {
+	margin-top: 20px;
+}
+
 .datagrid-clear {
 	position: absolute;
 	top: 100%;
@@ -87,13 +119,35 @@
 	i {
 		display: block !important;
 	}
-	&:hover {
+	&:hover, &:focus {
 		color: @darkGray;
 	}
 }
 
 .datagrid-top {
 	padding: 20px 0;
+	h1 {
+		.font-size(1.6);
+		font-weight: bold;
+		margin-top: 0;
+	}
+	.btn {
+		width: 196px;
+		position: relative;
+		margin-right: 17px;
+		i {
+			position: absolute;
+			left: 0;
+			top: 0;
+			.font-size(1.8);
+			padding: 7px 9px;
+			border-right: 1px solid @white;
+		}
+	}
+	.dropdown-menu {
+		width: 220px;
+		border-top: 1px solid @white;
+	}
 }
 
 .datagrid-data {
@@ -166,7 +220,7 @@
 		border: 1px solid @lightGray;
 		border-top: none;
 		background: fade(@white, 90%);
-		&:hover {
+		&:hover, &:focus {
 			color: @blue;
 		}
 		.caret {
