@@ -8,6 +8,7 @@
 
 // Core
 .btn {
+  font-weight: bold;
   display: inline-block;
   .ie7-inline-block();
   padding: 4px 12px;
@@ -62,7 +63,6 @@
       text-decoration: none;
     }
   }
-
 }
 
 
@@ -126,6 +126,19 @@ input[type="button"] {
   }
 }
 
+.btn-icon {
+  position: relative;
+  i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    font-size: 1.8rem;
+    padding: 3px 6px;
+    border-right: 1px solid @white;
+  }
+}
+
 
 
 // Alternate buttons
@@ -138,7 +151,7 @@ input[type="button"] {
 .btn-success.active,
 .btn-info.active,
 .btn-inverse.active {
-  
+
 }
 
 // Set the backgrounds
