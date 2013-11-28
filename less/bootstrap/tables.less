@@ -26,12 +26,18 @@ table {
     line-height: @baseLineHeight;
     text-align: left;
     vertical-align: top;
+    input[type=checkbox] {
+      margin: 6px auto;
+      display: block;
+    }
   }
   th {
     font-weight: bold;
-    background-color: @darkGray;
+    background-color: @darkGray !important;
     color: @white;
     text-transform: uppercase;
+    text-align: center;
+    .font-size(1.3);
   }
   // Bottom align for column headings
   thead th {
@@ -82,7 +88,7 @@ table {
     border-left: 1px solid #171717;
   }
   td {
-    border-left: 1px solid #e2e2da;
+    border-left: 1px solid @tableBorder;
   }
   // Prevent a double border
   caption + thead tr:first-child th,
@@ -96,57 +102,6 @@ table {
   tbody:first-child tr:first-child td {
     border-top: 0;
   }
-  // For first th/td in the first row in the first thead or tbody
-  // thead:first-child tr:first-child > th:first-child,
-  // tbody:first-child tr:first-child > td:first-child,
-  // tbody:first-child tr:first-child > th:first-child {
-  //   .border-top-left-radius(@baseBorderRadius);
-  // }
-  // For last th/td in the first row in the first thead or tbody
-  // thead:first-child tr:first-child > th:last-child,
-  // tbody:first-child tr:first-child > td:last-child,
-  // tbody:first-child tr:first-child > th:last-child {
-  //   .border-top-right-radius(@baseBorderRadius);
-  // }
-  // For first th/td (can be either) in the last row in the last thead, tbody, and tfoot
-  // thead:last-child tr:last-child > th:first-child,
-  // tbody:last-child tr:last-child > td:first-child,
-  // tbody:last-child tr:last-child > th:first-child,
-  // tfoot:last-child tr:last-child > td:first-child,
-  // tfoot:last-child tr:last-child > th:first-child {
-  //   .border-bottom-left-radius(@baseBorderRadius);
-  // }
-  // For last th/td (can be either) in the last row in the last thead, tbody, and tfoot
-  // thead:last-child tr:last-child > th:last-child,
-  // tbody:last-child tr:last-child > td:last-child,
-  // tbody:last-child tr:last-child > th:last-child,
-  // tfoot:last-child tr:last-child > td:last-child,
-  // tfoot:last-child tr:last-child > th:last-child {
-  //   .border-bottom-right-radius(@baseBorderRadius);
-  // }
-
-  // Clear border-radius for first and last td in the last row in the last tbody for table with tfoot
-  tfoot + tbody:last-child tr:last-child td:first-child {
-    .border-bottom-left-radius(0);
-  }
-  tfoot + tbody:last-child tr:last-child td:last-child {
-    .border-bottom-right-radius(0);
-  }
-
-  // Special fixes to round the left border on the first td/th
-  caption + thead tr:first-child th:first-child,
-  caption + tbody tr:first-child td:first-child,
-  colgroup + thead tr:first-child th:first-child,
-  colgroup + tbody tr:first-child td:first-child {
-    
-  }
-  caption + thead tr:first-child th:last-child,
-  caption + tbody tr:first-child td:last-child,
-  colgroup + thead tr:first-child th:last-child,
-  colgroup + tbody tr:first-child td:last-child {
-    
-  }
-
 }
 
 
