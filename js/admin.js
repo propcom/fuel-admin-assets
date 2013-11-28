@@ -70,6 +70,22 @@ $(function(){
 
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
+
+	var $desc_label = $('#label_meta_description'),
+		$desc_field = $('#meta_description');
+
+	$desc_label.attr('data-char-count', '150');
+	$desc_field.on('keyup focus blur', function(){
+		var chars_left = 150 - this.value.length;
+		$desc_label.attr('data-char-count', chars_left);
+		if (chars_left < 0) {
+			$desc_label.addClass('desc-over-limit');
+		} else {
+			$desc_label.removeClass('desc-over-limit');
+		}
+	});
+
+
 	/**
 	 * Link to a specific Twitter Bootstrap Tab
 	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184

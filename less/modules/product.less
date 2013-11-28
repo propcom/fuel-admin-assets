@@ -1,0 +1,84 @@
+#product_fieldset_prices {
+	fieldset {
+		width: 20%;
+		float: left;
+		.control-group {
+			margin-bottom: 1px;
+		}
+		.control-label {
+			margin-bottom: 0;
+		}
+		label {
+			display: block;
+			border-right: 1px solid @black;
+			margin-bottom: 0;
+		}
+		input {
+			width: 100%;
+			box-sizing: border-box;
+			border-right: 1px solid @lightGray;
+			text-align: center;
+			margin-bottom: 0;
+			height: 34px;
+		}
+		select {
+			border: solid @lightGray;
+			border-width: 0 1px 0 0;
+			width: 100%;
+		}
+	}
+}
+
+#product_fieldset_visibility {
+	.group-label {
+		margin-bottom: 5px;
+		color: @white;
+		background-color: @darkGray;
+		text-align: center;
+		padding: 5px;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	.multi-field {
+		background: @white;
+		label {
+			background: none;
+			color: @black;
+		}
+	}
+}
+
+#product_fieldset_seo {
+	.control-label {
+		margin-bottom: 0;
+	}
+	label {
+		display: block;
+		margin-bottom: 0;
+		position: relative;
+	}
+	#label_meta_description:after {
+		content: attr(data-char-count);
+		float: right;
+		color: @green;
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-left: 1px solid @black;
+		padding: 5px 10px;
+	}
+	#label_meta_description.desc-over-limit:after {
+		color: @rose;
+	}
+	input {
+		text-align: center;
+		padding: 5px 0;
+		width: 100%;
+	}
+	textarea {
+		resize: vertical;
+		width: 100%;
+		box-sizing: border-box;
+		height: 80px;
+	}
+}
