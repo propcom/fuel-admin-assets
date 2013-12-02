@@ -70,19 +70,40 @@ $(function(){
 
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
+	var fields = [
+		[$('#label_meta_description'), $('#meta_description'), 150],
+		[$('#label_short_description'), $('#short_description'), 60],
+		[$('#label_long_description'), $('#long_description'), 240]
+	];
 
-	var $desc_label = $('#label_meta_description'),
-		$desc_field = $('#meta_description');
+	$.each(fields, function(){
+		var field = $(this),
+			$label = field[0],
+			$input = field[1],
+			limit = field[2];
 
-	$desc_label.attr('data-char-count', '150');
-	$desc_field.on('keyup focus blur', function(){
-		var chars_left = 150 - this.value.length;
-		$desc_label.attr('data-char-count', chars_left);
-		if (chars_left < 0) {
-			$desc_label.addClass('desc-over-limit');
+		$label.addClass('label-char-counter');
+
+		// Add remaining characters label
+		var prefilled = $input[0].value.length,
+			remaining = limit - prefilled;
+		$label.attr('data-char-count', remaining);
+		// Make label red if too many characters
+		if (remaining < 0) {
+			$label.addClass('desc-over-limit');
 		} else {
-			$desc_label.removeClass('desc-over-limit');
+			$label.removeClass('desc-over-limit');
 		}
+		// Watch when typing in box to adjust value of label
+		$input.on('keyup focus blur', function(){
+			var chars_left = limit - this.value.length;
+			$label.attr('data-char-count', chars_left);
+			if (chars_left < 0) {
+				$label.addClass('desc-over-limit');
+			} else {
+				$label.removeClass('desc-over-limit');
+			}
+		});
 	});
 
 
