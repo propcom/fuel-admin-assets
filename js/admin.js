@@ -33,7 +33,13 @@ $(function(){
 				window.location = this.href;
 			};
 		});
+	}
+
+	if ($('.top__nav ul ul').is(':visible')) {
+		$('html').addClass('subsubnav');
 	};
+
+
 
 	//$('.btn[title], i[title]').tooltip();
 
