@@ -27,21 +27,47 @@
 			margin-top: 0;
 		}
 	}
-}
-
-.help-inline {
-	// Possibly temp
-	float: right;
-	line-height: 34px;
-}
-.help-block {
-	float: left;
-	line-height: 34px;
-	padding-left: 10px;
-}
-.control-group, fieldset {
-	overflow: hidden;
-	max-width: 700px;
+	#label_status {
+		margin-bottom: 0;
+	}
+	#status {
+		width: 500px;
+		float: left;
+	}
+	#label_weight, #label_width, #label_height, #label_depth {
+		width: 25%;
+		float: left;
+	}
+	#weight, #width, #height, #depth {
+		width: 25%;
+		float: left;
+		padding: 5px 6px;
+	}
+	.help-inline {
+		// Possibly temp
+		float: right;
+		line-height: 34px;
+	}
+	.help-block {
+		float: left;
+		line-height: 34px;
+		padding-left: 10px;
+	}
+	.control-group, fieldset {
+		overflow: hidden;
+		max-width: 700px;
+	}
+	.fieldset-buttons {
+		position: fixed;
+		left: 740px;
+		bottom: 10px;
+		width: 220px;
+		.btn {
+			width: 100%;
+			display: block;
+			margin-bottom: 10px;
+		}
+	}
 }
 
 #label_title {
@@ -257,8 +283,25 @@
 
 #product_fieldset_google_categories {
 	.control-group {
-		width: 50%;
+		width: 220px;
 		float: left;
+		margin-right: 20px;
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+	}
+	legend {
+		float: left;
+		width: auto;
+	}
+	.btn {
+		margin-bottom: 20px;
+	}
+	#google-categories {
+		clear: both;
+	}
+	.dropdowns {
+		overflow: hidden;
 	}
 	label {
 		margin-bottom: 0;
@@ -268,17 +311,6 @@
 		width: 100%;
 	}
 }
-
-#label_weight, #label_width, #label_height, #label_depth {
-	width: 25%;
-	float: left;
-}
-#weight, #width, #height, #depth {
-	width: 25%;
-	float: left;
-	padding: 5px 6px;
-}
-
 #product_fieldset_attribute_fields {
 	.control-group {
 		width: 50%;
@@ -324,17 +356,5 @@
 			color: @darkGray;
 			line-height: 1.2;
 		}
-	}
-}
-
-.fieldset-buttons {
-	position: fixed;
-	left: 740px;
-	bottom: 10px;
-	width: 220px;
-	.btn {
-		width: 100%;
-		display: block;
-		margin-bottom: 10px;
 	}
 }
