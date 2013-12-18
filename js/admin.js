@@ -90,28 +90,30 @@ $(function(){
 			$input = field[1],
 			limit = field[2];
 
-		$label.addClass('label-char-counter');
+		if ($label.length && $input.length) {
+			$label.addClass('label-char-counter');
 
-		// Add remaining characters label
-		var prefilled = $input[0].value.length,
+			// Add remaining characters label
+			var prefilled = $input[0].value.length,
 			remaining = limit - prefilled;
-		$label.attr('data-char-count', remaining);
-		// Make label red if too many characters
-		if (remaining < 0) {
-			$label.addClass('desc-over-limit');
-		} else {
-			$label.removeClass('desc-over-limit');
-		}
-		// Watch when typing in box to adjust value of label
-		$input.on('keyup focus blur', function(){
-			var chars_left = limit - this.value.length;
-			$label.attr('data-char-count', chars_left);
-			if (chars_left < 0) {
+			$label.attr('data-char-count', remaining);
+			// Make label red if too many characters
+			if (remaining < 0) {
 				$label.addClass('desc-over-limit');
 			} else {
 				$label.removeClass('desc-over-limit');
 			}
-		});
+			// Watch when typing in box to adjust value of label
+			$input.on('keyup focus blur', function(){
+				var chars_left = limit - this.value.length;
+				$label.attr('data-char-count', chars_left);
+				if (chars_left < 0) {
+					$label.addClass('desc-over-limit');
+				} else {
+					$label.removeClass('desc-over-limit');
+				}
+			});
+		}
 	});
 
 	// Product media scroll
