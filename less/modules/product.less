@@ -59,7 +59,7 @@
 	}
 	.fieldset-buttons {
 		position: fixed;
-		left: 740px;
+		left: 980px;
 		bottom: 10px;
 		width: 220px;
 		.btn {
@@ -157,6 +157,9 @@
 			position: absolute;
 			top: 10px;
 			left: 10px;
+		}
+		.btn:nth-child(4) {
+			left: 50px;
 		}
 		// Only show first 5 images
 		&:nth-child(1),
@@ -278,6 +281,43 @@
 		width: 100%;
 		box-sizing: border-box;
 		height: 80px;
+	}
+}
+
+#product_fieldset_category {
+	margin-bottom: 20px;
+	.product-category {
+		width: 220px;
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+		&:nth-child(3n+1) {
+			clear: left;
+		}
+	}
+	label {
+		margin-bottom: 0;
+		padding: 0;
+		overflow: hidden;
+		line-height: 32px;
+		.btn {
+			line-height: 26px;
+			border: solid @black;
+			border-width: 0 1px;
+		}
+		.active {
+			color: @blue !important;
+		}
+	}
+	select {
+		margin: 0;
+	}
+	> .btn {
+		clear: both;
+		float: right;
 	}
 }
 
