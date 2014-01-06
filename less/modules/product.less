@@ -95,7 +95,6 @@
 }
 
 #product_fieldset_prices {
-	margin-bottom: 10px;
 	#label_price_tax {
 		float: left;
 		width: 165px;
@@ -107,6 +106,12 @@
 	fieldset {
 		width: 25%;
 		float: left;
+		margin-bottom: 20px;
+		&:last-child {
+			float: none;
+			clear: both;
+			width: 50%;
+		}
 		.control-group {
 			margin-bottom: 1px;
 		}
@@ -130,6 +135,7 @@
 			border: solid @lightGray;
 			border-width: 0 1px 0 0;
 			width: 100%;
+			margin-bottom: 0;
 		}
 	}
 }
@@ -282,6 +288,34 @@
 		box-sizing: border-box;
 		height: 80px;
 	}
+	.group-label {
+		display: block;
+		color: @white;
+		background-color: @darkGray;
+		text-align: center;
+		padding: 5px;
+		text-transform: uppercase;
+		font-weight: bold;
+		width: 342px;
+		font-size: 12px;
+		line-height: 24px;
+	}
+	.multi-field {
+		background: @white;
+		width: 175px;
+		float: left;
+		text-align: center;
+		border-right: 1px solid @lightGray;
+		input {
+			display: inline-block;
+			width: auto;
+		}
+		label {
+			display: inline-block;
+			background: none;
+			color: @black;
+		}
+	}
 }
 
 #product_fieldset_category {
@@ -323,12 +357,8 @@
 
 #product_fieldset_google_categories {
 	.control-group {
-		width: 220px;
+		width: 350px;
 		float: left;
-		margin-right: 20px;
-		&:nth-child(3n) {
-			margin-right: 0;
-		}
 	}
 	legend {
 		float: left;
