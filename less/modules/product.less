@@ -192,6 +192,68 @@
 	}
 }
 
+#product_fieldset_stock {
+	label {
+		margin-bottom: 0;
+		width: 222px;
+		border-right: 1px solid @black;
+	}
+	select {
+		width: 230px;
+	}
+	.group-label {
+		color: @white;
+		background-color: @darkGray;
+		text-align: center;
+		padding: 5px;
+		text-transform: uppercase;
+		font-weight: bold;
+		display: block;
+		line-height: 24px;
+		width: 223px;
+		border-right: 1px solid @black;
+	}
+	.multi-field {
+		background: @white;
+		text-align: center;
+		border-right: 1px solid @lightGray;
+		float: left;
+		width: 116px;
+		height: 30px;
+		input {
+			display: inline-block;
+		}
+		label {
+			display: inline-block;
+			background: none;
+			color: @black;
+			margin: 0;
+			padding: 2px 5px;
+			width: auto;
+			border-right: 0;
+		}
+	}
+	input[type=text] {
+		width: 220px;
+		text-align: center;
+		border-right: 1px solid @lightGray;
+	}
+	.control-group {
+		float: left;
+	}
+	.control-group:nth-child(2) {
+		margin-bottom: 20px;
+		float: none;
+		.group-label {
+			width: 350px;
+			border-right: 0;
+		}
+		.multi-field {
+			width: 179px;
+		}
+	}
+}
+
 .label-char-counter {
 	&:after {
 		content: attr(data-char-count);
@@ -346,6 +408,12 @@
 			color: @blue !important;
 		}
 	}
+	.product-category__default {
+		color: @gray;
+		&:hover {
+			color: @midGray;
+		}
+	}
 	select {
 		margin: 0;
 	}
@@ -381,20 +449,18 @@
 		width: 100%;
 	}
 }
-#product_fieldset_attribute_fields {
+#product_fieldset_attribute_fields, #product_fieldset_variant_fields {
 	.control-group {
-		width: 50%;
+		width: 31.666666%;
 		float: left;
 		box-sizing: border-box;
-		&:nth-child(odd) {
-			padding-right: 10px;
-		}
-		&:nth-child(even) {
-			padding-left: 10px;
+		margin-right: 2.5%;
+		&:nth-child(3n) {
+			margin-right: 0;
 		}
 	}
 	label, select {
-		width: 165px;
+		width: 99px;
 		float: left;
 	}
 	input {
