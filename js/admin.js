@@ -216,6 +216,8 @@ $(function(){
 		modal_html += '</aside>';
 
 		$(modal_html).modal();
+
+		$(document).trigger('complete.modal.admin');
 	}
 
 	$.ajaxPreprocess({
@@ -234,6 +236,8 @@ $(function(){
 					window.location = '/admin/home/login';
 				}
 			}
+
+			$(document).trigger('error.ajax.admin');
 		},
 
 		success: function(data, textStatus, jqXHR){
@@ -244,7 +248,7 @@ $(function(){
 				var response = jqXHR.responseText;
 			}
 
-
+			$(document).trigger('success.ajax.admin');
 		},
 
 		complete: function(jqXHR, testStatus) {
@@ -264,12 +268,16 @@ $(function(){
 
 				if (response.fancybox != undefined) {
 					$.fancybox(response.fancybox);
+					$(document).trigger('fancybox.ajax.admin');
 				}
 
 				if (response.modal != undefined) {
 					generateModal(response.modal);
+					$(document).trigger('modal.ajax.admin');
 				}
 			}
+
+			$(document).trigger('complete.ajax.admin');
 		}
 	});
 
