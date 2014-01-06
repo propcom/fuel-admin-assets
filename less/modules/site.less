@@ -117,7 +117,8 @@ html {
 					&.pull-right {
 						float: right!important;
 						padding-right: 10px;
-						a{
+						a {
+							padding-right: 30px;
 							&:after {
 								content: "\f078";
 								margin-left: 10px;
@@ -136,6 +137,10 @@ html {
 							a {
 								&:hover {
 									color: @white;
+								}
+								&:after {
+									content: ""!important;
+									content: none !important;
 								}
 							}
 						}
