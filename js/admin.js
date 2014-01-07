@@ -104,16 +104,24 @@ $(function(){
 		if ($label.length && $input.length) {
 			$label.addClass('label-char-counter');
 
+			// no point doing stuff if it doesn't exist
+			if ($input.size() <= 0) {
+				return true;
+			}
+
 			// Add remaining characters label
 			var prefilled = $input[0].value.length,
-			remaining = limit - prefilled;
+				remaining = limit - prefilled;
+
 			$label.attr('data-char-count', remaining);
+
 			// Make label red if too many characters
 			if (remaining < 0) {
 				$label.addClass('desc-over-limit');
 			} else {
 				$label.removeClass('desc-over-limit');
 			}
+
 			// Watch when typing in box to adjust value of label
 			$input.on('keyup focus blur', function(){
 				var chars_left = limit - this.value.length;
