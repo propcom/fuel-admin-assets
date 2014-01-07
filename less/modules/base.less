@@ -11,3 +11,21 @@ a {
 		color: @blue;
 	}
 }
+
+select {
+	border-radius: 0;
+	-webkit-appearance: none;
+	font-family: 'Montserrat-Web-Selects';
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	border: 0;
+	background: url('../img/chevron-down.svg') right 8px center white;
+	-webkit-background-size: 10px;
+	background-size: 10px;
+	background-repeat: no-repeat;
+	padding-right: 20px;
+}
+select[multiple] {
+	background: @white;
+	padding-right: 2px;
+}
