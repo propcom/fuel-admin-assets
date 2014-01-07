@@ -45,8 +45,10 @@
 	}
 	.help-inline {
 		// Possibly temp
-		float: right;
-		line-height: 34px;
+		float: left;
+		line-height: 20px;
+		margin-left: -15px;
+		color: white;
 	}
 	.help-block {
 		float: left;
@@ -76,7 +78,7 @@
 }
 #title {
 	float: left;
-	width: 597px;
+	width: 608px;
 	padding: 5px 6px;
 }
 #label_sku {
@@ -85,7 +87,7 @@
 }
 #sku {
 	float: left;
-	width: 478px;
+	width: 489px;
 	padding: 5px 6px;
 }
 
@@ -101,7 +103,7 @@
 	}
 	#price_tax {
 		float: left;
-		width: 262px;
+		width: 272px;
 	}
 	fieldset {
 		width: 25%;
@@ -447,24 +449,25 @@
 	}
 	select {
 		width: 100%;
+		border-right: 1px solid @lightGray;
 	}
 }
 #product_fieldset_attribute_fields, #product_fieldset_variant_fields {
 	.control-group {
-		width: 31.666666%;
+		width: 220px;
 		float: left;
 		box-sizing: border-box;
-		margin-right: 2.5%;
+		margin-right: 20px;
 		&:nth-child(3n) {
 			margin-right: 0;
 		}
 	}
 	label, select {
-		width: 99px;
+		width: 105px;
 		float: left;
 	}
 	input {
-		width: 153px;
+		width: 93px;
 		float: left;
 		padding: 5px 6px;
 	}
