@@ -171,12 +171,28 @@ html {
 			}
 		}
 	}
-	.top__admin {
-		color: @gray;
+	.right__menu {
+		margin: -20px 0!important;
+		width: 30px;
 		border: solid @darkGray;
 		border-width: 0 0 0 1px;
-		margin: -20px 0!important;
-		padding: 27px 0;
+		float: right;
+		.prop-help {
+			float: right;
+			color: @gray;
+			border: solid @darkGray;
+			border-width: 0 0 1px 0;
+			width: 30px;
+			text-align: center;
+			padding: 8px 0;
+			.font-size(1.6);
+		}
+	}
+	
+	.top__admin {
+		color: @gray;
+		padding: 8px 0;
+		margin: 0 0 0 25px;
 		a {
 			margin: 0 7px;
 		}
