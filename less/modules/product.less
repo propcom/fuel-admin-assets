@@ -203,37 +203,8 @@
 	select {
 		width: 230px;
 	}
-	.group-label {
-		color: @white;
-		background-color: @darkGray;
-		text-align: center;
-		padding: 5px;
-		text-transform: uppercase;
-		font-weight: bold;
-		display: block;
-		line-height: 24px;
+	.control-group-multi {
 		width: 223px;
-		border-right: 1px solid @black;
-	}
-	.multi-field {
-		background: @white;
-		text-align: center;
-		border-right: 1px solid @lightGray;
-		float: left;
-		width: 116px;
-		height: 30px;
-		input {
-			display: inline-block;
-		}
-		label {
-			display: inline-block;
-			background: none;
-			color: @black;
-			margin: 0;
-			padding: 2px 5px;
-			width: auto;
-			border-right: 0;
-		}
 	}
 	input[type=text] {
 		width: 220px;
@@ -294,32 +265,10 @@
 	.control-group {
 		margin-bottom: 0;
 	}
-	.group-label {
-		color: @white;
-		background-color: @darkGray;
-		text-align: center;
-		padding: 5px;
-		text-transform: uppercase;
-		font-weight: bold;
-		display: block;
-		line-height: 24px;
-		width: 170px;
-	}
-	.multi-field {
-		background: @white;
-		width: 180px;
-		text-align: center;
-		border-right: 1px solid @lightGray;
-		float: left;
-		input {
-			display: inline-block;
-		}
-		label {
-			display: inline-block;
-			background: none;
-			color: @black;
-			margin: 0;
-			padding: 2px 5px;
+	.control-group-multi {
+		width: 360px;
+		.group-label {
+			width: 170px;
 		}
 	}
 	#label_customer_groups {
@@ -353,33 +302,8 @@
 		box-sizing: border-box;
 		height: 80px;
 	}
-	.group-label {
-		display: block;
-		color: @white;
-		background-color: @darkGray;
-		text-align: center;
-		padding: 5px;
-		text-transform: uppercase;
-		font-weight: bold;
-		width: 342px;
-		font-size: 12px;
-		line-height: 24px;
-	}
-	.multi-field {
-		background: @white;
-		width: 175px;
-		float: left;
-		text-align: center;
-		border-right: 1px solid @lightGray;
-		input {
-			display: inline-block;
-			width: auto;
-		}
-		label {
-			display: inline-block;
-			background: none;
-			color: @black;
-		}
+	.control-group-multi {
+		width: 360px;
 	}
 }
 
@@ -548,25 +472,8 @@
 
 #product_fieldset_bundles {
 	.multi-field {
-		width: 50%;
-		float: left;
-		margin-bottom: 15px;
-		box-sizing: border-box;
-		&:nth-child(odd) {
-			clear: left;
-			padding-right: 10px;
-		}
-		&:nth-child(even) {
-			padding-left: 10px;
-		}
-		input {
-			margin-right: 5px;
-		}
-		label {
-			display: inline;
-			background: none;
-			color: @darkGray;
-			line-height: 1.2;
-		}
+		width: 100%;
+		float: none;
+		border-left: 1px solid @lightGray;
 	}
 }
