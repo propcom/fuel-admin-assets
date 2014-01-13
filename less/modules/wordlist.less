@@ -1,0 +1,33 @@
+.wordlist-view {
+	background: @white;
+	* {
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+	span {
+		display: inline-block;
+		padding: 5px;
+		border: solid @offWhite;
+		border-width: 0px 1px 1px 0px;
+		width: (100%/3) !important;
+		cursor: pointer;
+		&:after {
+			content: "\00D7";
+			float: right;
+			margin-left: 5px;
+			cursor: pointer;
+		}
+	}
+	input {
+		box-sizing: border-box;
+		border: solid @offWhite;
+		border-width: 0px 1px 1px 0px;
+		margin: 0;
+		padding: 5px !important;
+		width: (100%/3) !important;
+		text-align: left !important;
+		height: 29px;
+		vertical-align: top;
+	}
+}
