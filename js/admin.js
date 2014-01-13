@@ -130,6 +130,9 @@ $(function(){
 		}
 	});
 
+	// Product SEO keywords tagit
+	$('#meta_keywords').wordlist();
+
 
 	/**
 	 * Link to a specific Twitter Bootstrap Tab
