@@ -20,7 +20,7 @@
   vertical-align: middle;
   cursor: pointer;
   color: @white;
-  background-color: @blue;
+  background-color: @gray;
   border: 0px solid @btnBorder;
   *border: 0; // Remove the border to prevent IE7's black border on input:focus
   border-bottom-color: darken(@btnBorder, 10%);
@@ -32,7 +32,7 @@
   // Hover/focus state
   &:hover,
   &:focus {
-    color: @darkGray;
+    color: @blue;
     text-decoration: none;
 
     // transition is only when going to hover/focus, otherwise the background
@@ -162,34 +162,46 @@ input[type="button"] {
 .btn-primary {
   color: @white;
   background-color: @blue;
+  &:hover, &:focus {
+    color: @darkGray;
+  }
 }
 // Warning appears are orange
 .btn-warning {
   color: @white;
   background-color: @orange;
+  &:hover, &:focus {
+    color: @darkGray;
+  }
 }
 // Danger and error appear as red
 .btn-danger {
   color: @white;
   background-color: #BD362F;
+  &:hove, &:focusr, &:focus {
+    color: @darkGray;
+  }
 }
 // Success appears as green
 .btn-success {
   color: @white;
   background-color: #5bc0de;
+  &:hover, &:focus {
+    color: @darkGray;
+  }
 }
 // Info appears as a neutral blue
 .btn-info {
   color: @white;
   background-color: #62c462;
+  &:hover, &:focus {
+    color: @darkGray;
+  }
 }
 // Inverse appears as dark gray
 .btn-inverse {
   color: @white;
   background-color: @darkGray;
-  &:hover {
-    color: @blue;
-  }
 }
 
 
