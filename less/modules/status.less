@@ -1,0 +1,83 @@
+.statuses {
+	margin: 0;
+	li {
+		display: block;
+		background: @darkGray;
+		color: @white;
+		line-height: 28px;
+		padding-right: 8px;
+		border-bottom: 1px solid @black;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+	.active-indicator {
+		display: block;
+		width: 3px;
+		float: left;
+		background: @blue;
+		height: 28px;
+		margin-right: 8px;
+		&.active {
+			background: @green;
+		}
+		&.inactive {
+			background: @rose;
+		}
+	}
+}
+
+.status-full {
+	padding: 0 !important;
+	.statuses li {
+		width: 30px;
+		line-height: 28px;
+		float: left;
+		background: @rose;
+		border: solid @offWhite;
+		border-width: 0 1px 0 0;
+		padding: 0;
+		text-align: center;
+		&.active {
+			background: @green;
+		}
+	}
+}
+
+.status-reduced {
+	padding: 0 !important;
+	width: 8px;
+	.active-indicator {
+		display: block;
+		background: @rose;
+		line-height: 28px;
+		margin: 0;
+		min-width: 8px;
+		&.active {
+			background: @green;
+		}
+	}
+	.statuses {
+		display: none;
+	}
+}
+
+#product_fieldset_sites {
+	.control-label {
+		display: none;
+	}
+	.multi-field {
+		width: 32px;
+	}
+	input {
+		display: none !important;
+	}
+	label {
+		display: block !important;
+		background: @rose;
+		color: @white;
+	}
+	input:checked + label {
+		background: @green;
+	}
+}
