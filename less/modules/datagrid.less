@@ -78,21 +78,33 @@
 	.search-query {
 		width: 139px;
 	}
-	.active a {
-		background: @blue !important;
-		position: relative;
-		margin-right: -10px !important;
-		&:after {
-			content: "";
-			display: block;
-			position: absolute;
-			left: 100%;
-			top: 0;
-			width: 0px;
-			height: 0px;
-			border-style: solid;
-			border-width: 15px 0 15px 10px;
-			border-color: transparent transparent transparent @blue;
+	.active {
+		> .btn-group {
+			z-index: 20;
+			left: 20px;
+			> a:hover {
+				color: @offBlack;
+			}
+			.btn {
+				border-right: 0;
+			}
+		}
+		> a {
+			background: @blue !important;
+			position: relative;
+			margin-right: -10px !important;
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 100%;
+				top: 0;
+				width: 0px;
+				height: 0px;
+				border-style: solid;
+				border-width: 15px 0 15px 10px;
+				border-color: transparent transparent transparent @blue;
+			}
 		}
 	}
 }
@@ -222,6 +234,7 @@
 }
 
 .datagrid-bottom {
+	margin-left: 0;
 	border-top: 1px solid @darkGray;
 	.btn {
 		color: @darkGray;
