@@ -22,7 +22,7 @@ table {
   // Cells
   th,
   td {
-    padding: 4px;
+    padding: 2px 4px;
     line-height: @baseLineHeight;
     text-align: left;
     vertical-align: top;
@@ -33,14 +33,28 @@ table {
     &.text-center {
       text-align: center;
     }
+    &.table-actions {
+      padding: 0;
+      width: 29px;
+      .btn-group {
+        visibility: hidden;
+      }
+    }
+    p {
+      margin: 0;
+    }
   }
   th {
+    padding: 4px;
     font-weight: bold;
     background-color: @darkGray !important;
     color: @white;
     text-transform: uppercase;
     text-align: center;
     .font-size(1.3);
+  }
+  td {
+    border-bottom: 1px solid @offWhite;
   }
   // Bottom align for column headings
   thead th {
@@ -58,6 +72,9 @@ table {
   // Account for multiple tbody instances
   tbody + tbody {
     border-top: 2px solid @tableBorder;
+  }
+  tr:hover .table-actions .btn-group {
+    visibility: visible
   }
 
   // Nesting
