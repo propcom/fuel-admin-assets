@@ -180,19 +180,10 @@
 		img {
 			min-height: 190px;
 		}
-		.statuses {
-			position: absolute;
-			left: 0;
-			top: 70px;
-		}
 		.item-actions-container {
-			visibility: hidden;
 			position: absolute;
-			top: 0;
-			right: 0;
-		}
-		&:hover .item-actions-container {
-			visibility: visible;
+			top: 5px;
+			right: 5px;
 		}
 	}
 	.thumbnail-meta {
@@ -216,6 +207,64 @@
 		border-right: 1px solid @offWhite;
 		input {
 			margin: 0;
+		}
+	}
+}
+
+.grid-thumbnails {
+	.thumbnail {
+		.item-actions-container {
+			visibility: hidden;
+		}
+		&:hover .item-actions-container {
+			visibility: visible;
+		}
+	}
+	.statuses {
+		position: absolute;
+		left: 0;
+		top: 70px;
+	}
+}
+
+.panel-thumbnails {
+	.thumbnail {
+		padding: 37px 5px 5px 5px;
+		input {
+			position: absolute;
+			left: 5px;
+			top: 5px;
+		}
+		.lead {
+			line-height: inherit;
+			font-size: 15px;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		p {
+			margin-bottom: 6px;
+		}
+	}
+	.statuses {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		li {
+			float: left;
+			width: 28px;
+			padding: 0;
+			background: @rose;
+			text-align: center;
+			margin-left: 1px;
+			border: 0;
+			&.active {
+				background: @green;
+			}
+		}
+	}
+	.has-actions {
+		.statuses {
+			right: 35px;
 		}
 	}
 }
