@@ -159,10 +159,36 @@ $(function(){
 	function generateModal(content) {
 		$('#ajax-modal, .modal-backdrop').remove();
 
-		var modal_html = '<aside class="modal';
+		var modal_html = '';
+
+		if (content.form != null) {
+			modal_html += '<form';
+
+			if (content.form.action != null) {
+				modal_html += ' action="' + content.form.action + '"';
+			} else {
+				modal_html += ' action=""';
+			}
+
+			if (content.form.method != null) {
+				modal_html += ' method="' + content.form.method + '"';
+			} else {
+				modal_html += ' method="post"';
+			}
+		} else {
+			modal_html += '<aside';
+		}
+
+		modal_html += ' class="modal';
 
 		if (content.class) {
 			modal_html += ' ' + content.class;
+		}
+
+		if (content.form.class != null) {
+			modal_html += ' ' + content.form.class;
+		} else {
+			modal_html += ' form-horizontal';
 		}
 
 		modal_html += '" id="ajax-modal">';
@@ -176,7 +202,6 @@ $(function(){
 				modal_html += '<h1>' + content.header + '</h1>';
 				modal_html += '</div>';
 			}
-
 
 			modal_html += '<div class="modal-body">';
 
@@ -207,14 +232,51 @@ $(function(){
 
 			modal_html += '</div>';
 
-			if (content.footer != null) {
-				modal_html += '<div class="modal-footer">' + content.footer + '</div>';
+			if (content.footer != null || content.form != null) {
+				modal_html += '<div class="modal-footer">';
+
+				if (content.footer != null) {
+					modal_html += content.footer;
+				}
+
+				if (content.form != null && content.form.no_buttons == null) {
+					modal_html += '<input type="submit" class="btn btn-primary js-modal-submit"';
+
+					if (content.form.submit != null) {
+						modal_html += ' value="' + content.form.submit + '"';
+					} else {
+						modal_html += ' value="Save"';
+					}
+
+					modal_html += ' />';
+				}
+
+				modal_html += '</div>';
 			}
 		}
 
-		modal_html += '</aside>';
+		if (content.form != null) {
+			modal_html += '</form>';
+		} else {
+			modal_html += '</aside>';
+		}
 
-		$(modal_html).modal();
+		var $modal = $(modal_html);
+		$modal.modal();
+
+		if (content.form.ajax !== false) {
+			$modal.find('.js-modal-submit').on('click', function (e) {
+				e.preventDefault();
+
+				$.ajax({
+					url: content.form.action || '',
+					type: content.form.method || 'post',
+					data: $(this).closest('form').serialize()
+				});
+
+				$('#ajax-modal, .modal-backdrop').remove();
+			});
+		}
 
 		$(document).trigger('complete.modal.admin');
 	}
