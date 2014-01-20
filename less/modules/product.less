@@ -376,7 +376,7 @@
 		padding: 5px;
 		text-transform: uppercase;
 		font-weight: bold;
-		width: 342px;
+		width: 340px;
 		font-size: 12px;
 		line-height: 24px;
 	}
@@ -562,26 +562,19 @@
 }
 
 #product_fieldset_bundles {
+	.control-group-multi {
+		max-height: 260px;
+		overflow-y: scroll;
+	}
 	.multi-field {
-		width: 50%;
-		float: left;
-		margin-bottom: 15px;
-		box-sizing: border-box;
-		&:nth-child(odd) {
-			clear: left;
-			padding-right: 10px;
-		}
-		&:nth-child(even) {
-			padding-left: 10px;
-		}
+		width: 100%;
+		float: none;
+		border-right: 0;
 		input {
 			margin-right: 5px;
 		}
 		label {
-			display: inline;
-			background: none;
-			color: @darkGray;
-			line-height: 1.2;
+			line-height: 20px;
 		}
 	}
 }
