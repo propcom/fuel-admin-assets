@@ -10,7 +10,7 @@ $.fn.wordlist = function(){
 		var word,
 			words = [];
 
-		if ($field.val().length > 0) {
+		if ($field.val().trim().length > 0) {
 			words = $field.val().split(',');
 			cleanwords = [];
 			$.each(words, function(){
@@ -50,11 +50,13 @@ $.fn.wordlist = function(){
 			$field.val(words.join(','));
 		});
 
-		$input.on('keyup', function(e) {
+		$input.on('keypress', function(e) {
 			// Build up what the user is typing
 			var word = $(this).val().trim();
 
 			if (e.which == 13 && word != '') {
+				e.preventDefault();
+				e.stopPropagation();
 				// When they press enter, add the word to the array
 				words.push(word);
 				// Add to the display view
