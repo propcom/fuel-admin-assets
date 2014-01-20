@@ -705,6 +705,18 @@ legend + .control-group {
     float: left;
     width: @horizontalComponentOffset;
     text-align: left;
+    label {
+      width: 170px;
+      float: left;
+    }
+    .help-inline {
+      background: @darkGray;
+      color: @white;
+      padding: 3px 4px 3px 0;
+      line-height: 24px;
+      margin-left: -10px;
+      float: left;
+    }
   }
   // Move over all input controls and content
   .controls {
@@ -735,6 +747,6 @@ legend + .control-group {
   }
   // Move over buttons in .form-actions to align with .controls
   .form-actions {
-    padding-left: @horizontalComponentOffset + 10px;
+    padding-left: @horizontalComponentOffset;
   }
 }
