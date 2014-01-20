@@ -185,10 +185,12 @@ $(function(){
 			modal_html += ' ' + content.class;
 		}
 
-		if (content.form.class != null) {
-			modal_html += ' ' + content.form.class;
-		} else {
-			modal_html += ' form-horizontal';
+		if (content.form) {
+			if (content.form.class != null) {
+				modal_html += ' ' + content.form.class;
+			} else {
+				modal_html += ' form-horizontal';
+			}
 		}
 
 		modal_html += '" id="ajax-modal">';
@@ -264,7 +266,7 @@ $(function(){
 		var $modal = $(modal_html);
 		$modal.modal();
 
-		if (content.form.ajax !== false) {
+		if (content.form && content.form.ajax !== false) {
 			$modal.find('.js-modal-submit').on('click', function (e) {
 				e.preventDefault();
 
