@@ -280,7 +280,7 @@ $(function(){
 			});
 		}
 
-		$(document).trigger('complete.modal.admin');
+		$(document).trigger('complete.modal.admin', { modal: $modal });
 	}
 
 	$.ajaxPreprocess({
