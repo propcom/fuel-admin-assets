@@ -82,7 +82,8 @@ $(function(){
 	var fields = [
 		[$('#label_meta_description'), $('#meta_description'), 150],
 		[$('#label_short_description'), $('#short_description'), 60],
-		[$('#label_long_description'), $('#long_description'), 240]
+		[$('#label_long_description'), $('#long_description'), 240],
+		[$('#label_seo_description'), $('#seo_description'), 150]
 	];
 	$.each(fields, function(){
 		var field = $(this),
