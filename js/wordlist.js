@@ -4,7 +4,8 @@ $.fn.wordlist = function(){
 		// Elements to work with:
 		var $field = $(this), // textarea
 			$mask = $('<div class="wordlist-view" />'), // Styled view
-			$input = $('<input type="text" class="js-wordlist-input" />'); // input
+			$input = $('<input type="text" class="js-wordlist-input" />'), // input
+			$label = $(this).parents('.controls').siblings('.control-label').children('label');
 
 		// Vars to use:
 		var word,
@@ -50,22 +51,28 @@ $.fn.wordlist = function(){
 			$field.val(words.join(','));
 		});
 
+		$label.click(function(e){
+			e.preventDefault();
+			$input.focus();
+		});
+
 		$input.on('keypress', function(e) {
 			// Build up what the user is typing
 			var word = $(this).val().trim();
+			if (word != '') {
+				if (e.which == 13 || e.which == 44) {
+					e.preventDefault();
+					e.stopPropagation();
+					// When they press enter, add the word to the array
+					words.push(word);
+					// Add to the display view
+					$('<span>'+word.trim()+'</span>').insertBefore($input);
+					// Update the contents of the textarea
+					$field.val(words.join(','));
 
-			if (e.which == 13 && word != '') {
-				e.preventDefault();
-				e.stopPropagation();
-				// When they press enter, add the word to the array
-				words.push(word);
-				// Add to the display view
-				$('<span>'+word.trim()+'</span>').insertBefore($input);
-				// Update the contents of the textarea
-				$field.val(words.join(','));
-
-				// Clear the input
-				$(this).val('');
+					// Clear the input
+					$(this).val('');
+				}
 			}
 		});
 	});
