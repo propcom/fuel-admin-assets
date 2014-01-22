@@ -717,6 +717,7 @@ legend + .control-group {
       margin-left: -10px;
       float: left;
     }
+
   }
   // Move over all input controls and content
   .controls {
@@ -732,7 +733,11 @@ legend + .control-group {
   }
   // Remove bottom margin on block level help text since that's accounted for on .control-group
   .help-block {
-    margin-bottom: 0;
+    display: inline-block;
+    max-width: 320px;
+    margin-top: 0 !important;
+    vertical-align: middle;
+    margin-left: 6px;
   }
   // And apply it only to .help-block instances that follow a form control
   input,
@@ -744,6 +749,9 @@ legend + .control-group {
     + .help-block {
       margin-top: @baseLineHeight / 2;
     }
+  }
+  input[type=checkbox] {
+    margin-left: 6px;
   }
   // Move over buttons in .form-actions to align with .controls
   .form-actions {
