@@ -37,7 +37,17 @@ $(function(){
 
 	if ($('.top__nav ul ul').is(':visible')) {
 		$('html').addClass('subsubnav');
-	};
+	}
+
+	var anysubnav = false;
+	$('.top__right > .top__nav > li').each(function(){
+		if ($(this).children('ul').length > 0) {
+			anysubnav = true;
+		}
+	});
+	if (!anysubnav) {
+		$('html').addClass('nosubnav');
+	}
 
 
 
