@@ -44,18 +44,12 @@
 	}
 }
 
-.status-reduced {
-	padding: 0 !important;
-	width: 8px;
-	.active-indicator {
-		display: block;
-		background: @rose;
-		line-height: 28px;
-		margin: 0;
-		min-width: 8px;
-		&.active {
-			background: @green;
-		}
+td.active-indicator {
+	background: @rose;
+	line-height: 28px;
+	margin: 0;
+	&.active {
+		background: @green !important;
 	}
 	.statuses {
 		display: none;
