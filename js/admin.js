@@ -311,7 +311,11 @@ $(function(){
 				}
 			}
 
-			$(document).trigger('error.ajax.admin');
+			$(document).trigger('error.ajax.admin', {
+				jqXHR: jqXHR,
+				textStatus: textStatus,
+				errorThrown: errorThrown
+			});
 		},
 
 		success: function(data, textStatus, jqXHR){
@@ -322,10 +326,14 @@ $(function(){
 				var response = jqXHR.responseText;
 			}
 
-			$(document).trigger('success.ajax.admin');
+			$(document).trigger('success.ajax.admin', {
+				data: data,
+				textStatus: textStatus,
+				jqXHR: jqXHR
+			});
 		},
 
-		complete: function(jqXHR, testStatus) {
+		complete: function(jqXHR, textStatus) {
 			try {
 				var response = $.parseJSON(jqXHR.responseText)
 			}
@@ -351,7 +359,10 @@ $(function(){
 				}
 			}
 
-			$(document).trigger('complete.ajax.admin');
+			$(document).trigger('complete.ajax.admin', {
+				textStatus: textStatus,
+				jqXHR: jqXHR
+			});
 		}
 	});
 
