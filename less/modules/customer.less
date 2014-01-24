@@ -4,5 +4,64 @@
 		float: left;
 		margin: 9px 0 0 10px;
 	}
-	
+}
+
+.modal-open {
+	.modal-backdrop {
+		background-color: @white;
+	}
+	.modal-header {
+		background-color: @black;
+		h1 {
+			color: @white;
+			font-size: 1.6em;
+			margin: 0;
+		}
+		.close {
+			color: @white;
+			opacity: 1;
+			height: 42px;
+			right: 0;
+			top: -2px;
+			position: absolute;
+			padding: 10px;
+			font-size: 2em;
+			border-left: 1px solid @white;
+		}
+	}
+	.modal-body {
+		max-height: 450px;
+		background-color: @black;
+		fieldset {
+			padding: 0 50px;
+			#random_password {
+				width: inherit;
+			}
+			.control-group-multi {
+				width: 100%;
+				.control-label {
+					width: 300px;
+					.group-label {
+						width: 430px;
+					}
+				}
+				.controls {
+					margin-left: 0;
+				}
+			}
+			.controls {
+				select {
+					width: 250px;
+				}
+				input {
+					width: 238px;
+				}
+			}
+		}
+	}
+	.modal-footer {
+		background-color: @black;
+		border-top-width: 0px;
+		padding: 10px 66px 30px;
+	}
 }
