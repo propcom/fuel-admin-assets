@@ -152,6 +152,8 @@ $(function(){
 				var response = jqXHR.responseText;
 			}
 
+			jqXHR.responseObj = response;
+
 			if (response != null) {
 				if (response.redirect != undefined) {
 					window.location = response.redirect;
