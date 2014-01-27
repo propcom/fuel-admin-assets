@@ -7,6 +7,9 @@
 	border-bottom: 3px solid @blue;
 	margin-bottom: 52px;
 	margin-left: -20px;
+	.tab-content & {
+		margin-left: 0;
+	}
 	h3 {
 		.font-size(1.3);
 		font-weight: bold;
@@ -293,7 +296,7 @@
 .datagrid-bottom {
 	margin-left: -20px;
 	border-top: 1px solid @darkGray;
-	width: 980px;
+	width: 100%;
 	.btn-group:first-child {
 		margin-left: 10px;
 	}
@@ -315,6 +318,9 @@
 			border-bottom-color: @white;
 		}
 	}
+	.tab-content & {
+		margin-left: 0;
+	}
 }
 
 .datagrid-counter {
@@ -329,4 +335,8 @@
 	.dropdown-menu {
 		margin-right: 1px;
 	}
+}
+
+.datagrid-per-page {
+	margin-left: -1px;
 }
