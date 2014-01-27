@@ -1,0 +1,53 @@
+#permalink-add-form {
+	overflow: hidden;
+	fieldset {
+		margin-bottom: 20px;
+	}
+	.control-group {
+		float: left;
+		width: 25%;
+		margin-bottom: 0;
+		.control-label {
+			display: block;
+			position: relative;
+		}
+		label {
+			border-right: 1px solid @black;
+			margin-bottom: 0;
+			float: none;
+		}
+		.help-inline {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			color: @white;
+		}
+		input, select {
+			width: 165px;
+			border-right: 1px solid @lightGray;
+			margin-bottom: 0;
+		}
+		// Two fields
+		&:first-child {
+			width: 50%;
+			input {
+				width: 317px;
+			}
+		}
+		&:first-child:nth-last-child(3),
+		&:first-child:nth-last-child(3) ~ .control-group {
+			width: 50%;
+			input {
+				width: 317px;
+			}
+			select {
+				width: 330px;
+			}
+		}
+	}
+	.btn {
+		margin-left: 10px;
+		float: right;
+		width: 200px;
+	}
+}

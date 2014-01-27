@@ -1,0 +1,332 @@
+.datagrid-filters {
+	background: @black;
+	color: @white;
+	padding: 56px 10px 40px 10px;
+	width: 200px;
+	position: relative;
+	border-bottom: 3px solid @blue;
+	margin-bottom: 52px;
+	margin-left: -20px;
+	h3 {
+		.font-size(1.3);
+		font-weight: bold;
+		margin-bottom: 0;
+		line-height: 30px;
+	}
+	select {
+		width: 100%;
+	}
+	input {
+		max-width: 188px;
+	}
+	.dropdown-toggle {
+		background-color: transparent !important;
+		&:hover, &:focus {
+			color: @blue;
+		}
+	}
+	.dropdown-menu {
+		left: 0;
+		right: auto;
+		border-top: 1px solid @white;
+	}
+	.btn {
+		border-right: 1px solid @black;
+		margin-bottom: 0;
+		i {
+			display: block;
+			.font-size(1.8);
+			line-height: 24px;
+			vertical-align: middle;
+		}
+	}
+	.open .btn {
+		background: @black !important;
+		border-right: 1px solid @white;
+		&:after {
+			content: "Settings";
+			width: 108px;
+			position: absolute;
+			left: 100%;
+			top: 0;
+			background: @black;
+			margin-left: 1px;
+			padding: 3px 10px;
+			text-align: left;
+			.font-size(1.2);
+		}
+	}
+	.nav-list {
+		padding: 0;
+		clear: both;
+		> li {
+
+			> a {
+				background: @darkGray;
+				color: @white;
+				margin: 0 0 1px 0;
+				font-weight: bold;
+				&:hover, &:focus {
+					background: @gray;
+				}
+			}
+		}
+		.nav-list {
+			.font-size(1);
+			.nav-list {
+				margin-left: 10px;
+			}
+		}
+	}
+	.datagrid-filter > .nav-list > li {
+		margin-bottom: 10px;
+	}
+	.search-query {
+		width: 139px;
+	}
+	.pickingslip-dates {
+		input {
+			width: 188px;
+		}
+	}
+	.active {
+		> .btn-group {
+			z-index: 20;
+			left: 20px;
+			> a:hover {
+				color: @offBlack;
+			}
+			.btn {
+				border-right: 0;
+			}
+		}
+		> a {
+			background: @blue !important;
+			position: relative;
+			margin-right: -10px !important;
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 100%;
+				top: 0;
+				width: 0px;
+				height: 0px;
+				border-style: solid;
+				border-width: 15px 0 15px 10px;
+				border-color: transparent transparent transparent @blue;
+			}
+		}
+	}
+}
+
+.datagrid-filter {
+	.btn {
+		padding: 3px 7px;
+	}
+}
+
+.datagrid-search {
+	.btn {
+		padding: 3px 7px;
+		background: @white;
+		border-left: 1px solid @black;
+		margin-left: 0;
+		color: @black;
+	}
+}
+
+.datagrid-apply {
+	margin-top: 20px;
+}
+
+.datagrid-clear {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background: @blue;
+	padding: 9px 6px 7px;
+	.font-size(1.9);
+	i {
+		display: block !important;
+	}
+	&:hover, &:focus {
+		color: @darkGray;
+	}
+}
+
+.datagrid-top {
+	padding: 20px 0;
+	h1 {
+		.font-size(1.6);
+		font-weight: bold;
+		margin-top: 0;
+	}
+	input, select {
+		margin-bottom: 16px;
+		margin-right: 0;
+		width: 230px;
+	}
+	.btn {
+		width: 220px;
+		margin-right: 16px;
+		margin-bottom: 16px;
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+	}
+	.dropdown-menu {
+		width: 220px;
+		border-top: 1px solid @white;
+	}
+}
+
+.pickingslips-table {
+	th {
+		min-width: 110px;
+	}
+}
+
+.datagrid-data {
+	ul.thumbnails > li:nth-child(3n+1) {
+		clear: left;
+	}
+	.thumbnail {
+		background: @white;
+		border: 0;
+		padding: 0;
+		position: relative;
+		min-height: 190px;
+
+		img {
+			min-height: 190px;
+		}
+		.item-actions-container {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+	}
+	.thumbnail-meta {
+		position: relative;
+		display: table;
+		min-height: 60px;
+		border-top: 1px solid @offWhite;
+	}
+	.thumbnail-title, .thumbnail-checkbox {
+		display: table-cell;
+		vertical-align: middle;
+		padding: 5px;
+		height: 100%;
+	}
+	.thumbnail-title {
+		width: 187px;
+		line-height: 1.2;
+	}
+	.thumbnail-checkbox {
+		background-color: transparent;
+		border-right: 1px solid @offWhite;
+		input {
+			margin: 0;
+		}
+	}
+}
+
+.grid-thumbnails {
+	.thumbnail {
+		.item-actions-container {
+			visibility: hidden;
+		}
+		&:hover .item-actions-container {
+			visibility: visible;
+		}
+	}
+	.statuses {
+		position: absolute;
+		left: 0;
+		top: 70px;
+	}
+}
+
+.panel-thumbnails {
+	.thumbnail {
+		padding: 37px 5px 5px 5px;
+		input {
+			position: absolute;
+			left: 5px;
+			top: 5px;
+		}
+		.lead {
+			line-height: inherit;
+			font-size: 15px;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		p {
+			margin-bottom: 6px;
+		}
+	}
+	.statuses {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		li {
+			float: left;
+			width: 28px;
+			padding: 0;
+			background: @rose;
+			text-align: center;
+			margin-left: 1px;
+			border: 0;
+			&.active {
+				background: @green;
+			}
+		}
+	}
+	.has-actions {
+		.statuses {
+			right: 35px;
+		}
+	}
+}
+
+.datagrid-bottom {
+	margin-left: -20px;
+	border-top: 1px solid @darkGray;
+	width: 980px;
+	.btn-group:first-child {
+		margin-left: 10px;
+	}
+	.btn {
+		color: @darkGray;
+		border: 1px solid @lightGray;
+		border-top: none;
+		background: fade(@white, 90%);
+		&:hover, &:focus {
+			color: @blue;
+		}
+		.caret {
+			border-bottom-color: @darkGray;
+		}
+	}
+	.open > .btn {
+		background: @black;
+		.caret {
+			border-bottom-color: @white;
+		}
+	}
+}
+
+.datagrid-counter {
+	text-transform: uppercase;
+	padding: 8px 10px;
+}
+
+.datagrid-pagination {
+	.pagination {
+		margin-top: -1px;
+	}
+	.dropdown-menu {
+		margin-right: 1px;
+	}
+}
