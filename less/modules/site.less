@@ -24,6 +24,11 @@ html {
 .container-full {
     min-width: 960px;
     width: 100%;
+    .content--has-sidebar {
+    	.alert {
+    		margin-left: 0;
+    	}
+    }
 }
 
 .top {
@@ -184,6 +189,7 @@ html {
 		width: 30px;
 		border: solid @darkGray;
 		border-width: 0 0 0 1px;
+		padding: 20px 0;
 		float: right;
 		.prop-help {
 			float: right;
@@ -194,6 +200,7 @@ html {
 			text-align: center;
 			padding: 8px 0;
 			.font-size(1.6);
+			display: none;
 		}
 	}
 
@@ -253,6 +260,9 @@ html {
 .content--has-sidebar {
 	float: left;
 	position: relative;
+	.alert {
+		margin-left: 0;
+	}
 }
 
 .fieldset-buttons {
