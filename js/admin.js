@@ -379,4 +379,5 @@ $(function(){
 		$(".chzn-select").chosen();
 	}
 
+	$('.js-datepicker').datepicker();
 });
