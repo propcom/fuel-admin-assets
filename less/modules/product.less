@@ -199,65 +199,28 @@
 }
 
 #product_fieldset_stock {
+	.control-group {
+		width: 50%;
+		float: left;
+	}
+	.control-group-multi:nth-child(2) {
+		float: none;
+	}
 	label {
 		margin-bottom: 0;
-		width: 222px;
-		border-right: 1px solid @black;
 	}
 	select {
-		width: 230px;
-	}
-	.group-label {
-		color: @white;
-		background-color: @darkGray;
-		text-align: center;
-		padding: 5px;
-		text-transform: uppercase;
-		font-weight: bold;
-		display: block;
-		line-height: 24px;
-		width: 223px;
-		border-right: 1px solid @black;
-	}
-	.multi-field {
-		background: @white;
-		text-align: center;
-		border-right: 1px solid @lightGray;
-		float: left;
-		width: 116px;
-		height: 30px;
-		input {
-			display: inline-block;
-		}
-		label {
-			display: inline-block;
-			background: none;
-			color: @black;
-			margin: 0;
-			padding: 2px 5px;
-			width: auto;
-			border-right: 0;
-		}
+		width: 100%;
 	}
 	input[type=text] {
-		width: 220px;
+		width: 349px;
+		padding-left: 0;
+		padding-right: 0;
+		margin-bottom: 0;
 		text-align: center;
 		border-right: 1px solid @lightGray;
 	}
-	.control-group {
-		float: left;
-	}
-	.control-group:nth-child(2) {
-		margin-bottom: 20px;
-		float: none;
-		.group-label {
-			width: 350px;
-			border-right: 0;
-		}
-		.multi-field {
-			width: 179px;
-		}
-	}
+
 }
 
 .label-char-counter {
@@ -300,33 +263,8 @@
 	.control-group {
 		margin-bottom: 0;
 	}
-	.group-label {
-		color: @white;
-		background-color: @darkGray;
-		text-align: center;
-		padding: 5px;
-		text-transform: uppercase;
-		font-weight: bold;
-		display: block;
-		line-height: 24px;
-		width: 170px;
-	}
-	.multi-field {
-		background: @white;
+	.group-label, .multi-field {
 		width: 180px;
-		text-align: center;
-		border-right: 1px solid @lightGray;
-		float: left;
-		input {
-			display: inline-block;
-		}
-		label {
-			display: inline-block;
-			background: none;
-			color: @black;
-			margin: 0;
-			padding: 2px 5px;
-		}
 	}
 	#label_customer_groups {
 		display: none;
