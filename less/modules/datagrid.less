@@ -316,16 +316,29 @@
 		margin-left: 10px;
 	}
 	.btn {
+		position: relative;
 		color: @darkGray;
 		border: 1px solid @lightGray;
 		border-top: none;
 		background: fade(@white, 90%);
+		padding: 3px 6px;
 		&:hover, &:focus {
 			color: @blue;
 		}
 		.caret {
 			border-bottom-color: @darkGray;
 		}
+	}
+	.active {
+		background-color: #e0e0e0;
+		background-color: @paginationActiveBackground;
+		border-top: none;
+		border-left: 1px solid @black;
+		border-right: 1px solid @black;
+		border-bottom: 1px solid @black;
+		top: -1px;
+		color: @blue;
+		z-index: 5 !important;
 	}
 	.open > .btn {
 		background: @black;
