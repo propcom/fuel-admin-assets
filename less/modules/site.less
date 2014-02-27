@@ -266,16 +266,26 @@ html {
 }
 
 .fieldset-buttons {
-	bottom: 10px;
-    left: 980px;
-    position: fixed;
-    width: 220px;
-
-    .btn {
-    	display: block;
-	    margin-bottom: 10px;
-	    width: 100%;
+	margin-top: 20px;
+	.btn {
+    	display: inline-block;
+	    width: 220px;
+	    margin-right: 18px;
     }
+	@media screen and (min-width: 1220px) {
+		margin-top: 0;
+		bottom: 10px;
+	    left: 980px;
+	    position: fixed !important;
+	    top: auto !important;
+	    right: auto !important;
+	    width: 220px;
+	    .btn {
+	    	margin-right: 0 !important;
+	    	margin-left: 0 !important;
+	    	margin-bottom: 10px;
+	    }
+	}
 }
 
 //Dashboard
