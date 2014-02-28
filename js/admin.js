@@ -135,20 +135,6 @@ $(function(){
 		}
 	});
 
-	// Product media scroll
-	$('.js-media-next').click(function(e){
-		e.preventDefault();
-		if (!$('.last-media').is(':visible')) {
-			$('.js-media-item').slice(1,5).appendTo('.js-media-wrap').hide();
-		}
-	});
-	$('.js-media-prev').click(function(e){
-		e.preventDefault();
-		if (!$('.first-media').is(':visible')) {
-			$('.js-media-item').slice(-4).insertAfter($('.js-media-item').first()).removeAttr('style');
-		}
-	});
-
 	/**
 	 * Link to a specific Twitter Bootstrap Tab
 	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184
