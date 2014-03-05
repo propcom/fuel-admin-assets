@@ -135,17 +135,15 @@ $(function(){
 		}
 	});
 
-	// Product media scroll
-	$('.js-media-next').click(function(e){
-		e.preventDefault();
-		if (!$('.last-media').is(':visible')) {
-			$('.js-media-item').slice(1,5).appendTo('.js-media-wrap').hide();
-		}
-	});
-	$('.js-media-prev').click(function(e){
-		e.preventDefault();
-		if (!$('.first-media').is(':visible')) {
-			$('.js-media-item').slice(-4).insertAfter($('.js-media-item').first()).removeAttr('style');
+	// Hide visibility select when all is selected
+	if ($('#visibility_0').is(':checked')) {
+		$('#product_fieldset_visibility .control-group').last().hide();
+	}
+	$('#product_fieldset_visibility input').change(function(){
+		if ($('#visibility_0').is(':checked')) {
+			$('#product_fieldset_visibility .control-group').last().hide();
+		} else {
+			$('#product_fieldset_visibility .control-group').last().show();
 		}
 	});
 

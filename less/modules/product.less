@@ -60,14 +60,13 @@
 		max-width: 700px;
 	}
 	.fieldset-buttons {
-		position: fixed;
-		left: 980px;
-		bottom: 10px;
-		width: 220px;
+		margin-top: 0;
+		position: absolute;
+		top: 67px;
+		right: 0;
 		.btn {
-			width: 100%;
-			display: block;
-			margin-bottom: 10px;
+			margin-left: 18px;
+			margin-right: 0;
 		}
 	}
 	#label_title {
@@ -84,7 +83,7 @@
 	}
 	#sku {
 	  float: left;
-	  width: 489px;
+	  width: 355px;
 	}
 	#button_delete {
 	  width: 220px;
@@ -151,8 +150,18 @@
 	.media-buttons {
 		float: right;
 		margin-bottom: 20px;
+		font-size: 0;
+		.btn {
+			margin-left: 10px;
+		}
+		.btn-inverse {
+			padding: 3px 10px;
+		}
+		.js-media-prev {
+			margin-left: 0;
+		}
 		.btn-icon {
-			width: 183px;
+			width: 226px;
 		}
 	}
 	.product-media {
@@ -260,6 +269,7 @@
 }
 
 #product_fieldset_visibility {
+	margin-bottom: 10px;
 	.control-group {
 		margin-bottom: 0;
 	}
@@ -272,6 +282,7 @@
 	#customer_groups {
 		width: 180px;
 		margin-left: 180px;
+		margin-bottom: 0;
 		border-top: 1px solid @lightGray;
 	}
 }
@@ -363,6 +374,11 @@
 		.btn {
 			border: solid @black;
 			border-width: 0 1px;
+			[class^="icon-"] {
+				font-size: 13px;
+				vertical-align: baseline;
+
+			}
 		}
 		.active {
 			color: @blue !important;
@@ -379,7 +395,6 @@
 		border-bottom: 1px solid @lightGray;
 	}
 	> .btn {
-		clear: both;
 		float: right;
 	}
 }
@@ -527,16 +542,6 @@
 		margin: 9px 0 0 10px;
 	}
 }
-
-.product-manage- {
-	.datagrid-top {
-		.btn:nth-last-child(1) {
-			margin-left: 16px;
-			margin-right: 0px;
-		}
-	}
-}
-
 #product_fieldset_google_categories {
 	margin-top: 10px;
 }
