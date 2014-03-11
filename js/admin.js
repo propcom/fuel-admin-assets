@@ -50,6 +50,17 @@ $(function(){
 	}
 
 
+	$(document).on('click', '.js-ajax-btn', function (event) {
+		event.preventDefault();
+
+		var $this = $(this);
+
+		$.ajax({
+			type: $this.data('type') || 'GET',
+			url: $this.data('url') || $this.attr('href')
+		});
+	});
+
 
 	//$('.btn[title], i[title]').tooltip();
 
