@@ -376,7 +376,7 @@ $(function(){
 				}
 			}
 
-			if (! response || response.modal == undefined) {
+			if (! response || ! response.modal) {
 				// Remove any old modals
 				$('#ajax-modal, .modal-backdrop').remove();
 			}
