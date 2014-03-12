@@ -303,12 +303,12 @@ $(function(){
 					type: content.form.method || 'post',
 					data: $(this).closest('form').serialize()
 				});
-
-				$('#ajax-modal, .modal-backdrop').remove();
 			});
 		}
 
 		$(document).trigger('complete.modal.admin', { modal: $modal });
+
+		return $modal;
 	}
 
 	$.ajaxPreprocess({
@@ -374,6 +374,11 @@ $(function(){
 					generateModal(response.modal);
 					$(document).trigger('modal.ajax.admin');
 				}
+			}
+
+			if (! response || ! response.modal) {
+				// Remove any old modals
+				$('#ajax-modal, .modal-backdrop').remove();
 			}
 
 			$(document).trigger('complete.ajax.admin', {
