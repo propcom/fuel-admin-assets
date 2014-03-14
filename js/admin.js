@@ -68,7 +68,7 @@ $(function(){
 			if ($(form).is('form')) {
 				$form = $(form);
 			}
-		} else if ($this.closest('form').length) {
+		} else if ($this.is('input[type=submit],button') && $this.closest('form').length) {
 			$form = $this.closest('form');
 		}
 
