@@ -81,10 +81,17 @@ $(function(){
 			data = $this.data();
 		}
 
+		// Reverse engineer jQuery's camelisation of the keys
+		var new_data = {};
+		$.each(data, function(key, value){
+			var new_key = key.replace(/([A-Z])/g, "-$1").toLowerCase();
+			new_data[new_key] = value;
+		});
+
 		$.ajax({
 			type: $this.data('type') || $this.data('method') || method,
 			url: $this.data('url') || $this.attr('href') || url,
-			data: data
+			data: new_data
 		});
 	});
 
