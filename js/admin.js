@@ -336,7 +336,17 @@ $(function(){
 					url: content.form.action || '',
 					type: content.form.method || 'post',
 					data: $(this).closest('form').serialize()
-				});
+				})
+					.done(function () {
+						$(document).trigger('success.submit.modal.admin', arguments);
+						$(document).trigger('done.submit.modal.admin', arguments);
+					}).fail(function () {
+						$(document).trigger('error.submit.modal.admin', arguments);
+						$(document).trigger('fail.submit.modal.admin', arguments);
+					}).always(function () {
+						$(document).trigger('complete.submit.modal.admin', arguments);
+						$(document).trigger('always.submit.modal.admin', arguments);
+					});
 			});
 		}
 
