@@ -267,10 +267,16 @@ html {
 
 .fieldset-buttons {
 	margin-top: 20px;
+	float: right;
+	margin-left: 20px;
+	margin-bottom: 20px;
 	.btn {
     	display: inline-block;
 	    width: 220px;
 	    margin-right: 18px;
+	    &:nth-last-child(1) {
+	    	margin-right: 0;
+	    }
     }
 	@media screen and (min-width: 1220px) {
 		margin-top: 0;
