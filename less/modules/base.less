@@ -16,8 +16,8 @@ select {
 	border-radius: 0;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
-	-moz-appearance: window; 
+	text-indent: 0.01px;
+	text-overflow: '';
 	font-family: 'Montserrat-Web-Selects';
 	font-size: 10px;
 	line-height: @baseLineHeight;
@@ -31,4 +31,10 @@ select {
 select[multiple] {
 	background: @white;
 	padding-right: 2px;
+}
+
+@-moz-document url-prefix() {
+	select {
+		padding-top: 8px;
+	}
 }
