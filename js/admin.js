@@ -108,10 +108,8 @@ $(function(){
 
 		if (checkcount > 0) {
 			$('.js-bulk-actions').attr('data-label', 'Bulk Actions ('+checkcount+')');
-			$('i', '.js-bulk-actions').removeClass('icon-check-empty').addClass('icon-check');
 		} else {
 			$('.js-bulk-actions').attr('data-label', 'Bulk Actions');
-			$('i', '.js-bulk-actions').removeClass('icon-check').addClass('icon-check-empty');
 		}
 	});
 
@@ -331,7 +329,6 @@ $(function(){
 		if (content.form && content.form.ajax !== false) {
 			$modal.find('.js-modal-submit').on('click', function (e) {
 				e.preventDefault();
-
 				$.ajax({
 					url: content.form.action || '',
 					type: content.form.method || 'post',
@@ -347,6 +344,7 @@ $(function(){
 						$(document).trigger('complete.submit.modal.admin', arguments);
 						$(document).trigger('always.submit.modal.admin', arguments);
 					});
+				$('.modal-body .alert').show();
 			});
 		}
 
