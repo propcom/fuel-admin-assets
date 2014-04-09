@@ -108,10 +108,8 @@ $(function(){
 
 		if (checkcount > 0) {
 			$('.js-bulk-actions').attr('data-label', 'Bulk Actions ('+checkcount+')');
-			$('i', '.js-bulk-actions').removeClass('icon-check-empty').addClass('icon-check');
 		} else {
 			$('.js-bulk-actions').attr('data-label', 'Bulk Actions');
-			$('i', '.js-bulk-actions').removeClass('icon-check').addClass('icon-check-empty');
 		}
 	});
 
