@@ -302,7 +302,7 @@ $(function(){
 				}
 
 				if (content.form != null && content.form.no_buttons == null) {
-					modal_html += '<input type="submit" class="btn btn-primary js-modal-submit"';
+					modal_html += '<input type="submit" name="submit" class="btn btn-primary js-modal-submit"';
 
 					if (content.form.submit != null) {
 						modal_html += ' value="' + content.form.submit + '"';
