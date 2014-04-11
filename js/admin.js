@@ -439,5 +439,5 @@ $(function(){
 		$(".chzn-select").chosen();
 	}
 
-	$('.js-datepicker').datepicker();
+	$('.js-datepicker').datepicker({ dateFormat: "dd-mm-yy" });
 });
