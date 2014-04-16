@@ -7,16 +7,18 @@
 			margin-left: 0;
 			.multi-field {
 				position: relative;
+				width:50%;
 				input {
 					position: absolute;
 					top: 0;
 					left: 0;
 				}
 				label {
-					padding-left: 30px;
 					white-space: nowrap;
 					text-align: left;
 					display: block !important;
+					padding:5px 30px;
+					overflow:hidden;
 				}
 			}
 		}
@@ -28,22 +30,28 @@
 
 .shipping-manage-create {
 
+	.form-horizontal .controls {
+		margin-left:0;
+	}
+
 	.control-group-multi .controls .multi-field {
 		text-align:left;
-		height:64px;
-		display:table;
-
-		label {
-			white-space:normal;
-			width:85%;
-			text-align:left;
-			line-height:15px;
-			display:table-cell !important;
-			vertical-align:middle;
-		}
+		width:50%;
+		position:relative;
 
 		input {
-			margin:25px 9px 0;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
+
+		label {
+			white-space: nowrap;
+			text-align: left;
+			display: block !important;
+			padding:5px 30px;
+			overflow:hidden;
+		}
+
 	}
 }
