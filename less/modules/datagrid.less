@@ -315,11 +315,17 @@
 		p {
 			margin-bottom: 6px;
 		}
+		.item-actions-container {
+			visibility: hidden;
+		}
+		&:hover .item-actions-container {
+			visibility: visible;
+		}
 	}
 	.statuses {
 		position: absolute;
 		top: 5px;
-		right: 5px;
+		left: 5px;
 		li {
 			float: left;
 			width: 28px;
@@ -335,7 +341,7 @@
 	}
 	.has-actions {
 		.statuses {
-			right: 35px;
+			left: 5px;
 		}
 	}
 }
