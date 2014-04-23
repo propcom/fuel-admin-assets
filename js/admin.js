@@ -22,7 +22,14 @@ $(function(){
 		return !!navigator.userAgent.match(/MSIE/i);
 	});
 
+
 	//alert(navigator.userAgent);
+
+	if ($('.alert').length > 0) {
+		setTimeout(function(){
+			$('.alert').slideUp();
+		}, 5000);
+	}
 
 	// iPhone Web App Links
 	if ($('html').hasClass('appleios')) {
