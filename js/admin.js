@@ -336,6 +336,7 @@ $(function(){
 		if (content.form && content.form.ajax !== false) {
 			$modal.find('.js-modal-submit').on('click', function (e) {
 				e.preventDefault();
+
 				$.ajax({
 					url: content.form.action || '',
 					type: content.form.method || 'post',
@@ -351,7 +352,6 @@ $(function(){
 						$(document).trigger('complete.submit.modal.admin', arguments);
 						$(document).trigger('always.submit.modal.admin', arguments);
 					});
-				$('.modal-body .alert').show();
 			});
 		}
 
