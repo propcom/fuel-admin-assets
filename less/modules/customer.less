@@ -37,6 +37,7 @@
 			padding: 0 50px;
 			#random_password {
 				width: inherit;
+				margin:8px 0 8px 30px;
 			}
 			.control-group-multi {
 				width: 100%;
@@ -59,7 +60,34 @@
 				}
 			}
 		}
+
 	}
+
+	.form-horizontal .controls {
+		background:@white;
+		text-align:center;
+		margin-left:0;
+	}
+
+	.form-horizontal .control-label label {
+		width:198px;
+	}
+
+	.form-horizontal input[type="checkbox"] {
+		margin:8px 9px;
+		outline:9px solid transparent;
+	}
+
+	.form-horizontal .help-block {
+		width:94%;
+		padding:5px 10px;
+		float:left;
+		background:@white;
+		max-width:none;
+		text-align:center;
+		margin-bottom:5px;
+	}
+
 	.modal-footer {
 		background-color: @black;
 		border-top-width: 0px;
@@ -74,6 +102,22 @@
 		label {
 			width:210px;
 		}
+	}
+
+	.form-horizontal .controls {
+		overflow:hidden;
+		display:inline-block;
+		background:@white;
+		margin-left:0;
+		padding-right:5px;
+	}
+
+	.form-horizontal .control-group-multi .controls {
+		display:block;
+	}
+
+	.form-horizontal .control-group-multi {
+		width:100%;
 	}
 
 	.control-group-multi .controls .multi-field:first-child:nth-last-child(2), .control-group-multi .controls .multi-field:first-child:nth-last-child(2) {
