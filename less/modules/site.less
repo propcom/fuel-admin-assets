@@ -123,19 +123,8 @@ html {
 						padding: 15px 20px;
 					}
 					&.pull-right {
-						float: right!important;
-						padding-right: 10px;
-						a {
-							padding-right: 30px;
-							&:after {
-								content: "\f078";
-								margin-left: 10px;
-								font-family: FontAwesome;
-								.font-size(0.8);
-								position: absolute;
-								top: 13px;
-							}
-						}
+						float: right !important;
+						border-right: 0;
 					}
 					ul {
 						background: @blue;
@@ -145,10 +134,6 @@ html {
 							a {
 								&:hover {
 									color: @white;
-								}
-								&:after {
-									content: ""!important;
-									content: none !important;
 								}
 							}
 						}
