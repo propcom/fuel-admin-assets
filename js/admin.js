@@ -137,6 +137,13 @@ $(function(){
 
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
+	// Datagrid Actions Menu
+	$('.table-actions').mouseleave(function() {
+		console.log('kwok');
+		$('.datagrid-item-actions').removeClass('open');
+		/* Act on the event */
+
+	});
 
 	// Character countdown
 	var fields = [
