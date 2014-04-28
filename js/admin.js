@@ -139,10 +139,17 @@ $(function(){
 
 	// Datagrid Actions Menu
 	$('.table-actions').mouseleave(function() {
-		console.log('kwok');
 		$('.datagrid-item-actions').removeClass('open');
-		/* Act on the event */
+	});
 
+	// Products Grid Actions Menu
+	$('.datagrid-item .item-actions-container').mouseleave(function() {
+		$('.datagrid-item-actions').removeClass('open');
+	});
+
+	// Products Grid Actions Menu
+	$('.nav-list .btn-group').mouseleave(function() {
+		$(this).removeClass('open');
 	});
 
 	// Character countdown
