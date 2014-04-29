@@ -185,18 +185,6 @@ $(function(){
 		}
 	});
 
-	// Hide visibility select when all is selected
-	if ($('#visibility_0').is(':checked')) {
-		$('#product_fieldset_visibility .control-group').last().hide();
-	}
-	$('#product_fieldset_visibility input').change(function(){
-		if ($('#visibility_0').is(':checked')) {
-			$('#product_fieldset_visibility .control-group').last().hide();
-		} else {
-			$('#product_fieldset_visibility .control-group').last().show();
-		}
-	});
-
 	/**
 	 * Link to a specific Twitter Bootstrap Tab
 	 * @link https://github.com/twitter/bootstrap/issues/2415#issuecomment-4589184
