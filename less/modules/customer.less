@@ -1,0 +1,130 @@
+.customer-manage-group-delete {
+	
+	input#confirm {
+		float: left;
+		margin: 9px 0 0 10px;
+	}
+}
+
+.modal-open {
+	.modal-backdrop {
+		background-color: @white;
+	}
+	.modal-header {
+		background-color: @black;
+		h1 {
+			color: @white;
+			font-size: 1.6em;
+			margin: 0;
+		}
+		.close {
+			color: @white;
+			opacity: 1;
+			height: 42px;
+			right: 0;
+			top: -2px;
+			position: absolute;
+			padding: 10px;
+			font-size: 2em;
+			border-left: 1px solid @white;
+		}
+	}
+	.modal-body {
+		max-height: 450px;
+		background-color: @black;
+		color: @white;
+		fieldset {
+			padding: 0 50px;
+			#random_password {
+				width: inherit;
+				margin:8px 0 8px 30px;
+			}
+			.control-group-multi {
+				width: 100%;
+				.control-label {
+					width: 300px;
+					.group-label {
+						width: 430px;
+					}
+				}
+				.controls {
+					margin-left: 0;
+				}
+			}
+			.controls {
+				select {
+					width: 250px;
+				}
+				input {
+					width: 238px;
+				}
+			}
+		}
+
+	}
+
+	.form-horizontal .controls {
+		background:@white;
+		text-align:center;
+		margin-left:0;
+	}
+
+	.form-horizontal .control-label label {
+		width:198px;
+	}
+
+	.form-horizontal input[type="checkbox"] {
+		margin:8px 9px;
+		outline:9px solid transparent;
+	}
+
+	.form-horizontal .help-block {
+		width:94%;
+		padding:5px 10px;
+		float:left;
+		background:@white;
+		max-width:none;
+		text-align:center;
+		margin-bottom:5px;
+	}
+
+	.modal-footer {
+		background-color: @black;
+		border-top-width: 0px;
+		padding: 10px 66px 30px;
+	}
+}
+
+.customer-manage-customer-edit {
+	.form-horizontal .control-label {
+		width:220px;
+
+		label {
+			width:210px;
+		}
+	}
+
+	.form-horizontal .controls {
+		overflow:hidden;
+		display:inline-block;
+		background:@white;
+		margin-left:0;
+		padding-right:5px;
+	}
+
+	.form-horizontal .control-group-multi .controls {
+		display:block;
+	}
+
+	.form-horizontal .control-group-multi {
+		width:100%;
+	}
+
+	.control-group-multi .controls .multi-field:first-child:nth-last-child(2), .control-group-multi .controls .multi-field:first-child:nth-last-child(2) {
+		width:43%;
+	}
+
+	.control-group-multi .controls .multi-field:first-child:nth-last-child(1) {
+		width:94%;
+	}
+}

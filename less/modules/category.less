@@ -1,0 +1,182 @@
+.category-manage-create, .category-manage-edit {
+	margin-top: 30px;
+
+	#page-container {
+		.span12 {
+			max-width: 920px;
+		}
+		input.span12 {
+			max-width: 908px;
+		}
+	}
+
+	.fieldset-buttons {
+		margin-top: 12px;
+	}
+
+	#button_delete {
+    	margin-bottom: 20px;
+    	width: 220px;
+    }
+
+	#category_fieldset_sites {
+		margin-bottom: 20px;
+	}
+	#category_fieldset_parent {
+		margin-bottom: 10px;
+	}
+	#category_fieldset_media {
+		float: left;
+		width: 100%;
+		margin-bottom: 20px;
+
+		.media-add {
+			width: 183px;
+		}
+		.media-buttons {
+			float: right;
+			margin-bottom: 20px;
+			.btn-icon {
+				width: 183px;
+			}
+		}
+		.category-media {
+			position: relative;
+			float: left;
+			margin-left: 20px;
+			margin-bottom: 20px;
+			display: none;
+			img {
+				width: 145px;
+				height: auto;
+			}
+			.btn {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+			.btn:nth-child(4) {
+				right: 50px;
+			}
+			// Only show first 5 images
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4),
+			&:nth-child(5) {
+				display: block;
+			}
+			&:nth-child(3),
+			&:nth-child(5) {
+				background-color: red;
+			}
+			&:nth-child(1) {
+				// First, main image
+				margin-right: 125px;
+				margin-left: 125px;
+				img {
+					width: 360px;
+				}
+			}
+			&:nth-child(2) {
+				clear: right;
+			}
+		}
+	}
+	#category_fieldset_seo {
+		.control-group {
+			overflow: visible;
+		}
+		.control-group-multi {
+			overflow: hidden;
+		}
+		.control-label {
+			margin-bottom: 0;
+		}
+		label {
+			display: block;
+			margin-bottom: 0;
+			position: relative;
+		}
+		input {
+			padding: 5px 6px;
+			width: 934px;
+		}
+		textarea {
+			resize: vertical;
+			width: 100%;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			height: 80px;
+		}
+	}
+	#label_title {
+	    float: left;
+	    width: 70px;
+	}
+	#label_status, #label_parent {
+	    float: left;
+	    width: 165px;
+	}
+	#label_parent {
+		margin-left: 20px;
+	}
+	#status, #parent{
+		float: left;
+		width: 275px;
+	}
+	.help-inline {
+		// Possibly temp
+		float: left;
+		line-height: 20px;
+		margin-left: -15px;
+		color: white;
+	}
+	.help-block {
+		float: left;
+		line-height: 34px;
+		padding-left: 10px;
+	}
+	legend {
+		border: none;
+		.font-size(1.2);
+		font-weight: bold;
+		text-transform: uppercase;
+		line-height: 16px;
+		margin-bottom: 15px;
+		+ .control-group {
+			margin-top: 0;
+		}
+	}
+	.markItUp {
+		margin-top: -30px;
+		z-index: 10;
+		position: relative;
+	}
+	.markItUpContainer {
+		background: transparent;
+	}
+	.markItUpHeader {
+		padding-right: 44px;
+	}
+
+	.media-container {
+		.media-buttons {
+			float: right;
+		}
+	}
+
+	#permalink-add-form .control-group:first-child input {
+		width: 437px;
+	}
+
+}
+
+.category-manage- {
+	tbody {
+		th:nth-child(2), td:nth-child(2) {
+			display: none;
+		}
+	}
+}
