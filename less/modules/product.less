@@ -35,6 +35,22 @@
 	#label_status {
 		margin-bottom: 0;
 	}
+	#label_short_description {
+		width: 653px;
+	}
+	#label_short_description.label-char-counter {
+		&:after {
+			right: -37px;
+		}
+	}
+	#label_long_description {
+		width: 517px;
+	}
+	#label_long_description.label-char-counter {
+		&:after {
+			right: -173px;
+		}
+	}
 	#status {
 		width: 500px;
 		float: left;
@@ -51,9 +67,10 @@
 	.help-inline {
 		// Possibly temp
 		float: left;
-		line-height: 20px;
-		margin-left: -15px;
+		line-height: 24px;
+		margin-left: -12px;
 		color: white;
+		padding: 3px 4px 3px 0;
 	}
 	.help-block {
 		float: left;
@@ -64,23 +81,13 @@
 		overflow: hidden;
 		max-width: 700px;
 	}
-	.fieldset-buttons {
-		margin-top: 0;
-		position: absolute;
-		top: 67px;
-		right: 0;
-		.btn {
-			margin-left: 18px;
-			margin-right: 0;
-		}
-	}
 	#label_title {
 	  float: left;
 	  width: 70px;
 	}
 	#title {
 	  float: left;
-	  width: 608px;
+	  width: 606px;
 	}
 	#label_sku {
 	  float: left;
@@ -248,6 +255,8 @@
 		top: 0;
 		border-left: 1px solid @black;
 		padding: 3px 10px;
+		background-color: @darkGray;
+		width: 23px;
 	}
 	&.desc-over-limit:after {
 		color: @rose;

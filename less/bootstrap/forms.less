@@ -389,9 +389,8 @@ select:focus:invalid {
 // HELP TEXT
 // ---------
 
-.help-block,
 .help-inline {
-  color: lighten(@textColor, 15%); // lighten the text some for contrast
+  color: @white;
 }
 
 .help-block {
@@ -404,7 +403,13 @@ select:focus:invalid {
   display: inline-block;
   .ie7-inline-block();
   vertical-align: middle;
-  padding-left: 5px;
+  float: left;
+  line-height: 24px;
+  margin-left: -12px;
+  padding: 3px 4px 3px 0;
+  i {
+    color: @white;
+  }
 }
 
 .inline-error {
