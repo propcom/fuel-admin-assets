@@ -137,6 +137,15 @@ $(function(){
 
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
+	// Datagrid Actions Menu
+	$('.datagrid-item-actions').mouseleave(function() {
+		$('.datagrid-item-actions').removeClass('open');
+	});
+
+	// Datagrid Filters Button Group
+	$('.nav-list .btn-group').mouseleave(function() {
+		$(this).removeClass('open');
+	});
 
 	// Character countdown
 	var fields = [
