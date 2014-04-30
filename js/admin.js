@@ -446,5 +446,5 @@ $(function(){
 
 	// Inline Error tooltip
 
-	$("[data-toggle=tooltip]").tooltip({ placement: 'bottom'});
+	$(".inline-error").tooltip({ placement: 'bottom'});
 });
