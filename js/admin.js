@@ -443,4 +443,8 @@ $(function(){
 	}
 
 	$('.js-datepicker').datepicker({ dateFormat: "yy-mm-dd" });
+
+	// Inline Error tooltip
+
+	$(".inline-error").tooltip({ placement: 'bottom'});
 });
