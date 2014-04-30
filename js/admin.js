@@ -138,16 +138,11 @@ $(function(){
 	$('.datatable-filters').has('.multi-field').addClass('has-multi-field');
 
 	// Datagrid Actions Menu
-	$('.table-actions').mouseleave(function() {
+	$('.datagrid-item-actions').mouseleave(function() {
 		$('.datagrid-item-actions').removeClass('open');
 	});
 
-	// Products Grid Actions Menu
-	$('.datagrid-item .item-actions-container').mouseleave(function() {
-		$('.datagrid-item-actions').removeClass('open');
-	});
-
-	// Products Grid Actions Menu
+	// Datagrid Filters Button Group
 	$('.nav-list .btn-group').mouseleave(function() {
 		$(this).removeClass('open');
 	});
