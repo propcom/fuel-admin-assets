@@ -143,7 +143,7 @@ $(function(){
 	});
 
 	// Datagrid Filters Button Group
-	$('.nav-list .btn-group').mouseleave(function() {
+	$('.datagrid-filter .btn-group').mouseleave(function() {
 		$(this).removeClass('open');
 	});
 
