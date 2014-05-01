@@ -101,6 +101,43 @@
 	  width: 220px;
 	  margin-bottom: 20px;
 	}
+
+	// Tabify
+	.js-tab-container {
+		.nav-list {
+			li {
+				margin-bottom: 2px;
+				text-transform: uppercase;
+				cursor: pointer;
+				&.selected {
+					> a {
+						background: @blue !important;
+						position: relative;
+						margin-right: -10px !important;
+						&:after {
+							content: "";
+							display: block;
+							position: absolute;
+							left: 100%;
+							top: 0;
+							width: 0px;
+							height: 0px;
+							border-style: solid;
+							border-width: 15px 0 15px 10px;
+							border-color: transparent transparent transparent @blue;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.tab-content {
+		display: none;
+		&.current {
+			display: block;
+		}
+	}
 }
 
 #product_fieldset_sites {
