@@ -232,16 +232,23 @@
 #product_fieldset_visibility {
 	.control-group {
 		width: auto;
+		margin-bottom: 0;
 		#customer_groups {
-			width: 180px;
-			margin-left: 180px;
+			width: 171px;
+			margin-left: 170px;
 			margin-bottom: 0;
 			border-top: 1px solid @lightGray;
+		}
+		#label_customer_groups {
+			display: none;
 		}
 	}
 	.control-group-multi {
 		.controls {
 			.multi-field {
+				width: 170px;
+				float: left;
+				text-align: center;
 				label {
 					float: none;
 					width: auto;
@@ -365,20 +372,7 @@
 	position: relative;
 }
 
-#product_fieldset_visibility {
-	margin-bottom: 10px;
-	.control-group {
-		margin-bottom: 0;
-	}
-	.multi-field {
-		width: 170px;
-		float: left;
-		text-align: center;
-	}
-	#label_customer_groups {
-		display: none;
-	}
-}
+
 
 #product_fieldset_permalink {
 	.pull-right .btn {
