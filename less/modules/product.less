@@ -4,6 +4,9 @@
 }
 
 .product-manage-edit, .product-manage-create_type {
+	.tab-content {
+		overflow: visible;
+	}
 
 	// Will need moving to cover all fieldsets when the markup is sorted out everywhere else
 	fieldset {
@@ -59,15 +62,7 @@
 		width: 500px;
 		float: left;
 	}
-	#label_weight, #label_width, #label_height, #label_depth {
-		width: 25%;
-		float: left;
-	}
-	#weight, #width, #height, #depth {
-		width: 25%;
-		float: left;
-		padding: 5px 6px;
-	}
+
 	.help-inline {
 		// Possibly temp
 		float: left;
@@ -229,22 +224,10 @@
 	}
 }
 
-#product_fieldset_visibility {
-	.control-group {
-		width: auto;
-		margin-bottom: 0;
-		#customer_groups {
-			width: 171px;
-			margin-left: 170px;
-			margin-bottom: 0;
-			border-top: 1px solid @lightGray;
-		}
-		#label_customer_groups {
-			display: none;
-		}
-	}
-	.control-group-multi {
-		.controls {
+.control-group-multi {
+	width: auto;
+	margin-bottom: 0;
+	.controls {
 			.multi-field {
 				width: 170px;
 				float: left;
@@ -258,7 +241,91 @@
 				}
 			}
 		}
+}
+
+#product_fieldset_visibility {
+	.control-group {
+		width: 100%;
 	}
+	.control-group-multi {
+		width: 340px;
+	}
+	#customer_groups {
+		width: 171px;
+		margin-left: 170px;
+		margin-bottom: 0;
+		border-top: 1px solid @lightGray;
+	}
+	#label_customer_groups {
+		display: none;
+	}
+}
+
+#product_fieldset_seo {
+	.control-group {
+		overflow: visible;
+		width: 700px;
+		margin-right: 0;
+		label {
+			width: 690px;
+		}
+	}
+	.control-group-multi {
+		overflow: hidden;
+		label {
+			width: auto;
+		}
+	}	
+	textarea {
+		resize: vertical;
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		height: 80px;
+	}
+	#label_meta_title, #label_variant_meta_title {
+		float: left;
+		width: 140px;
+	}
+	#meta_title, #variant_meta_title {
+		float: left;
+		width: 536px;
+	}
+	.group-label {
+		display: block;
+		color: @white;
+		background-color: @darkGray;
+		text-align: center;
+		padding: 5px;
+		text-transform: uppercase;
+		font-weight: bold;
+		width: 340px;
+		font-size: 12px;
+		line-height: 24px;
+	}
+	.multi-field {
+		width: 175px;
+		input {
+			display: inline-block;
+			width: auto;
+		}
+		label {
+			display: inline-block;
+			background: none;
+			color: @black;
+		}
+	}
+	.table td {
+		padding: 2px 0;
+		input {
+			width: 684px;
+		}
+	}
+}
+
+#product_fieldset_shipping {
+
 }
 
 #product_fieldset_sites {
@@ -370,73 +437,6 @@
 	display: block;
 	margin-bottom: 0;
 	position: relative;
-}
-
-
-
-#product_fieldset_permalink {
-	.pull-right .btn {
-		width: 220px;
-	}
-}
-
-
-#product_fieldset_seo {
-	.control-group {
-		overflow: visible;
-	}
-	.control-group-multi {
-		overflow: hidden;
-	}
-	.control-label {
-		margin-bottom: 0;
-	}
-	label {
-		display: block;
-		margin-bottom: 0;
-		position: relative;
-	}
-	input {
-		text-align: center;
-		padding: 5px 0;
-		width: 100%;
-	}
-	textarea {
-		resize: vertical;
-		width: 100%;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		height: 80px;
-	}
-	.group-label {
-		display: block;
-		color: @white;
-		background-color: @darkGray;
-		text-align: center;
-		padding: 5px;
-		text-transform: uppercase;
-		font-weight: bold;
-		width: 340px;
-		font-size: 12px;
-		line-height: 24px;
-	}
-	.multi-field {
-		background: @white;
-		width: 175px;
-		float: left;
-		text-align: center;
-		border-right: 1px solid @lightGray;
-		input {
-			display: inline-block;
-			width: auto;
-		}
-		label {
-			display: inline-block;
-			background: none;
-			color: @black;
-		}
-	}
 }
 
 #product_fieldset_category {
