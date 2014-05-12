@@ -6,6 +6,15 @@
 .product-manage-edit, .product-manage-create_type {
 	.tab-content {
 		overflow: visible;
+		width: 100%;
+	}
+	.container {
+		header {
+			min-height: 90px;
+		}
+	}
+	table td {
+		border-bottom: none;
 	}
 
 	// Will need moving to cover all fieldsets when the markup is sorted out everywhere else
@@ -38,6 +47,7 @@
 		text-transform: uppercase;
 		line-height: 16px;
 		margin-bottom: 15px;
+		float: left;
 	}
 	#label_status {
 		margin-bottom: 0;
@@ -51,7 +61,7 @@
 		}
 	}
 	#label_long_description {
-		width: 517px;
+		width: 516px;
 	}
 	#label_long_description.label-char-counter {
 		&:after {
@@ -91,6 +101,8 @@
 	#button_delete {
 	  width: 220px;
 	  margin-bottom: 20px;
+	  position: absolute;
+	  top: 142px;
 	}
 
 	// Tabify
@@ -125,6 +137,7 @@
 
 	.tab-content {
 		display: none;
+		float: left;
 		&.current {
 			display: block;
 		}
@@ -170,6 +183,9 @@
 			input {
 				width: 100%;
 			}
+		}
+		#short_description {
+			width: 100%;
 		}
 	}
 
@@ -241,6 +257,15 @@
 				}
 			}
 		}
+}
+
+.tab-content {
+	fieldset:first-child {
+		border-top: 3px solid @offBlack;
+		margin-top: 20px;
+		padding-top: 20px;
+	}
+
 }
 
 #product_fieldset_visibility {
@@ -628,7 +653,7 @@
 	position: relative;
 	.add-recommended-product {
 		position: absolute;
-		top: 0;
+		top: 40px;
 		right: 0;
 		width: 220px;
 	}
