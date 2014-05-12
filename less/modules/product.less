@@ -17,6 +17,11 @@
 		border-bottom: none;
 	}
 
+	.fieldset-buttons {
+		margin: 0 20px 20px 0;
+		float: left;
+	}
+
 	// Will need moving to cover all fieldsets when the markup is sorted out everywhere else
 	fieldset {
 		border-bottom: 3px solid @offBlack;
@@ -69,7 +74,7 @@
 		}
 	}
 	#status {
-		width: 500px;
+		width: 190px;
 		float: left;
 	}
 
@@ -102,7 +107,8 @@
 	  width: 220px;
 	  margin-bottom: 20px;
 	  position: absolute;
-	  top: 142px;
+	  top: 122px;
+	  right: 0;
 	}
 
 	// Tabify
@@ -200,6 +206,9 @@
 		}
 		.media-wrap {
 			margin-top: 20px;
+			.media-item {
+				cursor: move;
+			}
 			.product-media {
 				float: left;
 				background-color: @white;
@@ -242,7 +251,6 @@
 
 .control-group-multi {
 	width: auto;
-	margin-bottom: 0;
 	.controls {
 			.multi-field {
 				width: 170px;
@@ -262,7 +270,7 @@
 .tab-content {
 	fieldset:first-child {
 		border-top: 3px solid @offBlack;
-		margin-top: 20px;
+		margin-top: 0px;
 		padding-top: 20px;
 	}
 
@@ -274,6 +282,7 @@
 	}
 	.control-group-multi {
 		width: 340px;
+		margin-bottom: 0;
 	}
 	#customer_groups {
 		width: 171px;
@@ -355,6 +364,12 @@
 		&:nth-child(2n+1) {
 			margin-right: 0;
 		}
+	}
+}
+
+#fieldset_permalink {
+	table {
+		margin-bottom: 0;
 	}
 }
 
@@ -658,7 +673,7 @@
 	position: relative;
 	.add-recommended-product {
 		position: absolute;
-		top: 40px;
+		top: 16px;
 		right: 0;
 		width: 220px;
 	}
@@ -683,6 +698,7 @@
 	}
 	#google-categories {
 		width: 100%;
+		padding-bottom: 15px;
 		label {
 			width: 220px;
 		}
