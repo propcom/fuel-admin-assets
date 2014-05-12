@@ -147,7 +147,7 @@
 		width: 340px;
 		float: left;
 		margin-right: 20px;
-		&:nth-child(2n-1) {
+		&:nth-child(2n) {
 			margin-right: 0;
 		}
 		label {
@@ -350,7 +350,12 @@
 }
 
 #product_fieldset_shipping {
-
+	.control-group {
+		margin-right: 20px;
+		&:nth-child(2n+1) {
+			margin-right: 0;
+		}
+	}
 }
 
 #product_fieldset_sites {
@@ -674,6 +679,15 @@
 		.recomended-product__title {
 			height: 63px;
 			padding: 5px 20px;
+		}
+	}
+	#google-categories {
+		width: 100%;
+		label {
+			width: 220px;
+		}
+		.dropdowns {
+			width: 230px;
 		}
 	}
 }
