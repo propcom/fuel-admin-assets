@@ -265,6 +265,29 @@ html {
     }
 }
 
+fieldset {
+	border-bottom: 3px solid @offBlack;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	&:first-child {
+		border-top: 3px solid @offBlack;
+		margin-top: 0px;
+		padding-top: 20px;
+	}
+}
+
+
+legend {
+	border: none;
+	.font-size(1.2);
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 16px;
+	margin-bottom: 15px;
+	float: left;
+}
+
+
 //Dashboard
 
 .dashboard {

@@ -22,12 +22,6 @@
 		float: left;
 	}
 
-	// Will need moving to cover all fieldsets when the markup is sorted out everywhere else
-	fieldset {
-		border-bottom: 3px solid @offBlack;
-		margin-bottom: 15px;
-		padding-bottom: 15px;
-	}
 	.markItUp {
 		margin-top: -30px;
 		z-index: 10;
@@ -44,15 +38,6 @@
 		font-weight: bold;
 		line-height: 18px;
 		margin: 20px 0 0 0;
-	}
-	legend {
-		border: none;
-		.font-size(1.2);
-		font-weight: bold;
-		text-transform: uppercase;
-		line-height: 16px;
-		margin-bottom: 15px;
-		float: left;
 	}
 	#label_status {
 		margin-bottom: 0;
@@ -146,6 +131,11 @@
 		float: left;
 		&.current {
 			display: block;
+		}
+		fieldset:first-child {
+			border-top: 3px solid @offBlack;
+			margin-top: 0px;
+			padding-top: 20px;
 		}
 	}
 
@@ -265,15 +255,6 @@
 				}
 			}
 		}
-}
-
-.tab-content {
-	fieldset:first-child {
-		border-top: 3px solid @offBlack;
-		margin-top: 0px;
-		padding-top: 20px;
-	}
-
 }
 
 #product_fieldset_visibility {
