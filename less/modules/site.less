@@ -256,14 +256,43 @@ html {
 	margin-left: 20px;
 	margin-bottom: 20px;
 	.btn {
+		float: left;
     	display: inline-block;
 	    width: 220px;
 	    margin-right: 18px;
 	    &:nth-last-child(1) {
 	    	margin-right: 0;
 	    }
+	    .icon-trash {
+	    	padding: 3px 8px;
+	    }
     }
 }
+
+fieldset {
+	border-bottom: 3px solid @offBlack;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	&:first-child {
+		border-top: 3px solid @offBlack;
+		margin-top: 0px;
+		padding-top: 20px;
+	}
+}
+
+
+
+
+legend {
+	border: none;
+	.font-size(1.2);
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 16px;
+	margin-bottom: 15px;
+	float: left;
+}
+
 
 //Dashboard
 
