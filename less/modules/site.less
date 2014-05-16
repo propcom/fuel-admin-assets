@@ -252,9 +252,10 @@ html {
 
 .fieldset-buttons {
 	margin: 0;
-	float: right;
+	float: left;
 	padding-bottom: 20px;
 	border-bottom: 3px solid @offBlack;
+	width: 100%;
 	&:last-child {
 		border-bottom: 0px;
 		border-top: 3px solid @offBlack;
@@ -279,12 +280,13 @@ fieldset {
 	border-bottom: 3px solid @offBlack;
 	margin-bottom: 15px;
 	padding-bottom: 15px;
-	&:first-child {
+	&:nth-of-type(1) {
 		margin-top: 0px;
 		padding-top: 20px;
 	}
-	&:last-child {
+	&:nth-last-of-type(1) {
 		border-bottom: 0px;
+		margin-bottom: 0px;
 	}
 }
 
