@@ -1,0 +1,21 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {
+  list-style: none;
+  text-transform: uppercase;
+  color: @blue;
+  > li {
+    display: inline-block;
+    .ie7-inline-block();
+    > .divider {
+      padding: 0 5px;
+      color: #ccc;
+    }
+  }
+  > .active {
+    color: @gray;
+  }
+}

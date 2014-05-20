@@ -1,0 +1,136 @@
+.customer-manage-group-delete {
+	
+	input#confirm {
+		float: left;
+		margin: 9px 0 0 10px;
+	}
+}
+
+.modal-open {
+	.modal-backdrop {
+		background-color: @white;
+	}
+	.modal-header {
+		background-color: @black;
+		h1 {
+			color: @white;
+			font-size: 1.6em;
+			margin: 0;
+		}
+		.close {
+			color: @white;
+			opacity: 1;
+			height: 42px;
+			right: 0;
+			top: -2px;
+			position: absolute;
+			padding: 10px;
+			font-size: 2em;
+			border-left: 1px solid @white;
+		}
+	}
+	.modal-body {
+		max-height: 480px;
+		background-color: @black;
+		color: @white;
+		fieldset {
+			padding: 0 50px;
+			border: none;
+			width: auto;
+			#random_password {
+				width: 182px;
+			}
+			.control-group-multi {
+				width: 430px;
+				.control-label {
+					width: 300px;
+					.group-label {
+						width: 430px;
+					}
+				}
+				.controls {
+					margin-left: 0;
+				}
+			}
+			.controls {
+				select {
+					width: 280px;
+				}
+				input {
+					width: 265px;
+				}
+			}
+		}
+		.control-group {
+			width: 430px;
+		}
+	}
+
+	.form-horizontal {
+		.controls {
+			text-align:left;
+			margin-left:0;
+			background-color: @white;
+		}
+		.control-label {
+			width: auto;
+			label {
+				width:140px;
+				&#label_random_password {
+					width: 220px;
+				}
+			}
+		}
+		input[type="checkbox"] {
+			margin:8px 9px;
+			outline:9px solid transparent;
+		}
+		.help-block {
+			padding:5px 10px;
+			float:right;
+			color:@white;
+			max-width:none;
+			text-align:center;
+			margin-bottom:5px;
+		}
+	}
+
+	.modal-footer {
+		background-color: @black;
+		border-top-width: 0px;
+		padding: 10px 66px 30px;
+	}
+}
+
+.customer-manage-customer-edit {
+	.form-horizontal {
+		.control-group {
+			float: left;
+			width: 100%;
+		}
+		.control-label {
+			width:220px;
+		}
+		label {
+			width:210px;
+		}
+	}
+
+	.form-horizontal .controls {
+		overflow:hidden;
+		display:inline-block;
+		margin-left:0;
+	}
+
+	.form-horizontal .control-group-multi .controls {
+		display:block;
+	}
+
+	.form-horizontal .control-group-multi {
+		width:100%;
+	}
+
+	.control-group-multi .controls .multi-field {
+		width: 180px;
+	}
+}
