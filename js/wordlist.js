@@ -58,18 +58,22 @@ $.fn.wordlist = function(){
 
 		$input.on('keypress', function(e) {
 			// Build up what the user is typing
-			var word = $(this).val().trim();
-			if (word != '') {
+			var value = $(this).val().trim();
+			//alert(word.length);
+			if (value != '') {
 				if (e.which == 13 || e.which == 44) {
 					e.preventDefault();
 					e.stopPropagation();
-					// When they press enter, add the word to the array
-					words.push(word);
-					// Add to the display view
-					$('<span>'+word.trim()+'</span>').insertBefore($input);
+					var multi = value.split(',');
+					for(var i=0; i<multi.length; i++){
+						var word = multi[i].trim();
+						// When they press enter, add the word to the array
+						words.push(word);
+						// Add to the display view
+						$('<span>'+word+'</span>').insertBefore($input);
+					}
 					// Update the contents of the textarea
 					$field.val(words.join(','));
-
 					// Clear the input
 					$(this).val('');
 				}
