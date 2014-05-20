@@ -36,11 +36,12 @@
 		fieldset {
 			padding: 0 50px;
 			border: none;
+			width: auto;
 			#random_password {
 				width: 182px;
 			}
 			.control-group-multi {
-				width: 100%;
+				width: 430px;
 				.control-label {
 					width: 300px;
 					.group-label {
@@ -60,7 +61,9 @@
 				}
 			}
 		}
-
+		.control-group {
+			width: 430px;
+		}
 	}
 
 	.form-horizontal {
@@ -100,9 +103,14 @@
 }
 
 .customer-manage-customer-edit {
-	.form-horizontal .control-label {
-		width:220px;
-
+	.form-horizontal {
+		.control-group {
+			float: left;
+			width: 100%;
+		}
+		.control-label {
+			width:220px;
+		}
 		label {
 			width:210px;
 		}
