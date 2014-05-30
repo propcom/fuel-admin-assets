@@ -38,6 +38,11 @@
 		line-height: 18px;
 		margin: 20px 0 0 0;
 	}
+	label#label_customer_groups_field {
+		width:330px;
+		float:none;
+		margin-top:10px;
+	}
 	#label_status {
 		margin-bottom: 0;
 	}
@@ -145,12 +150,33 @@
 			float: left;
 			width: 140px;
 		}
+		label[for="stock-availability"] {
+			margin-top:10px;
+		}
+		label[for="stock-threshold"] {
+			margin-top:10px;
+			width:auto;
+		}
 		input {
 			float: left;
 			width: 176px;
 		}
 		select {
 			width: 190px;
+		}
+
+		select#customer_groups_field {
+			width:340px;
+			text-align:center;
+		}
+
+		select#stock-availability {
+			margin-top:10px;
+		}
+
+		input#stock-threshold {
+			margin-top:10px;
+			width:145px;
 		}
 	}
 
@@ -255,6 +281,11 @@
 #product_fieldset_visibility {
 	.control-group {
 		width: 100%;
+
+		&:last-child {
+			margin-bottom:0;
+		}
+
 	}
 	.control-group-multi {
 		width: 340px;
@@ -285,7 +316,7 @@
 		label {
 			width: auto;
 		}
-	}	
+	}
 	textarea {
 		resize: vertical;
 		width: 100%;
@@ -297,6 +328,9 @@
 	#label_meta_title, #label_variant_meta_title {
 		float: left;
 		width: 140px;
+	}
+	#label_stock {
+		margin-top:10px;
 	}
 	#meta_title, #variant_meta_title {
 		float: left;
