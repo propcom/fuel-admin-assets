@@ -82,7 +82,6 @@
 		padding-left: 10px;
 	}
 	.control-group, fieldset {
-		overflow: hidden;
 		max-width: 700px;
 	}
 	#label_sku {
@@ -281,27 +280,30 @@
 }
 
 #product_fieldset_visibility {
-	.control-group {
-		width: 100%;
+	fieldset {
+		overflow: visible;
+		.control-group {
+			width: 100%;
 
-		&:last-child {
-			margin-bottom:0;
+			&:last-child {
+				margin-bottom:0;
+			}
 		}
-	}
-	.control-group-multi {
-		width: 340px;
-		margin-bottom: 0;
+		.control-group-multi {
+			width: 340px;
+			margin-bottom: 0;
 
-	}
+		}
 
-	#customer_groups {
-		width: 171px;
-		margin-left: 170px;
-		margin-bottom: 0;
-		border-top: 1px solid @lightGray;
-	}
-	#label_customer_groups {
-		display: none;
+		#customer_groups {
+			width: 171px;
+			margin-left: 170px;
+			margin-bottom: 0;
+			border-top: 1px solid @lightGray;
+		}
+		#label_customer_groups {
+			display: none;
+		}
 	}
 }
 
@@ -366,7 +368,7 @@
 	.table td {
 		padding: 2px 0;
 		input {
-			width: 100%;
+			width: 685px;
 		}
 	}
 }
