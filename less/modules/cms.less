@@ -13,7 +13,7 @@
 		width: 70px;
 	}
 	.help-inline {
-		
+
 	}
 	input {
 		width: 415px;
@@ -76,6 +76,16 @@
 			}
 		}
 	}
+	label {
+		clear:both;
+		margin-bottom:10px;
+	}
+	input[type="text"] {
+		margin-bottom:10px;
+	}
+	#delete_slide_btn {
+		margin-right:5px;
+	}
 	.cms-section {
 		fieldset {
 			.markitup-field {
@@ -94,7 +104,26 @@
 			}
 		}
 	}
+
+	.tab-content__row {
+		margin-bottom:10px;
+		float:left;
+		width:auto;
+		clear:both;
+
+		&.buttons {
+			float:none;
+			margin-bottom:20px;
+		}
+	}
+
+	.slide__block {
+		border-top:3px solid @offBlack;
+		padding-top:10px;
+	}
 }
+
+
 
 .cms-mediamanager-selected-item {
 	img {
