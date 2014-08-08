@@ -55,3 +55,28 @@
 
 	}
 }
+
+.nav-tabs  {
+	background:@darkGray;
+
+	li {
+		margin-bottom:0;
+
+		&.active {
+			a {
+				color:@darkGray;
+			}
+		}
+
+		a {
+			color:#dddddd;
+			text-transform:uppercase;
+
+			&:hover, &:focus {
+				background-color:@darkGray;
+				color:#4cc0bf;
+				border:none;
+			}
+		}
+	}
+}
