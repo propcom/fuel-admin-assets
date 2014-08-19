@@ -419,8 +419,14 @@ $(function(){
 			jqXHR.responseObj = response;
 
 			if (response != null) {
-				if (response.redirect != undefined) {
-					window.location = response.redirect;
+
+				if( response.redirect != undefined && response.redirect !== false ){
+					if( response.redirect === '' || response.redirect === true ){
+						window.location.reload(true);
+					}
+					else {
+						window.location = response.redirect;
+					}
 				}
 
 				if (response.fancybox != undefined) {
@@ -432,6 +438,7 @@ $(function(){
 					generateModal(response.modal);
 					$(document).trigger('modal.ajax.admin');
 				}
+
 			}
 
 			if (! response || ! response.modal) {
@@ -443,6 +450,7 @@ $(function(){
 				textStatus: textStatus,
 				jqXHR: jqXHR
 			});
+
 		}
 	});
 
