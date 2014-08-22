@@ -28,7 +28,7 @@ $(function(){
 	if ($('.alert').length > 0) {
 		setTimeout(function(){
 			$('.alert').slideUp();
-		}, 5000);
+		}, 10000);
 	}
 
 	// iPhone Web App Links
