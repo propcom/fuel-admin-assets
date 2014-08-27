@@ -30,7 +30,52 @@ html {
     	}
     }
 }
+.control-panel-picker {
+	background-color: @darkGray;
+	width: 100%;
+	float: left;
+	.control-panel-picker__left {
+		padding: 5px 20px 4px;
+		float: left;
+		color: @white;
+		font-weight: bold;
+		border-right: 1px solid @black;
+		select {
+			background-color: @darkGray;
+			color: @white;
+			font-weight: bold;
+			height: 27px;
+			border-right: 1px solid @black;
+		}
+	}
+	.control-panel-picker__right {
+		float: right;
+		padding: 5px 20px 4px;
+		border-left: 1px solid @black;
+		color: @blue;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: right;
+	}
+}
 
+.cp-cog {
+	background-color: @blue;
+	height: 22px;
+	float: left;
+	font-size: 18px;
+	padding: 3px 5px 2px;
+}
+
+html.cp-header-adjust {
+	padding-top: 109px;
+	header.top {
+		border-bottom: 3px solid @blue;
+		.top__admin li.active ul {
+			top: 27px;
+		}
+	}
+}
 header.top {
 	background: @black;
 	color: @white;
