@@ -56,8 +56,7 @@ $(function(){
 		$('html').addClass('nosubnav');
 	}
 
-
-	$(document).on('click', '.js-ajax-btn', function (event) {
+	var ajax_event = function(event) {
 		event.preventDefault();
 
 		var $this = $(this);
@@ -95,13 +94,20 @@ $(function(){
 			new_data[new_key] = value;
 		});
 
+		if(typeof this.value !== "undefined") {
+			var key = $(this).attr('name') || new_data['value-name'] || 'value';
+			new_data[key] = this.value;
+		}
+
 		$.ajax({
 			type: $this.data('type') || $this.data('method') || method,
 			url: $this.data('url') || $this.attr('href') || url,
 			data: new_data
 		});
-	});
+	};
 
+	$(document).on('click', '.js-ajax-btn', ajax_event);
+	$(document).on('change', '.js-ajax-change', ajax_event);
 
 	//$('.btn[title], i[title]').tooltip();
 
