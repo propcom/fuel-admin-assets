@@ -95,9 +95,7 @@ $(function(){
 		});
 
 		if(typeof this.value !== "undefined") {
-			var key = typeof new_data['value-name'] === "undefined"
-				? 'value'
-				: new_data['value-name'];
+			var key = $(this).attr('name') || new_data['value-name'] || 'value';
 			new_data[key] = this.value;
 		}
 
