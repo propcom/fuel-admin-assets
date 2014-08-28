@@ -102,6 +102,54 @@ $(function(){
 		});
 	});
 
+	$(document).on('change', '.js-ajax-select', function (event) {
+		event.preventDefault();
+
+		var $this = $(this);
+		var data = {};
+		var form = $this.data('form');
+		var $form = null;
+		var method = 'GET';
+		var url = '';
+
+		// If a form data attribute has been specified then use it as a selector
+		// to attempt to get a form rather than looking for the closest form. If
+		// it is set to an empty string or something then we don't want to fall
+		// back to finding the closest form.
+		if (form !== undefined) {
+			if ($(form).is('form')) {
+				$form = $(form);
+			}
+		} else if ($this.is('input[type=submit],button') && $this.closest('form').length) {
+			$form = $this.closest('form');
+		}
+
+		// If we have found a form then use it for data and method/url defaults
+		if ($form) {
+			data = $form.serialize();
+			method = $form.attr('method');
+			url = $form.attr('action');
+		} else {
+			data = $this.data();
+		}
+
+		// Reverse engineer jQuery's camelisation of the keys
+		var new_data = {};
+		$.each(data, function(key, value){
+			var new_key = key.replace(/([A-Z])/g, "-$1").toLowerCase();
+			new_data[new_key] = value;
+		});
+
+		new_data[new_data['value-name'] ? new_data['value-name'] : 'value'] = this.value;
+		delete new_data['value-name'];
+
+		$.ajax({
+			type: $this.data('type') || $this.data('method') || method,
+			url: $this.data('url') || $this.attr('href') || url,
+			data: new_data
+		});
+	});
+
 
 	//$('.btn[title], i[title]').tooltip();
 
