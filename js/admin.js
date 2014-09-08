@@ -25,7 +25,7 @@ $(function(){
 
 	//alert(navigator.userAgent);
 
-	if ($('.alert').length > 0) {
+	if ($('.alert:not(.alert-constant)').length > 0) {
 		setTimeout(function(){
 			$('.alert').slideUp();
 		}, 10000);
