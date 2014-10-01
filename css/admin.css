@@ -109,3 +109,7 @@ body.admin-groups-roles h2 {
 .has-multi-field .single-field {
 	margin-top: 25px;
 }
+
+body .navbar .nav>li>a {
+	padding: 10px 12px 10px;
+}
