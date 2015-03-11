@@ -47,6 +47,14 @@ html {
 			height: 27px;
 			border-right: 1px solid @black;
 		}
+		&.open > .dropdown-toggle {
+			background-color: @darkGray;
+			top: 0;
+		}
+		&.open .dropdown-menu {
+			top: 26px;
+			background-color: @darkGray;
+		}
 	}
 	.control-panel-picker__right {
 		float: right;
@@ -101,10 +109,11 @@ header.top {
 		}
 		h2 {
 			font-weight: bold;
-			.font-size(2.5);
+			.font-size(2.2);
 			a {
 				i {
 					.font-size(1.9);
+					margin-left: 5px;
 				}
 			}
 		}
