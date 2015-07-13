@@ -1,0 +1,52 @@
+.importer-importer-view {
+    
+    .alert {
+        margin-left: 0;
+    }
+
+    .table .progress { margin: 12px 0; }
+    .progress {
+        
+        
+        .bar {
+            line-height: 24px;
+            text-indent: 5px;
+        }
+    }
+    
+    .collapsable {
+        display: none;
+    }
+    
+    .collapse-toggle {
+        font-size: 10px;
+        &:before {
+            content: "Show ";
+        }
+    }
+    
+    .is-closed {
+        .collapse-toggle {
+            &:before {
+                content: "Hide ";
+            }
+        }
+    }
+    
+    [data-tog="collapse"] {
+        float: right;
+    }
+    
+    .table th,
+    .table td {
+        vertical-align: middle;
+    }
+    
+    dl { overflow: hidden; }
+    dt,
+    dd {
+        float: left;
+    }
+    dt { clear: both; min-width: 80px; }
+    
+}
