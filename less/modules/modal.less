@@ -1,6 +1,6 @@
 .modal-open {
 	.modal-backdrop {
-		background-color: @white;
+		background:rgba(119, 119, 119, 0.7);
 	}
 	.modal-header {
 		background-color: @black;
@@ -86,6 +86,24 @@
 				margin-bottom:5px;
 			}
 		}
+		&.form-horizontal {
+			label {
+				width:98.22222%;
+			}
+
+			input[type="checkbox"] {
+				margin:9px;
+				outline:9px solid transparent;
+			}
+
+			.controls {
+				margin-left:150px;
+			}
+
+			.control-label {
+				width:auto;
+			}
+		}
 	}
 	.modal-footer {
 		background-color: @black;
@@ -99,7 +117,7 @@
 			margin-bottom: 10px;
 		}
 		input[type="text"], textarea {
-			width: 366px;
+			width: 386px;
 			margin-bottom: 10px;
 		}
 		select {
