@@ -304,29 +304,37 @@ header.top {
 }
 
 .fieldset-buttons {
-	margin: 0 0 20px 0;
+	margin: 0 -20px 23px 0;
 	float: left;
-	padding-bottom: 20px;
-	border-bottom: 3px solid @offBlack;
-	width: 100%;
-	&:last-child {
-		border-bottom: 0px;
-		border-top: 3px solid @offBlack;
-		padding-top: 20px;
-
+	position:relative;
+	&:before {
+		content:"";
+		display:block;
+		position:absolute;
+		bottom:-3px;
+		left:0;
+		right:20px;
+		border-bottom: 3px solid @offBlack;
+	}
+	&:last-child{
+		margin-bottom:0;
+		margin-top:23px;
+		padding-top:20px;
+		&:before {
+			bottom:auto;
+			top:-3px;
+		}
 	}
 	.btn {
 		float: left;
-    	display: inline-block;
-	    width: 220px;
-	    margin-right: 20px;
-	    &:nth-last-child(1) {
-	    	margin-right: 0;
-	    }
-	    .icon-trash, .icon-remove {
-	    	padding: 3px 8px;
-	    }
-    }
+		display: inline-block;
+		width: 220px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		.icon-trash, .icon-remove {
+			padding: 3px 8px;
+		}
+	}
 }
 
 fieldset {
