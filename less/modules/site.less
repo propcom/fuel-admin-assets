@@ -304,25 +304,27 @@ header.top {
 }
 
 .fieldset-buttons {
-	margin: 0 -20px 23px 0;
+	margin: 0 -20px 20px 0;
 	float: left;
-	position:relative;
-	&:before {
+	&:after, &:before {
 		content:"";
+		clear:both;
 		display:block;
-		position:absolute;
-		bottom:-3px;
-		left:0;
-		right:20px;
+		margin-right:20px;
 		border-bottom: 3px solid @offBlack;
+	}
+	&:before {
+		display:none;
 	}
 	&:last-child{
 		margin-bottom:0;
-		margin-top:23px;
-		padding-top:20px;
+		margin-top:20px;
 		&:before {
-			bottom:auto;
-			top:-3px;
+			margin-bottom:20px;
+			display:block;
+		}
+		&:after {
+			display:none;
 		}
 	}
 	.btn {
