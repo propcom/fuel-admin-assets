@@ -56,12 +56,12 @@ $.fn.wordlist = function(){
 			$input.focus();
 		});
 
-		$input.on('keypress', function(e) {
+		$input.on('keypress focusout', function(e) {
 			// Build up what the user is typing
 			var value = $(this).val().trim();
 			//alert(word.length);
 			if (value != '') {
-				if (e.which == 13 || e.which == 44) {
+				if (e.type == 'focusout' || e.which == 13 || e.which == 44 || e.which == 9) {
 					e.preventDefault();
 					e.stopPropagation();
 					var multi = value.split(',');
