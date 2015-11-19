@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<project default="default" basedir=".">
+
+	<target name="default" depends="init, less" />
+
+	<target name="init">
+		<echo>-- Initialize Variables</echo>
+
+		<property name="less.path" value="less" />
+		<echo message="less.path:                  ${less.path}" />
+
+		<property name="css.path" value="css" />
+		<echo message="css.path:                   ${css.path}" />
+
+		<echo></echo>
+		<echo>-- Tools</echo>
+
+		<property name="lessc.path" value="ant/less/bin/lessc" />
+		<echo message="lessc.path:                 ${lessc.path}" />
+	</target>
+
+	<target name="less" depends="init">
+		<echo># Convert LESS to CSS (Minified using YUI Compressor)</echo>
+		<echo>${lessc.path} ${less.path}/prop.less > ${css.path}/prop.min.css --yui-compress</echo>
+
+		<exec executable="${lessc.path}" output="${css.path}/prop.min.css" failonerror="true">
+			<arg line="${less.path}/prop.less" />
+			<arg line="--yui-compress" />
+		</exec>
+	</target>
+</project>
