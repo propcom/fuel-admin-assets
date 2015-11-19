@@ -17,9 +17,6 @@
 
 		<property name="lessc.path" value="ant/less/bin/lessc" />
 		<echo message="lessc.path:                 ${lessc.path}" />
-
-		<property name="googleClosureCompiler.path" value="ant/google-closure-compiler.20121212.r2388.jar" />
-		<echo message="googleClosureCompiler.path: ${googleClosureCompiler.path}" />
 	</target>
 
 	<target name="less" depends="init">
