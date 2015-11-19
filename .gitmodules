@@ -1,0 +1,3 @@
+[submodule "ant/less"]
+	path = ant/less
+	url = git@github.com:less/less.js.git
