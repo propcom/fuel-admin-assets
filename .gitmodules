@@ -1,3 +1,0 @@
-[submodule "ant/less"]
-	path = ant/less
-	url = https://github.com/less/less.js.git
