@@ -28,7 +28,7 @@
 		fieldset {
 			padding: 0 50px;
 			border: none;
-			width: auto;
+			width: 100%;
 			#random_password {
 				width: 182px;
 			}
@@ -51,6 +51,66 @@
 				input {
 					width: 265px;
 				}
+			}
+		}
+		fieldset.compact {
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			width: 100%;
+			padding: 0;
+			.control-group {
+				width: 100%;
+				&.full-width {
+					.controls, .control-label {
+						width: 100%;
+					}
+				}
+			}
+			.controls {
+				width: 70%;
+				float: left;
+				margin-left: 0;
+				select, input, textarea {
+					width: 100%;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+				}
+				textarea {
+					min-height: 200px;
+				}
+			}
+
+			.control-label {
+				position: relative;
+				height: 30px;
+				width: 30%;
+				float: left;
+				& > label {
+					height: 30px;
+					width: 100%;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+				& > span.help-inline {
+					position: absolute;
+					right: 0;
+					top: 0;
+					text-align: center;
+					height: 30px;
+					width: 20px;
+					color: red;
+				}
+				.group-label {
+					width: 100%;
+				}
+			}
+			.control-label.full-width, .controls.full-width {
+				width: 100%;
 			}
 		}
 		.control-group {
@@ -108,7 +168,8 @@
 	.modal-footer {
 		background-color: @black;
 		border-top-width: 0px;
-		padding: 10px 66px 30px;
+		padding: 0 0 25px 0;
+		text-align: center;
 	}
 	.modal.modal-alternative {
 		label {
