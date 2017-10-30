@@ -22,8 +22,17 @@ $(function(){
 		return !!navigator.userAgent.match(/MSIE/i);
 	});
 
+	var resizeHeader = function() {
+		$('html').css({
+			paddingTop: $('header').height() + $('header.top .top__nav>.active ul').height() + $('header.top .top__nav>.active>ul .active ul').height() - 23
+		});
+	}
 
-	//alert(navigator.userAgent);
+	setTimeout(resizeHeader, 0);
+	$(window).on('resize', resizeHeader);
+
+
+	// alert(navigator.userAgent);
 
 	if ($('.alert:not(.alert-constant)').length > 0) {
 		setTimeout(function(){
