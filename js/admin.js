@@ -447,11 +447,6 @@ $(function(){
 
 			}
 
-			if (! response || ! response.modal) {
-				// Remove any old modals
-				$('#ajax-modal, .modal-backdrop').remove();
-			}
-
 			$(document).trigger('complete.ajax.admin', {
 				textStatus: textStatus,
 				jqXHR: jqXHR
